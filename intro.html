@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 The Targeted Learning Roadmap | Targeted Learning with the tlverse Software Ecosystem</title>
+  <meta name="description" content="An open-source and fully-reproducible electronic set of teaching materials accompanying an invited short-course on applying Targeted Learning using the tlverse software ecosystem." />
+  <meta name="generator" content="bookdown 0.16.5 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 The Targeted Learning Roadmap | Targeted Learning with the tlverse Software Ecosystem" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://tlverse.org/csp2020-workshop/" />
+  
+  <meta property="og:description" content="An open-source and fully-reproducible electronic set of teaching materials accompanying an invited short-course on applying Targeted Learning using the tlverse software ecosystem." />
+  <meta name="github-repo" content="tlverse/csp2020-workshop" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 The Targeted Learning Roadmap | Targeted Learning with the tlverse Software Ecosystem" />
+  
+  <meta name="twitter:description" content="An open-source and fully-reproducible electronic set of teaching materials accompanying an invited short-course on applying Targeted Learning using the tlverse software ecosystem." />
+  
+
+<meta name="author" content="Mark van der Laan, Alan Hubbard, Jeremy Coyle, Nima Hejazi, Ivana Malenica, Rachael Phillips" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/logos/favicons/favicon.png" type="image/x-icon" />
+<link rel="prev" href="tlverse.html"/>
+<link rel="next" href="ensemble-machine-learning.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CSP 2020 tlverse software workshop</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#important-links"><i class="fa fa-check"></i>Important links</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-workshop"><i class="fa fa-check"></i>About this workshop</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#outline"><i class="fa fa-check"></i>Outline</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-instructors-and-authors"><i class="fa fa-check"></i>About the instructors and authors</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#mark-van-der-laan"><i class="fa fa-check"></i>Mark van der Laan</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#jeremy-coyle"><i class="fa fa-check"></i>Jeremy Coyle</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#alan-hubbard"><i class="fa fa-check"></i>Alan Hubbard</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#nima-hejazi"><i class="fa fa-check"></i>Nima Hejazi</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ivana-malenica"><i class="fa fa-check"></i>Ivana Malenica</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#rachael-phillips"><i class="fa fa-check"></i>Rachael Phillips</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i>Motivation</a></li>
+<li class="chapter" data-level="1" data-path="tlverse.html"><a href="tlverse.html"><i class="fa fa-check"></i><b>1</b> Welcome to the <code>tlverse</code></a><ul>
+<li class="chapter" data-level="1.1" data-path="tlverse.html"><a href="tlverse.html#learning-objectives"><i class="fa fa-check"></i><b>1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="tlverse.html"><a href="tlverse.html#what-is-the-tlverse"><i class="fa fa-check"></i><b>1.2</b> What is the <code>tlverse</code>?</a></li>
+<li class="chapter" data-level="1.3" data-path="tlverse.html"><a href="tlverse.html#tlverse-components"><i class="fa fa-check"></i><b>1.3</b> <code>tlverse</code> components</a></li>
+<li class="chapter" data-level="1.4" data-path="tlverse.html"><a href="tlverse.html#installtlverse"><i class="fa fa-check"></i><b>1.4</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> The Targeted Learning Roadmap</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-statistical-model"><i class="fa fa-check"></i><b>2.1</b> The Statistical Model</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#the-causal-model"><i class="fa fa-check"></i><b>2.2</b> The Causal Model</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#the-parameter-of-interest"><i class="fa fa-check"></i><b>2.3</b> The Parameter of Interest</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#identifiability"><i class="fa fa-check"></i><b>2.4</b> Identifiability</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#estimators-superlearning-and-targeted-maximum-likelihood"><i class="fa fa-check"></i><b>2.5</b> Estimators: SuperLearning and Targeted Maximum Likelihood</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#super-learning"><i class="fa fa-check"></i><b>2.5.1</b> Super Learning</a></li>
+<li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#substitution-estimators"><i class="fa fa-check"></i><b>2.5.2</b> Substitution Estimators</a></li>
+<li class="chapter" data-level="2.5.3" data-path="intro.html"><a href="intro.html#tmle"><i class="fa fa-check"></i><b>2.5.3</b> TMLE</a></li>
+<li class="chapter" data-level="2.5.4" data-path="intro.html"><a href="intro.html#inference"><i class="fa fa-check"></i><b>2.5.4</b> Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#the-wash-benefits-example-dataset"><i class="fa fa-check"></i><b>2.6</b> The WASH Benefits Example Dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html"><i class="fa fa-check"></i><b>3</b> Ensemble Machine Learning</a><ul>
+<li class="chapter" data-level="3.1" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#introduction"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#basic-sl3-implementation"><i class="fa fa-check"></i><b>3.3</b> Basic <code>sl3</code> Implementation</a><ul>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#wash-benefits-study-example"><i class="fa fa-check"></i>WASH Benefits Study Example</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#load-the-necessary-libraries-and-data"><i class="fa fa-check"></i>0. Load the necessary libraries and data</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#define-the-machine-learning-task"><i class="fa fa-check"></i>1. Define the machine learning task</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#make-a-super-learner"><i class="fa fa-check"></i>2. Make a super learner</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#train-the-super-learner-on-the-machine-learning-task"><i class="fa fa-check"></i>3. Train the super learner on the machine learning task</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#obtain-predicted-values"><i class="fa fa-check"></i>4. Obtain predicted values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#extensions"><i class="fa fa-check"></i><b>3.4</b> Extensions</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#cross-validated-super-learner"><i class="fa fa-check"></i><b>3.4.1</b> Cross-validated Super Learner</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#variable-importance-measures-with-sl3"><i class="fa fa-check"></i><b>3.4.2</b> Variable Importance Measures with <code>sl3</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#exercise"><i class="fa fa-check"></i><b>3.5</b> Exercise</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#predicting-myocardial-infarction-with-sl3"><i class="fa fa-check"></i><b>3.5.1</b> Predicting Myocardial Infarction with <code>sl3</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#summary"><i class="fa fa-check"></i><b>3.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html"><i class="fa fa-check"></i><b>4</b> The TMLE Framework</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#easy-bake-example-tmle3-for-ate"><i class="fa fa-check"></i><b>4.2</b> Easy-Bake Example: <code>tmle3</code> for ATE</a><ul>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#load-the-data"><i class="fa fa-check"></i>0. Load the Data</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#define-the-variable-roles"><i class="fa fa-check"></i>1. Define the variable roles</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#create-a-spec-object"><i class="fa fa-check"></i>2. Create a “Spec” Object</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#define-the-relevant-super-learners"><i class="fa fa-check"></i>3. Define the Relevant Super Learners</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fit-the-tmle"><i class="fa fa-check"></i>4. Fit the TMLE</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#evaluate-the-estimates"><i class="fa fa-check"></i>5. Evaluate the Estimates</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#tmle3-components"><i class="fa fa-check"></i><b>4.3</b> <code>tmle3</code> Components</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#tmle3_task"><i class="fa fa-check"></i><b>4.3.1</b> <code>tmle3_task</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#initial-likelihood"><i class="fa fa-check"></i><b>4.3.2</b> Initial Likelihood</a></li>
+<li class="chapter" data-level="4.3.3" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#targeted-likelihood-updater"><i class="fa fa-check"></i><b>4.3.3</b> Targeted Likelihood (updater)</a></li>
+<li class="chapter" data-level="4.3.4" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#parameter-mapping"><i class="fa fa-check"></i><b>4.3.4</b> Parameter Mapping</a></li>
+<li class="chapter" data-level="4.3.5" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#putting-it-all-together"><i class="fa fa-check"></i><b>4.3.5</b> Putting it all together</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fitting-tmle3-with-multiple-parameters"><i class="fa fa-check"></i><b>4.4</b> Fitting <code>tmle3</code> with multiple parameters</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#delta-method"><i class="fa fa-check"></i><b>4.4.1</b> Delta Method</a></li>
+<li class="chapter" data-level="4.4.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fit"><i class="fa fa-check"></i><b>4.4.2</b> Fit</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#stratified-effect-estimates"><i class="fa fa-check"></i><b>4.5</b> Stratified Effect Estimates</a></li>
+<li class="chapter" data-level="4.6" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#exercise-1"><i class="fa fa-check"></i><b>4.6</b> Exercise</a></li>
+<li class="chapter" data-level="4.7" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#summary-1"><i class="fa fa-check"></i><b>4.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r6.html"><a href="r6.html"><i class="fa fa-check"></i><b>5</b> A Primer on the <code>R6</code> Class System</a><ul>
+<li class="chapter" data-level="5.1" data-path="r6.html"><a href="r6.html#classes-fields-and-methods"><i class="fa fa-check"></i><b>5.1</b> Classes, Fields, and Methods</a></li>
+<li class="chapter" data-level="5.2" data-path="r6.html"><a href="r6.html#object-oriented-programming-python-and-r"><i class="fa fa-check"></i><b>5.2</b> Object Oriented Programming: <code>Python</code> and <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Targeted Learning with the <code>tlverse</code> Software Ecosystem</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> The Targeted Learning Roadmap</h1>
+<p>A central goal of the Targeted Learning statistical paradigm is to estimate
+scientifically relevant parameters in realistic (usually nonparametric) models
+and to do so with finite-sample robustness and consistent inference.</p>
+<div id="the-statistical-model" class="section level2">
+<h2><span class="header-section-number">2.1</span> The Statistical Model</h2>
+<p>Assume we have an i.i.d. sample of confounders, a binary intervention of
+interest, and an outcome, or are observed data is
+<span class="math display">\[ O = (W, A, Y).\]</span>
+The
+distribution of the observed data may be factorized as follows:
+<span class="math display">\[P(O) = P(W, A,
+Y) = P(W)P (A \mid W) P(Y \mid A, W).\]</span>
+To estimate a parameter of interest, a
+researcher need not necessarily be able to specify these whole or conditional
+distributions. Rather, each estimator only requires that certain parts of the
+distribution be known; for example, some may require estimates of <span class="math inline">\(\mathbb{E}(Y \mid A, W)\)</span>, the mean of <span class="math inline">\(Y\)</span> within subgroups <span class="math inline">\((A, W)\)</span>, or the regression of the
+outcome on the exposure and confounders.</p>
+<p>At this stage in the roadmap, the researcher must specify a choice of
+statistical model to be used in estimating <span class="math inline">\(\mathbb{E}(Y \mid A, W)\)</span> or other
+elements of the probability distribution needed to estimate the parameter of
+interest. Here, <em>statistical model</em> means any constraints on the model form that
+may be imposed by knowledge about the data-generating process – that is, known
+aspects of how the data were generated. Typically, the <em>true model</em> is a very
+large model, placing few constraints, if any, on the data-generating
+distribution, or a semi-parametric model. With few constraints on the
+data-generating distribution, and a potentially large number of covariates,
+data-adaptive, machine-learning approaches remain the only practical option for
+estimating components of the likelihood. The remainder of this course concerns
+how to do this as efficiently and robustly as possible, depending on the goal of
+the analysis.</p>
+</div>
+<div id="the-causal-model" class="section level2">
+<h2><span class="header-section-number">2.2</span> The Causal Model</h2>
+<p>The next step in the roadmap is to use a causal framework to formalize the
+experiment and thereby define the parameter of interest. Causal graphs are one
+useful tool to express what we know about the causal relations among variables
+that are relevant to the question under study <span class="citation">(Pearl <a href="#ref-pearl2009causality">2009</a>)</span>.</p>
+<p>Ignoring error terms, we will assume the following ordering of the variables in
+<span class="math inline">\(O\)</span>.</p>
+<div id="htmlwidget-9cc2cdb350aeb4b2a575" style="width:200px;height:300px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9cc2cdb350aeb4b2a575">{"x":{"nodes":{"id":["W","A","Y"],"label":["W","A","Y"]},"edges":{"from":["W","W","A"],"to":["A","Y","Y"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":{"to":true}},"layout":{"randomSeed":25}},"groups":null,"width":"200px","height":"300px","idselection":{"enabled":false},"byselection":{"enabled":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)"},"evals":[],"jsHooks":[]}</script>
+<p>While directed acyclic graphs (DAGs) like above provide a convenient means by
+which to visualize causal relations between variables, the causal relations
+among variables can be represented via a set of structural equations:
+<span class="math display">\[\begin{align*}
+  W &amp;= f_W(U_W) \\
+  A &amp;= f_A(W, U_A) \\
+  Y &amp;= f_Y(W, A, U_Y),
+\end{align*}\]</span>
+where <span class="math inline">\(U_W\)</span>, <span class="math inline">\(U_A\)</span>, and <span class="math inline">\(U_Y\)</span> represent the unmeasured exogenous background
+characteristics that influence the value of each variable. In the NPSEM, <span class="math inline">\(f_W\)</span>,
+<span class="math inline">\(f_A\)</span> and <span class="math inline">\(f_Y\)</span> denote that each variable (for <span class="math inline">\(W\)</span>, <span class="math inline">\(A\)</span> and <span class="math inline">\(Y\)</span>, respectively)
+is a function of its parents and unmeasured background characteristics, but one
+typically has little information about particular functional constraints (e.g.,
+linear, logit-linear, only one interaction, etc.). For this reason, they are
+called non-parametric structural equation models (NPSEMs). The DAG and set of
+nonparametric structural equations represent exactly the same information and so
+may be used interchangeably.</p>
+</div>
+<div id="the-parameter-of-interest" class="section level2">
+<h2><span class="header-section-number">2.3</span> The Parameter of Interest</h2>
+<p>The first hypothetical experiment we will consider is assigning exposure to the
+whole population and observing the outcome, and then assigning no exposure to
+the whole population and observing the outcome. On the nonparametric structural
+equations, this corresponds to a comparison of the outcome distribution in the
+population under two interventions:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(A\)</span> is set to <span class="math inline">\(1\)</span> for all individuals, and</li>
+<li><span class="math inline">\(A\)</span> is set to <span class="math inline">\(0\)</span> for all individuals.</li>
+</ol>
+<p>These interventions imply two new nonparametric structural equation models. For
+the case <span class="math inline">\(A = 1\)</span>, we have
+<span class="math display">\[\begin{align*}
+  W &amp;= f_W(U_W) \\
+  A &amp;= 1 \\
+  Y(1) &amp;= f_Y(W, 1, U_Y),
+\end{align*}\]</span>
+and for the case <span class="math inline">\(A=0\)</span>,
+<span class="math display">\[\begin{align*}
+  W &amp;= f_W(U_W) \\
+  A &amp;= 0 \\
+  Y(1) &amp;= f_Y(W, 0, U_Y).
+\end{align*}\]</span></p>
+<p>In these equations, <span class="math inline">\(A\)</span> is no longer a function of <span class="math inline">\(W\)</span> because we have
+intervened on the system, setting <span class="math inline">\(A\)</span> deterministically to either of the values
+<span class="math inline">\(1\)</span> or <span class="math inline">\(0\)</span>. The new symbols <span class="math inline">\(Y(1)\)</span> and <span class="math inline">\(Y(0)\)</span> indicate the outcome variable in
+our population if it were generated by the respective NPSEMs above; these are
+often called <em>counterfactuals</em>. The difference between the means of the outcome
+under these two interventions defines a parameter that is often called the
+“average treatment effect” (ATE), denoted
+<span class="math display">\[\begin{equation}\label{eqn:ate}
+  ATE = \mathbb{E}_X(Y(1)-Y(0)),
+\end{equation}\]</span>
+where <span class="math inline">\(\mathbb{E}_X\)</span> is the mean under the theoretical (unobserved) full data
+<span class="math inline">\(X = (W, Y(1), Y(0))\)</span>.</p>
+<p>Note, we can define much more complicated interventions on NPSEM’s, such as
+interventions based upon rules (themselves based upon covariates), stochastic
+rules, etc. and each results in a different targeted parameter and entails
+different identifiability assumptions discussed below.</p>
+</div>
+<div id="identifiability" class="section level2">
+<h2><span class="header-section-number">2.4</span> Identifiability</h2>
+<p>Because we can never observe both <span class="math inline">\(Y(0)\)</span> (the counterfactual outcome when <span class="math inline">\(A=0\)</span>)
+and <span class="math inline">\(Y(1)\)</span>, we cannot estimate  directly. Instead, we have to make
+assumptions under which this quantity may be estimated from the observed data
+<span class="math inline">\(O \sim P_0\)</span> under the data-generating distribution <span class="math inline">\(P_0\)</span>. Fortunately, given
+the causal model specified in the NPSEM above, we can, with a handful of
+untestable assumptions, estimate the ATE, even from observational data. These
+assumptions may be summarized as follows</p>
+<ol style="list-style-type: decimal">
+<li>The causal graph implies <span class="math inline">\(Y(a) \perp A\)</span> for all <span class="math inline">\(a \in \mathcal{A}\)</span>, which
+is the <em>randomization</em> assumption. In the case of observational data, the
+analogous assumption is <em>strong ignorability</em> or <em>no unmeasured confounding</em>
+<span class="math inline">\(Y(a) \perp A \mid W\)</span> for all <span class="math inline">\(a \in \mathcal{A}\)</span>;</li>
+<li>Although not represented in the causal graph, also required is the assumption
+of <em>no interference</em> between units, that is, the outcome for unit <span class="math inline">\(i\)</span> <span class="math inline">\(Y_i\)</span>
+is not affected by exposure for unit <span class="math inline">\(j\)</span> <span class="math inline">\(A_j\)</span> unless <span class="math inline">\(i=j\)</span>;</li>
+<li><em>Consistency</em> of the treatment mechanism is also required, i.e., the outcome
+for unit <span class="math inline">\(i\)</span> is <span class="math inline">\(Y_i(a)\)</span> whenever <span class="math inline">\(A_i = a\)</span>, an assumption also known as “no
+other versions of treatment”;</li>
+<li>It is also necessary that all observed units, across strata defined by <span class="math inline">\(W\)</span>,
+have a bounded (non-deterministic) probability of receiving treatment –
+that is, <span class="math inline">\(0 &lt; P_0(A = a \mid W) &lt; 1\)</span> for all <span class="math inline">\(a\)</span> and <span class="math inline">\(W\)</span>. This assumption is
+referred to as <em>positivity</em>.</li>
+</ol>
+<p><em>Remark</em>: Together, (2) and (3), the assumptions of no interference and
+consistency, respectively, are jointly referred to as the <em>stable unit
+treatment value assumption</em> (SUTVA).</p>
+<p>Given these assumptions, the ATE may be re-written as a function of <span class="math inline">\(P_0\)</span>,
+specifically
+<span class="math display">\[\begin{equation}\label{eqn:estimand}
+  ATE = \mathbb{E}_0(Y(1) - Y(0)) = \mathbb{E}_0
+    \left(\mathbb{E}_0[Y \mid A = 1, W] - \mathbb{E}_0[Y \mid A = 0, W]\right),
+\end{equation}\]</span>
+or the difference in the predicted outcome values for each subject, under the
+contrast of treatment conditions (<span class="math inline">\(A = 0\)</span> vs. <span class="math inline">\(A = 1\)</span>), in the population,
+averaged over all observations. Thus, a parameter of a theoretical “full” data
+distribution can be represented as an estimand of the observed data
+distribution. Significantly, there is nothing about the representation in
+ that requires parametric assumptions; thus, the regressions
+on the right hand side may be estimated freely with machine learning. With
+different parameters, there will be potentially different identifiability
+assumptions and the resulting estimands can be functions of different components
+of <span class="math inline">\(P_0\)</span>. We discuss several more complex estimands in later sections of this
+workshop.</p>
+</div>
+<div id="estimators-superlearning-and-targeted-maximum-likelihood" class="section level2">
+<h2><span class="header-section-number">2.5</span> Estimators: SuperLearning and Targeted Maximum Likelihood</h2>
+<p>Although we will discuss more in later sections, the goals of the estimators we
+desire should be that, among sensible (asymptotically consistent, regular)
+estimators,</p>
+<ol style="list-style-type: decimal">
+<li>the estimator be asymptotically efficient in the statistical model of
+interest, and</li>
+<li>the estimator can be constructed for finite-sample performance improvements,
+relative to other estimators in the same class.</li>
+</ol>
+<p>These principles guide our approach to estimation: Super Learning for
+prediction (more generally density estimation) and TMLE for estimation of our
+intervention parameters of interest.</p>
+<div id="super-learning" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Super Learning</h3>
+<ul>
+<li>There is no universally optimal machine learning algorithm for density
+estimation or prediction.</li>
+<li>When we have tested different algorithms on actual
+data and looked at the performance (e.g., MSE of prediction), never does one
+algorithm always win (see below).</li>
+<li>For some data, one needs learners that can model a complex function.</li>
+<li>For others, typically the result of noise or insufficient sample size, a
+simple, parametric model might fit best.</li>
+<li>SuperLearner, an ensemble learner, solves this issue, by allowing a convex
+combination of learners from the simplest (intercept-only) to most complex
+(neural nets, random forests, SVM, etc).</li>
+<li>It works by using cross-validation in a manner which guarantees that the
+resulting fit will be as good as possible, given the learners provided (note,
+even a convex combination of poor learners can sometimes result in good fit,
+though better to have good candidates).</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;img/misc/vs.pdf&quot;</span>)</a></code></pre></div>
+<embed src="img/misc/vs.pdf" width="    extwidth" style="display: block; margin: auto;" type="application/pdf" />
+<p>The figure above shows an example of 10-fold cross-validation.</p>
+<p>The schematic below is a visualization of the following algorithm:</p>
+<ul>
+<li>Break up the sample evenly into V-folds (say V=10).</li>
+<li>For each of these 10 folds, remove that portion of the sample (kept out as
+validation sample) and the remaining will be used to fit learners (training
+sample).</li>
+<li>Fit each learner on the training sample (note, some learners will have their
+own internal cross-validation procedure or other methods to select tuning
+parameters).</li>
+<li>For each observation in the corresponding training sample, predict the outcome
+using each of the learners, so if there are <span class="math inline">\(p\)</span> learners, then where would be
+<span class="math inline">\(p\)</span> predictions on each of the observations in validation sample).</li>
+<li>Take out another validation sample and repeat until each of the V-sets of data
+are removed.</li>
+<li>Compare the cross-validated fit of the learners across all observations based
+on specified loss function (e.g., squared error, negative log-likelihood, …)
+by calculating the corresponding average loss (risk).</li>
+<li><p>Either:</p>
+<ul>
+<li>choose the learner with smallest risk and apply that learner to entire data
+set (resulting SL fit),</li>
+<li><p>do a weighted average of the learners to minimize the cross-validated risk
+(construct an ensemble of learners), by</p>
+<ul>
+<li>re-fitting the learners on the original data set, and</li>
+<li>use the weights above to get the file SL fit.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Note, this entire procedure can be itself cross-validated to get a consistent
+estimate of the future performance of the SL fit.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;img/misc/SLKaiserNew.pdf&quot;</span>)</a></code></pre></div>
+<embed src="img/misc/SLKaiserNew.pdf" width="   extwidth" style="display: block; margin: auto;" type="application/pdf" />
+<p>For prediction, one can use the cross-validated risk to empirically determine
+the relative performance of SL and competing methods. Below shows the results
+of such a study, comparing the fits of several different learners, including the
+SL algorithms.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;img/misc/ericSL.pdf&quot;</span>)</a></code></pre></div>
+<embed src="img/misc/ericSL.pdf" width="    extwidth" style="display: block; margin: auto;" type="application/pdf" />
+</div>
+<div id="substitution-estimators" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> Substitution Estimators</h3>
+<ul>
+<li>Beyond a fit of the prediction function, one might also want to estimate more
+targeted parameters specific to certain scientific questions.<br />
+</li>
+<li>The approach is to plug into the estimand of interest estimates of the
+relevant distributions.</li>
+<li>Sometimes, we can use simple empirical distributions, but averaging some
+function over the observations (e.g., giving weight <span class="math inline">\(1/n\)</span> for all observations).</li>
+<li>Other parts of the distribution, like conditional means or probabilities, the
+estimate will require some sort of smoothing due to the curse of
+dimensionality.</li>
+</ul>
+<p>We give one example using an example of the average treatment effect (see above):</p>
+<ul>
+<li><span class="math inline">\(\Psi(P_0) = \Psi(Q_0) = \mathbb{E}_0 \big[\mathbb{E}_0[Y \mid A = 1, W] - \mathbb{E}_0[Y \mid A = 0, W]\big]\)</span>, where <span class="math inline">\(Q_0\)</span> represents both the
+distribution of <span class="math inline">\(Y \mid A,W\)</span> and distribution of <span class="math inline">\(W\)</span>.</li>
+<li>Let <span class="math inline">\(\bar{Q}_0(A,W) \equiv E_0(Y \mid A,W)\)</span> and <span class="math inline">\(Q_{0,W}(w) = P_0 (W=w)\)</span>, then
+<span class="math display">\[
+\Psi(Q_0) = \sum_w \{ \bar{Q}_0(1,w)-\bar{Q}_0(0,w)\} Q_{0,W}(w)
+\]</span></li>
+<li>The <strong>Substitution Estimator</strong> plugs in the empirical distribution (weight
+<span class="math inline">\(1/n\)</span> for each observation) for <span class="math inline">\(Q_{0,W}(W_i)\)</span>, and some estimate of the
+regression of <span class="math inline">\(Y\)</span> on <span class="math inline">\((A,W)\)</span> (say SL fit):
+<span class="math display">\[
+ \Psi(Q_n) = \frac{1}{n} \sum_{i=1}^n  \{ \bar{Q}_n(1,W_i)-\bar{Q}_n(0,W_i)\}
+ \]</span></li>
+<li>Thus, it becomes the average of the differences in predictions from the fit
+keeping the observed <span class="math inline">\(W\)</span>, but first replacing <span class="math inline">\(A=1\)</span> and then the same but all
+<span class="math inline">\(A=0\)</span>.</li>
+</ul>
+</div>
+<div id="tmle" class="section level3">
+<h3><span class="header-section-number">2.5.3</span> TMLE</h3>
+<ul>
+<li>Though using SL over an arbitrary parametric regression is an improvement,
+it’s not sufficient to have the properties of an estimator one needs for
+rigorous inference.</li>
+<li>Because the variance-bias trade-off in the SL is focused on the prediction
+model, it can, for instance, under-fit portions of the distributions that are
+critical for estimating the parameter of interest, <span class="math inline">\(\Psi(P_0)\)</span>.</li>
+<li>TMLE keeps the benefits of substitution estimators (it is one), but augments
+the original estimates to correct for this issue and also results in an
+asymptotically linear (and thus normally-distributed) estimator with
+consistent Wald-style confidence intervals.</li>
+<li>Produces a well-defined, unbiased, efficient substitution estimator of target
+parameters of a data-generating distribution.</li>
+<li>Updates an initial (super learner) estimate of the relevant part of the
+data-generating distribution possibly using an estimate of a nuisance
+parameter (like the model of intervention given covariates).</li>
+<li>Removes asymptotic residual bias of initial estimator for the target
+parameter, if it uses a consistent estimator of <span class="math inline">\(g_0\)</span>.</li>
+<li>If initial estimator was consistent for the target parameter, the additional
+fitting of the data in the targeting step may remove finite sample bias, and
+preserves consistency property of the initial estimator.</li>
+<li>If the initial estimator and the estimator of <span class="math inline">\(g_0\)</span> are both consistent, then
+it is also asymptotically efficient according to semi-parametric statistical
+model efficiency theory.</li>
+<li>Thus, every effort is made to achieve minimal bias and the asymptotic
+semi-parametric efficiency bound for the variance.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;img/misc/TMLEimage.pdf&quot;</span>)</a></code></pre></div>
+<embed src="img/misc/TMLEimage.pdf" width=" extwidth" style="display: block; margin: auto;" type="application/pdf" />
+<ul>
+<li>There are different types of TMLE, sometimes for the same set of parameters,
+but below is an example of the algorithm for estimating the ATE.</li>
+<li>In this case, one can present the estimator as:</li>
+</ul>
+<p><span class="math display">\[
+ \Psi(Q^*_n) = \frac{1}{n} \sum_{i=1}^n  \{ \bar{Q}^*_n(1,W_i)-\bar{Q}^*_n(0,W_i)\}
+ \]</span>
+where <span class="math inline">\(\bar{Q}^*_n(A,W)\)</span> is the TMLE augmented estimate.
+<span class="math inline">\(f(\bar{Q}^*_n(A,W)) = f(\bar{Q}_n(A,W)) + \epsilon_n * h_n(A,W)\)</span>, where
+<span class="math inline">\(f(\cdot)\)</span> is the appropriate link function (e.g., logit), <span class="math inline">\(\epsilon_n\)</span> is an
+estimated coefficient and <span class="math inline">\(h_n(A,W)\)</span> is a “clever covariate”.</p>
+<ul>
+<li>In this case, <span class="math inline">\(h_n(A,W) = \frac{A}{g_n(W)}-\frac{1-A}{1-g_n(W)}\)</span>, with
+<span class="math inline">\(g_n(W) = P_n(A=1 \mid W)\)</span> being the estimated (also by SL) propensity score,
+so the estimator depends both on initial SL fit of the outcome regression
+(<span class="math inline">\(\bar{Q}_0\)</span>) and an SL fit of the propensity score (<span class="math inline">\(g_n\)</span>).</li>
+<li>There are further robust augmentations that are used in <code>tlverse</code>, such as an
+added layer of cross-validation to avoid over-fitting bias (CV-TMLE), and so
+called methods that can more robustly estimated several parameters
+simultaneously (e.g., the points on a survival curve).</li>
+</ul>
+</div>
+<div id="inference" class="section level3">
+<h3><span class="header-section-number">2.5.4</span> Inference</h3>
+<ul>
+<li>The estimators we discuss are <strong>asymptotically linear</strong>, meaning that the
+difference in the estimate <span class="math inline">\(\Psi(P_n)\)</span> and the true parameter (<span class="math inline">\(\Psi(P_0)\)</span>)
+can be represented in first order by a i.i.d. sum:
+<span class="math display">\[\begin{equation}\label{eqn:IC}
+\Psi(P_n) - \Psi(P_0) = \frac{1}{n} IC(O_i; \nu) + o_p(1/\sqrt{n})
+\end{equation}\]</span></li>
+</ul>
+<p>where <span class="math inline">\(IC(O_i; \nu)\)</span> (the influence curve or function) is a function of the data
+and possibly other nuisance parameters <span class="math inline">\(\nu\)</span>. Importantly, such estimators have
+mean-zero Gaussian limiting distributions; thus, in the univariate case, one has
+that
+<span class="math display">\[\begin{equation}\label{eqn:limit_dist}
+  \sqrt{n}(\Psi(P_n) - \Psi(P_0)) = N(0, (IC(O_i; \nu))^2),
+\end{equation}\]</span>
+so that inference for the estimator of interest may be obtained in terms of the
+influence function. For this simple case, a 95% confidence interval may be
+derived as:
+<span class="math display">\[\begin{equation}\label{eqn:CI}
+  \Psi(P^{\star}_n) \pm 1.96 \sqrt{\frac{\hat{\sigma}^2}{n}},
+\end{equation}\]</span>
+where <span class="math inline">\(SE=\sqrt{\frac{\hat{\sigma}^2}{n}}\)</span> and <span class="math inline">\(\hat{\sigma}^2\)</span> is the sample
+variance of the estimated IC’s: <span class="math inline">\(IC(O; \hat{\nu})\)</span>. One can use the functional
+delta method to derive the influence curve if a parameter of interest may be
+written as a function of other asymptotically linear estimators.</p>
+<ul>
+<li>Thus, we can derive robust inference for parameters that are estimated by
+fitting complex, machine learning algorithms and these methods are
+computationally quick (do not rely on re-sampling based methods like the
+bootstrap).</li>
+</ul>
+</div>
+</div>
+<div id="the-wash-benefits-example-dataset" class="section level2">
+<h2><span class="header-section-number">2.6</span> The WASH Benefits Example Dataset</h2>
+<p>The data come from a study of the effect of water quality, sanitation, hand
+washing, and nutritional interventions on child development in rural Bangladesh
+(WASH Benefits Bangladesh): a cluster-randomised controlled trial
+<span class="citation">(Luby et al. <a href="#ref-luby2018effects">2018</a>)</span>. The study enrolled pregnant women in their first or second
+trimester from the rural villages of Gazipur, Kishoreganj, Mymensingh, and
+Tangail districts of central Bangladesh, with an average of eight women per
+cluster. Groups of eight geographically adjacent clusters were block-randomised,
+using a random number generator, into six intervention groups (all of which
+received weekly visits from a community health promoter for the first 6 months
+and every 2 weeks for the next 18 months) and a double-sized control group (no
+intervention or health promoter visit). The six intervention groups were:</p>
+<ol style="list-style-type: decimal">
+<li>chlorinated drinking water;</li>
+<li>improved sanitation;</li>
+<li>hand-washing with soap;</li>
+<li>combined water, sanitation, and hand washing;</li>
+<li>improved nutrition through counseling and provision of lipid-based nutrient
+supplements; and</li>
+<li>combined water, sanitation, handwashing, and nutrition.</li>
+</ol>
+<p>In the workshop, we concentrate on child growth (size for age) as the outcome of
+interest. For reference, this trial was registered with ClinicalTrials.gov as
+NCT01590095.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># read in data</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/tlverse/tlverse-data/master/wash-benefits/washb_data.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">dat</a></code></pre></div>
+<pre><code># A tibble: 4,695 x 28
+     whz tr    fracode month  aged sex   momage momedu momheight hfiacat Nlt18
+   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
+ 1  0    Cont… N05265      9   268 male      30 Prima…      146. Food S…     3
+ 2 -1.16 Cont… N05265      9   286 male      25 Prima…      149. Modera…     2
+ 3 -1.05 Cont… N08002      9   264 male      25 Prima…      152. Food S…     1
+ 4 -1.26 Cont… N08002      9   252 fema…     28 Prima…      140. Food S…     3
+ 5 -0.59 Cont… N06531      9   336 fema…     19 Secon…      151. Food S…     2
+ 6 -0.51 Cont… N06531      9   304 male      20 Secon…      154. Severe…     0
+ 7 -2.46 Cont… N08002      9   336 fema…     19 Prima…      151. Food S…     2
+ 8 -0.6  Cont… N06528      9   312 fema…     25 No ed…      142. Food S…     2
+ 9 -0.23 Cont… N06528      9   322 male      30 Secon…      153. Food S…     1
+10 -0.14 Cont… N06453      9   376 male      30 No ed…      156. Modera…     2
+# … with 4,685 more rows, and 17 more variables: Ncomp &lt;dbl&gt;, watmin &lt;dbl&gt;,
+#   elec &lt;dbl&gt;, floor &lt;dbl&gt;, walls &lt;dbl&gt;, roof &lt;dbl&gt;, asset_wardrobe &lt;dbl&gt;,
+#   asset_table &lt;dbl&gt;, asset_chair &lt;dbl&gt;, asset_khat &lt;dbl&gt;, asset_chouki &lt;dbl&gt;,
+#   asset_tv &lt;dbl&gt;, asset_refrig &lt;dbl&gt;, asset_bike &lt;dbl&gt;, asset_moto &lt;dbl&gt;,
+#   asset_sewmach &lt;dbl&gt;, asset_mobile &lt;dbl&gt;</code></pre>
+<p>For the purposes of this workshop, we we start by treating the data as
+independent and identically distributed (i.i.d.) random draws from a very large
+target population. We could, with available options, account for the clustering
+of the data (within sampled geographic units), but, for simplification, we avoid
+these details in these workshop presentations, although modifications of our
+methodology for biased samples, repeated measures, etc., are available.</p>
+<p>We have 28 variables measured, of which 1 variable is set to be the outcome of
+interest. This outcome, <span class="math inline">\(Y\)</span>, is the weight-for-height Z-score (<code>whz</code> in <code>dat</code>);
+the treatment of interest, <span class="math inline">\(A\)</span>, is the randomized treatment group (<code>tr</code> in
+<code>dat</code>); and the adjustment set, <span class="math inline">\(W\)</span>, consists simply of <em>everything else</em>. This
+results in our observed data structure being <span class="math inline">\(n\)</span> i.i.d. copies of <span class="math inline">\(O_i = (W_i, A_i, Y_i)\)</span>, for <span class="math inline">\(i = 1, \ldots, n\)</span>.</p>
+<p>Using the <a href="https://CRAN.R-project.org/package=skimr"><code>skimr</code> package</a>, we can
+quickly summarize the variables measured in the WASH Benefits data set:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">library</span>(skimr)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">skim</span>(dat)</a></code></pre></div>
+<table>
+<caption>(#tab:skim_washb_data)Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">dat</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">4695</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">28</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">5</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">23</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">tr</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">15</td>
+<td align="right">0</td>
+<td align="right">7</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">fracode</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">20</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">sex</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">momedu</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">12</td>
+<td align="right">15</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">hfiacat</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">11</td>
+<td align="right">24</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">whz</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">-0.59</td>
+<td align="right">1.03</td>
+<td align="right">-4.67</td>
+<td align="right">-1.28</td>
+<td align="right">-0.6</td>
+<td align="right">0.08</td>
+<td align="right">4.97</td>
+<td align="left">▁▆▇▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">month</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">6.45</td>
+<td align="right">3.33</td>
+<td align="right">1.00</td>
+<td align="right">4.00</td>
+<td align="right">6.0</td>
+<td align="right">9.00</td>
+<td align="right">12.00</td>
+<td align="left">▇▇▅▇▇</td>
+</tr>
+<tr class="odd">
+<td align="left">aged</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">266.32</td>
+<td align="right">52.17</td>
+<td align="right">42.00</td>
+<td align="right">230.00</td>
+<td align="right">266.0</td>
+<td align="right">303.00</td>
+<td align="right">460.00</td>
+<td align="left">▁▂▇▅▁</td>
+</tr>
+<tr class="even">
+<td align="left">momage</td>
+<td align="right">18</td>
+<td align="right">1.00</td>
+<td align="right">23.91</td>
+<td align="right">5.24</td>
+<td align="right">14.00</td>
+<td align="right">20.00</td>
+<td align="right">23.0</td>
+<td align="right">27.00</td>
+<td align="right">60.00</td>
+<td align="left">▇▇▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">momheight</td>
+<td align="right">31</td>
+<td align="right">0.99</td>
+<td align="right">150.50</td>
+<td align="right">5.23</td>
+<td align="right">120.65</td>
+<td align="right">147.05</td>
+<td align="right">150.6</td>
+<td align="right">154.06</td>
+<td align="right">168.00</td>
+<td align="left">▁▁▆▇▁</td>
+</tr>
+<tr class="even">
+<td align="left">Nlt18</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">1.60</td>
+<td align="right">1.25</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">1.0</td>
+<td align="right">2.00</td>
+<td align="right">10.00</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Ncomp</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">11.04</td>
+<td align="right">6.35</td>
+<td align="right">2.00</td>
+<td align="right">6.00</td>
+<td align="right">10.0</td>
+<td align="right">14.00</td>
+<td align="right">52.00</td>
+<td align="left">▇▃▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">watmin</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.95</td>
+<td align="right">9.48</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.0</td>
+<td align="right">1.00</td>
+<td align="right">600.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">elec</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.60</td>
+<td align="right">0.49</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.0</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▆▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">floor</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.11</td>
+<td align="right">0.31</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.0</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">walls</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.72</td>
+<td align="right">0.45</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.0</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▃▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">roof</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.99</td>
+<td align="right">0.12</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">1.0</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">asset_wardrobe</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.17</td>
+<td align="right">0.37</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.0</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▂</td>
+</tr>
+<tr class="even">
+<td align="left">asset_table</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.73</td>
+<td align="right">0.44</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.0</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▃▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">asset_chair</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.73</td>
+<td align="right">0.44</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.0</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▃▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">asset_khat</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.61</td>
+<td align="right">0.49</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.0</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▅▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">asset_chouki</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.78</td>
+<td align="right">0.41</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">1.0</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▂▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">asset_tv</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.30</td>
+<td align="right">0.46</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.0</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▃</td>
+</tr>
+<tr class="odd">
+<td align="left">asset_refrig</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.08</td>
+<td align="right">0.27</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.0</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">asset_bike</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.32</td>
+<td align="right">0.47</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.0</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▃</td>
+</tr>
+<tr class="odd">
+<td align="left">asset_moto</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.07</td>
+<td align="right">0.25</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.0</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">asset_sewmach</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.06</td>
+<td align="right">0.25</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.0</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">asset_mobile</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.86</td>
+<td align="right">0.35</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">1.0</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▁▁▁▁▇</td>
+</tr>
+</tbody>
+</table>
+<p>A convenient summary of the relevant variables is given just above, complete
+with a small visualization describing the marginal characteristics of each
+covariate. Note that the <em>asset</em> variables reflect socio-economic status of the
+study participants. Notice also the uniform distribution of the treatment groups
+(with twice as many controls); this is, of course, by design.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-luby2018effects">
+<p>Luby, Stephen P, Mahbubur Rahman, Benjamin F Arnold, Leanne Unicomb, Sania Ashraf, Peter J Winch, Christine P Stewart, et al. 2018. “Effects of Water Quality, Sanitation, Handwashing, and Nutritional Interventions on Diarrhoea and Child Growth in Rural Bangladesh: A Cluster Randomised Controlled Trial.” <em>The Lancet Global Health</em> 6 (3). Elsevier: e302–e315.</p>
+</div>
+<div id="ref-pearl2009causality">
+<p>Pearl, Judea. 2009. <em>Causality: Models, Reasoning, and Inference</em>. Cambridge University Press.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tlverse.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ensemble-machine-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/tlverse/csp2020-workshop/edit/master/03-intro-TL.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

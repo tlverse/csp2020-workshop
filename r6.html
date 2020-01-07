@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 A Primer on the R6 Class System | Targeted Learning with the tlverse Software Ecosystem</title>
+  <meta name="description" content="An open-source and fully-reproducible electronic set of teaching materials accompanying an invited short-course on applying Targeted Learning using the tlverse software ecosystem." />
+  <meta name="generator" content="bookdown 0.16.5 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 A Primer on the R6 Class System | Targeted Learning with the tlverse Software Ecosystem" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://tlverse.org/csp2020-workshop/" />
+  
+  <meta property="og:description" content="An open-source and fully-reproducible electronic set of teaching materials accompanying an invited short-course on applying Targeted Learning using the tlverse software ecosystem." />
+  <meta name="github-repo" content="tlverse/csp2020-workshop" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 A Primer on the R6 Class System | Targeted Learning with the tlverse Software Ecosystem" />
+  
+  <meta name="twitter:description" content="An open-source and fully-reproducible electronic set of teaching materials accompanying an invited short-course on applying Targeted Learning using the tlverse software ecosystem." />
+  
+
+<meta name="author" content="Mark van der Laan, Alan Hubbard, Jeremy Coyle, Nima Hejazi, Ivana Malenica, Rachael Phillips" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/logos/favicons/favicon.png" type="image/x-icon" />
+<link rel="prev" href="the-tmle-framework.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CSP 2020 tlverse software workshop</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#important-links"><i class="fa fa-check"></i>Important links</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-workshop"><i class="fa fa-check"></i>About this workshop</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#outline"><i class="fa fa-check"></i>Outline</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-instructors-and-authors"><i class="fa fa-check"></i>About the instructors and authors</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#mark-van-der-laan"><i class="fa fa-check"></i>Mark van der Laan</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#jeremy-coyle"><i class="fa fa-check"></i>Jeremy Coyle</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#alan-hubbard"><i class="fa fa-check"></i>Alan Hubbard</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#nima-hejazi"><i class="fa fa-check"></i>Nima Hejazi</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ivana-malenica"><i class="fa fa-check"></i>Ivana Malenica</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#rachael-phillips"><i class="fa fa-check"></i>Rachael Phillips</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i>Motivation</a></li>
+<li class="chapter" data-level="1" data-path="tlverse.html"><a href="tlverse.html"><i class="fa fa-check"></i><b>1</b> Welcome to the <code>tlverse</code></a><ul>
+<li class="chapter" data-level="1.1" data-path="tlverse.html"><a href="tlverse.html#learning-objectives"><i class="fa fa-check"></i><b>1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="tlverse.html"><a href="tlverse.html#what-is-the-tlverse"><i class="fa fa-check"></i><b>1.2</b> What is the <code>tlverse</code>?</a></li>
+<li class="chapter" data-level="1.3" data-path="tlverse.html"><a href="tlverse.html#tlverse-components"><i class="fa fa-check"></i><b>1.3</b> <code>tlverse</code> components</a></li>
+<li class="chapter" data-level="1.4" data-path="tlverse.html"><a href="tlverse.html#installtlverse"><i class="fa fa-check"></i><b>1.4</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> The Targeted Learning Roadmap</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-statistical-model"><i class="fa fa-check"></i><b>2.1</b> The Statistical Model</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#the-causal-model"><i class="fa fa-check"></i><b>2.2</b> The Causal Model</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#the-parameter-of-interest"><i class="fa fa-check"></i><b>2.3</b> The Parameter of Interest</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#identifiability"><i class="fa fa-check"></i><b>2.4</b> Identifiability</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#estimators-superlearning-and-targeted-maximum-likelihood"><i class="fa fa-check"></i><b>2.5</b> Estimators: SuperLearning and Targeted Maximum Likelihood</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#super-learning"><i class="fa fa-check"></i><b>2.5.1</b> Super Learning</a></li>
+<li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#substitution-estimators"><i class="fa fa-check"></i><b>2.5.2</b> Substitution Estimators</a></li>
+<li class="chapter" data-level="2.5.3" data-path="intro.html"><a href="intro.html#tmle"><i class="fa fa-check"></i><b>2.5.3</b> TMLE</a></li>
+<li class="chapter" data-level="2.5.4" data-path="intro.html"><a href="intro.html#inference"><i class="fa fa-check"></i><b>2.5.4</b> Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#the-wash-benefits-example-dataset"><i class="fa fa-check"></i><b>2.6</b> The WASH Benefits Example Dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html"><i class="fa fa-check"></i><b>3</b> Ensemble Machine Learning</a><ul>
+<li class="chapter" data-level="3.1" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#introduction"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#basic-sl3-implementation"><i class="fa fa-check"></i><b>3.3</b> Basic <code>sl3</code> Implementation</a><ul>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#wash-benefits-study-example"><i class="fa fa-check"></i>WASH Benefits Study Example</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#load-the-necessary-libraries-and-data"><i class="fa fa-check"></i>0. Load the necessary libraries and data</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#define-the-machine-learning-task"><i class="fa fa-check"></i>1. Define the machine learning task</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#make-a-super-learner"><i class="fa fa-check"></i>2. Make a super learner</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#train-the-super-learner-on-the-machine-learning-task"><i class="fa fa-check"></i>3. Train the super learner on the machine learning task</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#obtain-predicted-values"><i class="fa fa-check"></i>4. Obtain predicted values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#extensions"><i class="fa fa-check"></i><b>3.4</b> Extensions</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#cross-validated-super-learner"><i class="fa fa-check"></i><b>3.4.1</b> Cross-validated Super Learner</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#variable-importance-measures-with-sl3"><i class="fa fa-check"></i><b>3.4.2</b> Variable Importance Measures with <code>sl3</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#exercise"><i class="fa fa-check"></i><b>3.5</b> Exercise</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#predicting-myocardial-infarction-with-sl3"><i class="fa fa-check"></i><b>3.5.1</b> Predicting Myocardial Infarction with <code>sl3</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#summary"><i class="fa fa-check"></i><b>3.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html"><i class="fa fa-check"></i><b>4</b> The TMLE Framework</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#easy-bake-example-tmle3-for-ate"><i class="fa fa-check"></i><b>4.2</b> Easy-Bake Example: <code>tmle3</code> for ATE</a><ul>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#load-the-data"><i class="fa fa-check"></i>0. Load the Data</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#define-the-variable-roles"><i class="fa fa-check"></i>1. Define the variable roles</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#create-a-spec-object"><i class="fa fa-check"></i>2. Create a “Spec” Object</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#define-the-relevant-super-learners"><i class="fa fa-check"></i>3. Define the Relevant Super Learners</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fit-the-tmle"><i class="fa fa-check"></i>4. Fit the TMLE</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#evaluate-the-estimates"><i class="fa fa-check"></i>5. Evaluate the Estimates</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#tmle3-components"><i class="fa fa-check"></i><b>4.3</b> <code>tmle3</code> Components</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#tmle3_task"><i class="fa fa-check"></i><b>4.3.1</b> <code>tmle3_task</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#initial-likelihood"><i class="fa fa-check"></i><b>4.3.2</b> Initial Likelihood</a></li>
+<li class="chapter" data-level="4.3.3" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#targeted-likelihood-updater"><i class="fa fa-check"></i><b>4.3.3</b> Targeted Likelihood (updater)</a></li>
+<li class="chapter" data-level="4.3.4" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#parameter-mapping"><i class="fa fa-check"></i><b>4.3.4</b> Parameter Mapping</a></li>
+<li class="chapter" data-level="4.3.5" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#putting-it-all-together"><i class="fa fa-check"></i><b>4.3.5</b> Putting it all together</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fitting-tmle3-with-multiple-parameters"><i class="fa fa-check"></i><b>4.4</b> Fitting <code>tmle3</code> with multiple parameters</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#delta-method"><i class="fa fa-check"></i><b>4.4.1</b> Delta Method</a></li>
+<li class="chapter" data-level="4.4.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fit"><i class="fa fa-check"></i><b>4.4.2</b> Fit</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#stratified-effect-estimates"><i class="fa fa-check"></i><b>4.5</b> Stratified Effect Estimates</a></li>
+<li class="chapter" data-level="4.6" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#exercise-1"><i class="fa fa-check"></i><b>4.6</b> Exercise</a></li>
+<li class="chapter" data-level="4.7" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#summary-1"><i class="fa fa-check"></i><b>4.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r6.html"><a href="r6.html"><i class="fa fa-check"></i><b>5</b> A Primer on the <code>R6</code> Class System</a><ul>
+<li class="chapter" data-level="5.1" data-path="r6.html"><a href="r6.html#classes-fields-and-methods"><i class="fa fa-check"></i><b>5.1</b> Classes, Fields, and Methods</a></li>
+<li class="chapter" data-level="5.2" data-path="r6.html"><a href="r6.html#object-oriented-programming-python-and-r"><i class="fa fa-check"></i><b>5.2</b> Object Oriented Programming: <code>Python</code> and <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Targeted Learning with the <code>tlverse</code> Software Ecosystem</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r6" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> A Primer on the <code>R6</code> Class System</h1>
+<p>A central goal of the Targeted Learning statistical paradigm is to estimate
+scientifically relevant parameters in realistic (usually nonparametric) models.</p>
+<p>The <code>tlverse</code> is designed using basic OOP principles and the <code>R6</code> OOP framework.
+While we’ve tried to make it easy to use the <code>tlverse</code> packages without worrying
+much about OOP, it is helpful to have some intuition about how the <code>tlverse</code> is
+structured. Here, we briefly outline some key concepts from OOP. Readers
+familiar with OOP basics are invited to skip this section.</p>
+<div id="classes-fields-and-methods" class="section level2">
+<h2><span class="header-section-number">5.1</span> Classes, Fields, and Methods</h2>
+<p>The key concept of OOP is that of an object, a collection of data and functions
+that corresponds to some conceptual unit. Objects have two main types of
+elements:</p>
+<ol style="list-style-type: decimal">
+<li><em>fields</em>, which can be thought of as nouns, are information about an object,
+and</li>
+<li><em>methods</em>, which can be thought of as verbs, are actions an object can
+perform.</li>
+</ol>
+<p>Objects are members of classes, which define what those specific fields and
+methods are. Classes can inherit elements from other classes (sometimes called
+base classes) – accordingly, classes that are similar, but not exactly the
+same, can share some parts of their definitions.</p>
+<p>Many different implementations of OOP exist, with variations in how these
+concepts are implemented and used. R has several different implementations,
+including <code>S3</code>, <code>S4</code>, reference classes, and <code>R6</code>. The <code>tlverse</code> uses the <code>R6</code>
+implementation. In <code>R6</code>, methods and fields of a class object are accessed using
+the <code>$</code> operator. For a more thorough introduction to <code>R</code>’s various OOP systems,
+see <a href="http://adv-r.had.co.nz/OO-essentials.html" class="uri">http://adv-r.had.co.nz/OO-essentials.html</a>, from Hadley Wickham’s <em>Advanced
+R</em> <span class="citation">(Wickham <a href="#ref-wickham2014advanced">2014</a>)</span>.</p>
+</div>
+<div id="object-oriented-programming-python-and-r" class="section level2">
+<h2><span class="header-section-number">5.2</span> Object Oriented Programming: <code>Python</code> and <code>R</code></h2>
+<p>OO concepts (classes with inherentence) were baked into Python from the first
+published version (version 0.9 in 1991). In contrast, <code>R</code> gets its OO “approach”
+from its predecessor, <code>S</code>, first released in 1976. For the first 15 years, <code>S</code>
+had no support for classes, then, suddenly, <code>S</code> got two OO frameworks bolted on
+in rapid succession: informal classes with <code>S3</code> in 1991, and formal classes with
+<code>S4</code> in 1998. This process continues, with new OO frameworks being periodically
+released, to try to improve the lackluster OO support in <code>R</code>, with reference
+classes (<code>R5</code>, 2010) and <code>R6</code> (2014). Of these, <code>R6</code> behaves most like Python
+classes (and also most like OOP focused languages like C++ and Java), including
+having method definitions be part of class definitions, and allowing objects to
+be modified by reference.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-wickham2014advanced">
+<p>Wickham, Hadley. 2014. <em>Advanced R</em>. Chapman; Hall/CRC.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="the-tmle-framework.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/tlverse/csp2020-workshop/edit/master/98-r6_primer.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Motivation | Targeted Learning with the tlverse Software Ecosystem</title>
+  <meta name="description" content="An open-source and fully-reproducible electronic set of teaching materials accompanying an invited short-course on applying Targeted Learning using the tlverse software ecosystem." />
+  <meta name="generator" content="bookdown 0.16.5 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Motivation | Targeted Learning with the tlverse Software Ecosystem" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://tlverse.org/csp2020-workshop/" />
+  
+  <meta property="og:description" content="An open-source and fully-reproducible electronic set of teaching materials accompanying an invited short-course on applying Targeted Learning using the tlverse software ecosystem." />
+  <meta name="github-repo" content="tlverse/csp2020-workshop" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Motivation | Targeted Learning with the tlverse Software Ecosystem" />
+  
+  <meta name="twitter:description" content="An open-source and fully-reproducible electronic set of teaching materials accompanying an invited short-course on applying Targeted Learning using the tlverse software ecosystem." />
+  
+
+<meta name="author" content="Mark van der Laan, Alan Hubbard, Jeremy Coyle, Nima Hejazi, Ivana Malenica, Rachael Phillips" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/logos/favicons/favicon.png" type="image/x-icon" />
+<link rel="prev" href="index.html"/>
+<link rel="next" href="tlverse.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CSP 2020 tlverse software workshop</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#important-links"><i class="fa fa-check"></i>Important links</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-workshop"><i class="fa fa-check"></i>About this workshop</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#outline"><i class="fa fa-check"></i>Outline</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-instructors-and-authors"><i class="fa fa-check"></i>About the instructors and authors</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#mark-van-der-laan"><i class="fa fa-check"></i>Mark van der Laan</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#jeremy-coyle"><i class="fa fa-check"></i>Jeremy Coyle</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#alan-hubbard"><i class="fa fa-check"></i>Alan Hubbard</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#nima-hejazi"><i class="fa fa-check"></i>Nima Hejazi</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ivana-malenica"><i class="fa fa-check"></i>Ivana Malenica</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#rachael-phillips"><i class="fa fa-check"></i>Rachael Phillips</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i>Motivation</a></li>
+<li class="chapter" data-level="1" data-path="tlverse.html"><a href="tlverse.html"><i class="fa fa-check"></i><b>1</b> Welcome to the <code>tlverse</code></a><ul>
+<li class="chapter" data-level="1.1" data-path="tlverse.html"><a href="tlverse.html#learning-objectives"><i class="fa fa-check"></i><b>1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="tlverse.html"><a href="tlverse.html#what-is-the-tlverse"><i class="fa fa-check"></i><b>1.2</b> What is the <code>tlverse</code>?</a></li>
+<li class="chapter" data-level="1.3" data-path="tlverse.html"><a href="tlverse.html#tlverse-components"><i class="fa fa-check"></i><b>1.3</b> <code>tlverse</code> components</a></li>
+<li class="chapter" data-level="1.4" data-path="tlverse.html"><a href="tlverse.html#installtlverse"><i class="fa fa-check"></i><b>1.4</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> The Targeted Learning Roadmap</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-statistical-model"><i class="fa fa-check"></i><b>2.1</b> The Statistical Model</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#the-causal-model"><i class="fa fa-check"></i><b>2.2</b> The Causal Model</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#the-parameter-of-interest"><i class="fa fa-check"></i><b>2.3</b> The Parameter of Interest</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#identifiability"><i class="fa fa-check"></i><b>2.4</b> Identifiability</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#estimators-superlearning-and-targeted-maximum-likelihood"><i class="fa fa-check"></i><b>2.5</b> Estimators: SuperLearning and Targeted Maximum Likelihood</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#super-learning"><i class="fa fa-check"></i><b>2.5.1</b> Super Learning</a></li>
+<li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#substitution-estimators"><i class="fa fa-check"></i><b>2.5.2</b> Substitution Estimators</a></li>
+<li class="chapter" data-level="2.5.3" data-path="intro.html"><a href="intro.html#tmle"><i class="fa fa-check"></i><b>2.5.3</b> TMLE</a></li>
+<li class="chapter" data-level="2.5.4" data-path="intro.html"><a href="intro.html#inference"><i class="fa fa-check"></i><b>2.5.4</b> Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#the-wash-benefits-example-dataset"><i class="fa fa-check"></i><b>2.6</b> The WASH Benefits Example Dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html"><i class="fa fa-check"></i><b>3</b> Ensemble Machine Learning</a><ul>
+<li class="chapter" data-level="3.1" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#introduction"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#basic-sl3-implementation"><i class="fa fa-check"></i><b>3.3</b> Basic <code>sl3</code> Implementation</a><ul>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#wash-benefits-study-example"><i class="fa fa-check"></i>WASH Benefits Study Example</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#load-the-necessary-libraries-and-data"><i class="fa fa-check"></i>0. Load the necessary libraries and data</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#define-the-machine-learning-task"><i class="fa fa-check"></i>1. Define the machine learning task</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#make-a-super-learner"><i class="fa fa-check"></i>2. Make a super learner</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#train-the-super-learner-on-the-machine-learning-task"><i class="fa fa-check"></i>3. Train the super learner on the machine learning task</a></li>
+<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#obtain-predicted-values"><i class="fa fa-check"></i>4. Obtain predicted values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#extensions"><i class="fa fa-check"></i><b>3.4</b> Extensions</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#cross-validated-super-learner"><i class="fa fa-check"></i><b>3.4.1</b> Cross-validated Super Learner</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#variable-importance-measures-with-sl3"><i class="fa fa-check"></i><b>3.4.2</b> Variable Importance Measures with <code>sl3</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#exercise"><i class="fa fa-check"></i><b>3.5</b> Exercise</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#predicting-myocardial-infarction-with-sl3"><i class="fa fa-check"></i><b>3.5.1</b> Predicting Myocardial Infarction with <code>sl3</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#summary"><i class="fa fa-check"></i><b>3.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html"><i class="fa fa-check"></i><b>4</b> The TMLE Framework</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#easy-bake-example-tmle3-for-ate"><i class="fa fa-check"></i><b>4.2</b> Easy-Bake Example: <code>tmle3</code> for ATE</a><ul>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#load-the-data"><i class="fa fa-check"></i>0. Load the Data</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#define-the-variable-roles"><i class="fa fa-check"></i>1. Define the variable roles</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#create-a-spec-object"><i class="fa fa-check"></i>2. Create a “Spec” Object</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#define-the-relevant-super-learners"><i class="fa fa-check"></i>3. Define the Relevant Super Learners</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fit-the-tmle"><i class="fa fa-check"></i>4. Fit the TMLE</a></li>
+<li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#evaluate-the-estimates"><i class="fa fa-check"></i>5. Evaluate the Estimates</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#tmle3-components"><i class="fa fa-check"></i><b>4.3</b> <code>tmle3</code> Components</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#tmle3_task"><i class="fa fa-check"></i><b>4.3.1</b> <code>tmle3_task</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#initial-likelihood"><i class="fa fa-check"></i><b>4.3.2</b> Initial Likelihood</a></li>
+<li class="chapter" data-level="4.3.3" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#targeted-likelihood-updater"><i class="fa fa-check"></i><b>4.3.3</b> Targeted Likelihood (updater)</a></li>
+<li class="chapter" data-level="4.3.4" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#parameter-mapping"><i class="fa fa-check"></i><b>4.3.4</b> Parameter Mapping</a></li>
+<li class="chapter" data-level="4.3.5" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#putting-it-all-together"><i class="fa fa-check"></i><b>4.3.5</b> Putting it all together</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fitting-tmle3-with-multiple-parameters"><i class="fa fa-check"></i><b>4.4</b> Fitting <code>tmle3</code> with multiple parameters</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#delta-method"><i class="fa fa-check"></i><b>4.4.1</b> Delta Method</a></li>
+<li class="chapter" data-level="4.4.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fit"><i class="fa fa-check"></i><b>4.4.2</b> Fit</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#stratified-effect-estimates"><i class="fa fa-check"></i><b>4.5</b> Stratified Effect Estimates</a></li>
+<li class="chapter" data-level="4.6" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#exercise-1"><i class="fa fa-check"></i><b>4.6</b> Exercise</a></li>
+<li class="chapter" data-level="4.7" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#summary-1"><i class="fa fa-check"></i><b>4.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r6.html"><a href="r6.html"><i class="fa fa-check"></i><b>5</b> A Primer on the <code>R6</code> Class System</a><ul>
+<li class="chapter" data-level="5.1" data-path="r6.html"><a href="r6.html#classes-fields-and-methods"><i class="fa fa-check"></i><b>5.1</b> Classes, Fields, and Methods</a></li>
+<li class="chapter" data-level="5.2" data-path="r6.html"><a href="r6.html#object-oriented-programming-python-and-r"><i class="fa fa-check"></i><b>5.2</b> Object Oriented Programming: <code>Python</code> and <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Targeted Learning with the <code>tlverse</code> Software Ecosystem</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="motivation" class="section level1 unnumbered">
+<h1>Motivation</h1>
+<blockquote>
+<p>“One enemy of robust science is our humanity — our appetite for
+being right, and our tendency to find patterns in noise, to see supporting
+evidence for what we already believe is true, and to ignore the facts that do
+not fit.”</p>
+<p>— <span class="citation">(“Let’s Think About Cognitive Bias” <a href="#ref-naturenews_2015">2015</a>)</span></p>
+</blockquote>
+<p>Scientific research is at a unique point in history. The need to improve rigor
+and reproducibility in our field is greater than ever; corroboration moves
+science forward, yet there is a growing alarm about results that cannot be
+reproduced and that report false discoveries <span class="citation">(Baker <a href="#ref-baker2016there">2016</a>)</span>. Consequences of
+not meeting this need will result in further decline in the rate of scientific
+progression, the reputation of the sciences, and the public’s trust in its
+findings <span class="citation">(Munafò et al. <a href="#ref-munafo2017manifesto">2017</a>; “How Scientists Fool Themselves – and How They Can Stop” <a href="#ref-naturenews2_2015">2015</a>)</span>.</p>
+<blockquote>
+<p>“The key question we want to answer when seeing the results of any scientific
+study is whether we can trust the data analysis.”</p>
+<p>— <span class="citation">Peng (<a href="#ref-peng2015reproducibility">2015</a>)</span></p>
+</blockquote>
+<p>Unfortunately, at its current state the culture of data analysis and statistics
+actually enables human bias through improper model selection. All hypothesis
+tests and estimators are derived from statistical models, so to obtain valid
+estimates and inference it is critical that the statistical model contains the
+process that generated the data. Perhaps treatment was randomized or only
+depended on a small number of baseline covariates; this knowledge should and
+can be incorporated in the model. Alternatively, maybe the data is
+observational, and there is no knowledge about the data-generating process (DGP).
+If this is the case, then the statistical model should contain <em>all</em> data
+distributions. In practice; however, models are not selected based on knowledge
+of the DGP, instead models are often selected based on (1) the p-values they
+yield, (2) their convenience of implementation, and/or (3) an analysts loyalty
+to a particular model. This practice of “cargo-cult statistics — the
+ritualistic miming of statistics rather than conscientious practice,”
+<span class="citation">(Stark and Saltelli <a href="#ref-stark2018cargo">2018</a>)</span> is characterized by arbitrary modeling choices, even though
+these choices often result in different answers to the same research question.
+That is, “increasingly often, [statistics] is used instead to aid and
+abet weak science, a role it can perform well when used mechanically or
+ritually,” as opposed to its original purpose of safeguarding against weak
+science <span class="citation">(Stark and Saltelli <a href="#ref-stark2018cargo">2018</a>)</span>. This presents a fundamental drive behind the epidemic
+of false findings that scientific research is suffering from <span class="citation">(van der Laan and Starmans <a href="#ref-vdl2014entering">2014</a>)</span>.</p>
+<blockquote>
+<p>“We suggest that the weak statistical understanding is probably due to
+inadequate”statistics lite&quot; education. This approach does not build up
+appropriate mathematical fundamentals and does not provide scientifically
+rigorous introduction into statistics. Hence, students’ knowledge may remain
+imprecise, patchy, and prone to serious misunderstandings. What this approach
+achieves, however, is providing students with false confidence of being able
+to use inferential tools whereas they usually only interpret the p-value
+provided by black box statistical software. While this educational problem
+remains unaddressed, poor statistical practices will prevail regardless of
+what procedures and measures may be favored and/or banned by editorials.&quot;</p>
+<p>— <span class="citation">Szucs and Ioannidis (<a href="#ref-szucs2017null">2017</a>)</span></p>
+</blockquote>
+<p>Our team at The University of California, Berkeley, is uniquely positioned to
+provide such an education. Spearheaded by Professor Mark van der Laan, and
+spreading rapidly by many of his students and colleagues who have greatly
+enriched the field, the aptly named “Targeted Learning” methodology targets the
+scientific question at hand and is counter to the current culture of
+“convenience statistics” which opens the door to biased estimation, misleading
+results, and false discoveries. Targeted Learning restores the fundamentals that
+formalized the field of statistics, such as the that facts that a statistical
+model represents real knowledge about the experiment that generated the data,
+and a target parameter represents what we are seeking to learn from the data as
+a feature of the distribution that generated it <span class="citation">(van der Laan and Starmans <a href="#ref-vdl2014entering">2014</a>)</span>. In this way,
+Targeted Learning defines a truth and establishes a principled standard for
+estimation, thereby inhibiting these all-too-human biases (e.g., hindsight bias,
+confirmation bias, and outcome bias) from infiltrating analysis.</p>
+<blockquote>
+<p>“The key for effective classical [statistical] inference is to have
+well-defined questions and an analysis plan that tests those questions.”</p>
+<p>— <span class="citation">Nosek et al. (<a href="#ref-nosek2018preregistration">2018</a>)</span></p>
+</blockquote>
+<p>Our objective is to provide training to students, researchers, industry professionals, faculty in science, public health, statistics, and other
+fields to empower them with the necessary knowledge and skills to utilize the
+sound methodology of Targeted Learning — a technique that provides tailored
+pre-specified machines for answering queries, so that each data analysis is
+completely reproducible, and estimators are efficient, minimally biased, and
+provide formal statistical inference.</p>
+<p>Just as the conscientious use of modern statistical methodology is necessary to
+ensure that scientific practice thrives, it remains critical to acknowledge the
+role that robust software plays in allowing practitioners direct access to
+published results. We recall that “an article…in a scientific publication is
+not the scholarship itself, it is merely advertising of the scholarship. The
+actual scholarship is the complete software development environment and the
+complete set of instructions which generated the figures,” thus making the
+availability and adoption of robust statistical software key to enhancing the
+transparency that is an inherent aspect of science <span class="citation">(Buckheit and Donoho <a href="#ref-buckheit1995wavelab">1995</a>)</span>.</p>
+<p>For a statistical methodology to be readily accessible in practice, it is
+crucial that it is accompanied by robust user-friendly software
+<span class="citation">(Pullenayegum et al. <a href="#ref-pullenayegum2016knowledge">2016</a>; Stromberg and others <a href="#ref-stromberg2004write">2004</a>)</span>. The <code>tlverse</code> software
+ecosystem was developed to fulfill this need for the Targeted Learning
+methodology. Not only does this software facilitate computationally reproducible
+and efficient analyses, it is also a tool for Targeted Learning education since
+its workflow mirrors that of the methodology. In particular, the <code>tlverse</code>
+paradigm does not focus on implementing a specific estimator or a small set of
+related estimators. Instead, the focus is on exposing the statistical framework
+of Targeted Learning itself — all <code>R</code> packages in the <code>tlverse</code> ecosystem
+directly model the key objects defined in the mathematical and theoretical
+framework of Targeted Learning. What’s more, the <code>tlverse</code> <code>R</code> packages share a
+core set of design principles centered on extensibility, allowing for them to be
+used in conjunction with each other and built upon one other in a cohesive
+fashion.</p>
+<p>In this workshop, the reader will embark on a journey through the <code>tlverse</code>
+ecosystem. Guided by <code>R</code> programming exercises, case studies, and
+intuitive explanation readers will build a toolbox for applying the Targeted
+Learning statistical methodology, which will translate to real-world causal
+inference analyses. Participants need not be a fully trained statistician to
+begin understanding and applying these methods. However, it is highly
+recommended for participants to have an understanding of basic statistical
+concepts such as confounding, probability distributions, confidence intervals,
+hypothesis tests, and regression. Advanced knowledge of mathematical statistics
+may be useful but is not necessary. Familiarity with the <code>R</code> programming
+language will be essential. We also recommend an understanding of introductory
+causal inference.</p>
+<p>For introductory materials for learning the <code>R</code> programming language we recommend the following free resources:</p>
+<ul>
+<li><a href="http://swcarpentry.github.io/r-novice-inflammation/">Software Carpentry’s <em>Programming with
+<code>R</code></em></a></li>
+<li><a href="http://swcarpentry.github.io/r-novice-gapminder/">Software Carpentry’s <em><code>R</code> for Reproducible Scientific
+Analysis</em></a></li>
+<li><a href="https://r4ds.had.co.nz">Grolemund and Wickham’s <em><code>R</code> for Data
+Science</em></a></li>
+</ul>
+<p>For causal inference learning materials we recommend the following resources:</p>
+<ul>
+<li><a href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">Hernán MA, Robins JM (2019). <em>Causal
+Inference</em>.</a></li>
+<li><a href="https://www.coursera.org/learn/crash-course-in-causality">Jason A. Roy’s coursera Course <em>A Crash Course in Causality: Inferring
+Causal Effects from Observational Data</em></a></li>
+</ul>
+
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-baker2016there">
+<p>Baker, Monya. 2016. “Is There a Reproducibility Crisis? A Nature Survey Lifts the Lid on How Researchers View the Crisis Rocking Science and What They Think Will Help.” <em>Nature</em> 533 (7604). Nature Publishing Group: 452–55.</p>
+</div>
+<div id="ref-buckheit1995wavelab">
+<p>Buckheit, Jonathan B, and David L Donoho. 1995. “Wavelab and Reproducible Research.” In <em>Wavelets and Statistics</em>, 55–81. Springer.</p>
+</div>
+<div id="ref-naturenews2_2015">
+<p>“How Scientists Fool Themselves – and How They Can Stop.” 2015. <em>Nature</em> 526 (7572). Springer Nature.</p>
+</div>
+<div id="ref-naturenews_2015">
+<p>“Let’s Think About Cognitive Bias.” 2015. <em>Nature</em> 526 (7572). Springer Nature.</p>
+</div>
+<div id="ref-munafo2017manifesto">
+<p>Munafò, Marcus R, Brian A Nosek, Dorothy VM Bishop, Katherine S Button, Christopher D Chambers, Nathalie Percie Du Sert, Uri Simonsohn, Eric-Jan Wagenmakers, Jennifer J Ware, and John PA Ioannidis. 2017. “A Manifesto for Reproducible Science.” <em>Nature Human Behaviour</em> 1 (1). Nature Publishing Group: 0021.</p>
+</div>
+<div id="ref-nosek2018preregistration">
+<p>Nosek, Brian A, Charles R Ebersole, Alexander C DeHaven, and David T Mellor. 2018. “The Preregistration Revolution.” <em>Proceedings of the National Academy of Sciences</em> 115 (11). National Acad Sciences: 2600–2606.</p>
+</div>
+<div id="ref-peng2015reproducibility">
+<p>Peng, Roger. 2015. “The Reproducibility Crisis in Science: A Statistical Counterattack.” <em>Significance</em> 12 (3). Wiley Online Library: 30–32.</p>
+</div>
+<div id="ref-pullenayegum2016knowledge">
+<p>Pullenayegum, Eleanor M, Robert W Platt, Melanie Barwick, Brian M Feldman, Martin Offringa, and Lehana Thabane. 2016. “Knowledge Translation in Biostatistics: A Survey of Current Practices, Preferences, and Barriers to the Dissemination and Uptake of New Statistical Methods.” <em>Statistics in Medicine</em> 35 (6). Wiley Online Library: 805–18.</p>
+</div>
+<div id="ref-stark2018cargo">
+<p>Stark, Philip B, and Andrea Saltelli. 2018. “Cargo-Cult Statistics and Scientific Crisis.” <em>Significance</em> 15 (4). Wiley Online Library: 40–43.</p>
+</div>
+<div id="ref-stromberg2004write">
+<p>Stromberg, Arnold, and others. 2004. “Why Write Statistical Software? The Case of Robust Statistical Methods.”</p>
+</div>
+<div id="ref-szucs2017null">
+<p>Szucs, Denes, and John Ioannidis. 2017. “When Null Hypothesis Significance Testing Is Unsuitable for Research: A Reassessment.” <em>Frontiers in Human Neuroscience</em> 11. Frontiers: 390.</p>
+</div>
+<div id="ref-vdl2014entering">
+<p>van der Laan, Mark J, and Richard JCM Starmans. 2014. “Entering the Era of Data Science: Targeted Learning and the Integration of Statistics and Computational Data Analysis.” <em>Advances in Statistics</em> 2014. Hindawi.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tlverse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/tlverse/csp2020-workshop/edit/master/01-motivation.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
