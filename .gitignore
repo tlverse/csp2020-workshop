@@ -1,0 +1,9 @@
+.DS_Store
+.ipynb_checkpoints
+*.html
+.Rproj.user
+.Rhistory
+.RData
+_book/*
+_bookdown_files/*
+csp2020_files/*
