@@ -76,21 +76,17 @@ resource to these workshop materials.
 
 ## Important links {-}
 
-**Software installation**
-Please install the relevant software before the workshop.
+* __Software installation__: Please install the relevant software before the
+  workshop using the [installation
+  script](https://github.com/tlverse/csp2020-workshop/blob/master/install.R).
 
-* [installation
-script](https://github.com/tlverse/csp2020-workshop/blob/master/install.R)
+* You will probably exceed the GitHub API rate limit during this installation,
+  which will throw an error. This issue and the solution are addressed
+  [here](#installtlverse).
 
-You will probably exceed the GitHub API rate limit during this installation, and this
-will throw an error. This issue and the solution are addressed
-[here](#installtlverse).
-
-**Code**
-`R` script files for each section of the workshop are available via the GitHub
-repository for the short course.
-
-* [https://github.com/tlverse/csp2020-workshop/tree/master/handbook/R](https://github.com/tlverse/csp2020-workshop/tree/master/handbook/R)
+* __Code__: `R` script files for each section of the workshop are available via
+  the GitHub repository for the short course at
+  https://github.com/tlverse/csp2020-workshop/tree/master/R
 
 ## About this workshop {-}
 
