@@ -14,4 +14,3 @@ cp -r ../_book/* ./
 git add --all *
 git commit -m "Update workshop book via travis" || true
 git push origin gh-pages
-
