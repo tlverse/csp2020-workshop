@@ -31,7 +31,7 @@
   
   <link rel="shortcut icon" href="img/logos/favicons/favicon.png" type="image/x-icon" />
 <link rel="prev" href="ensemble-machine-learning.html"/>
-<link rel="next" href="r6.html"/>
+<link rel="next" href="optimal-individualized-treatment-regimes.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -215,9 +215,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#exercise-1"><i class="fa fa-check"></i><b>4.6</b> Exercise</a></li>
 <li class="chapter" data-level="4.7" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#summary-1"><i class="fa fa-check"></i><b>4.7</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="r6.html"><a href="r6.html"><i class="fa fa-check"></i><b>5</b> A Primer on the <code>R6</code> Class System</a><ul>
-<li class="chapter" data-level="5.1" data-path="r6.html"><a href="r6.html#classes-fields-and-methods"><i class="fa fa-check"></i><b>5.1</b> Classes, Fields, and Methods</a></li>
-<li class="chapter" data-level="5.2" data-path="r6.html"><a href="r6.html#object-oriented-programming-python-and-r"><i class="fa fa-check"></i><b>5.2</b> Object Oriented Programming: <code>Python</code> and <code>R</code></a></li>
+<li class="chapter" data-level="5" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html"><i class="fa fa-check"></i><b>5</b> Optimal Individualized Treatment Regimes</a><ul>
+<li class="chapter" data-level="5.1" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#introduction-to-optimal-individualized-interventions"><i class="fa fa-check"></i><b>5.2</b> Introduction to Optimal Individualized Interventions</a></li>
+<li class="chapter" data-level="5.3" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#data-structure-and-notation"><i class="fa fa-check"></i><b>5.3</b> Data Structure and Notation</a></li>
+<li class="chapter" data-level="5.4" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#defining-the-causal-effect-of-an-optimal-individualized-intervention"><i class="fa fa-check"></i><b>5.4</b> Defining the Causal Effect of an Optimal Individualized Intervention</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#why-cv-tmle"><i class="fa fa-check"></i><b>5.4.1</b> Why CV-TMLE?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#binary-treatment"><i class="fa fa-check"></i><b>5.5</b> Binary Treatment</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#evaluating-the-causal-effect-of-an-optimal-itr-with-binary-treatment"><i class="fa fa-check"></i><b>5.5.1</b> Evaluating the Causal Effect of an optimal ITR with Binary Treatment</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#categorical-treatment"><i class="fa fa-check"></i><b>5.6</b> Categorical Treatment</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#evaluating-the-causal-effect-of-an-optimal-itr-with-categorical-treatment"><i class="fa fa-check"></i><b>5.6.1</b> Evaluating the Causal Effect of an optimal ITR with Categorical Treatment</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#extensions-to-causal-effect-of-an-oit"><i class="fa fa-check"></i><b>5.7</b> Extensions to Causal Effect of an OIT</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#simpler-rules"><i class="fa fa-check"></i><b>5.7.1</b> Simpler Rules</a></li>
+<li class="chapter" data-level="5.7.2" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#realistic-optimal-individual-regimes"><i class="fa fa-check"></i><b>5.7.2</b> Realistic Optimal Individual Regimes</a></li>
+<li class="chapter" data-level="5.7.3" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#variable-importance-analysis"><i class="fa fa-check"></i><b>5.7.3</b> Variable Importance Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#exercise-2"><i class="fa fa-check"></i><b>5.8</b> Exercise</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#real-world-data-and-tmle3mopttx"><i class="fa fa-check"></i><b>5.8.1</b> Real World Data and <code>tmle3mopttx</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#summary-2"><i class="fa fa-check"></i><b>5.9</b> Summary</a><ul>
+<li class="chapter" data-level="5.9.1" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#solutions"><i class="fa fa-check"></i><b>5.9.1</b> Solutions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html"><i class="fa fa-check"></i><b>6</b> Stochastic Treatment Regimes</a><ul>
+<li class="chapter" data-level="6.1" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#introduction-1"><i class="fa fa-check"></i><b>6.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.3" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#stochastic-interventions"><i class="fa fa-check"></i><b>6.3</b> Stochastic Interventions</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#identifying-the-causal-effect-of-a-stochastic-intervention"><i class="fa fa-check"></i><b>6.3.1</b> Identifying the Causal Effect of a Stochastic Intervention</a></li>
+<li class="chapter" data-level="6.3.2" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#interpreting-the-causal-effect-of-a-stochastic-intervention"><i class="fa fa-check"></i><b>6.3.2</b> Interpreting the Causal Effect of a Stochastic Intervention</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#estimating-the-causal-effect-of-a-stochastic-intervention-with-tmle3shift"><i class="fa fa-check"></i><b>6.4</b> Estimating the Causal Effect of a Stochastic Intervention with <code>tmle3shift</code></a><ul>
+<li class="chapter" data-level="6.4.1" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#simulate-data-1"><i class="fa fa-check"></i><b>6.4.1</b> Simulate Data</a></li>
+<li class="chapter" data-level="6.4.2" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#targeted-estimation-of-stochastic-interventions-effects"><i class="fa fa-check"></i><b>6.4.2</b> Targeted Estimation of Stochastic Interventions Effects</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#stochastic-interventions-over-a-grid-of-counterfactual-shifts"><i class="fa fa-check"></i><b>6.5</b> Stochastic Interventions over a Grid of Counterfactual Shifts</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#initializing-vimshift-through-its-tmle3_spec"><i class="fa fa-check"></i><b>6.5.1</b> Initializing <code>vimshift</code> through its <code>tmle3_Spec</code></a></li>
+<li class="chapter" data-level="6.5.2" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#targeted-estimation-of-stochastic-intervention-effects"><i class="fa fa-check"></i><b>6.5.2</b> Targeted Estimation of Stochastic Intervention Effects</a></li>
+<li class="chapter" data-level="6.5.3" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#inference-with-marginal-structural-models"><i class="fa fa-check"></i><b>6.5.3</b> Inference with Marginal Structural Models</a></li>
+<li class="chapter" data-level="6.5.4" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#directly-targeting-the-msm-parameter-beta"><i class="fa fa-check"></i><b>6.5.4</b> Directly Targeting the MSM Parameter <span class="math inline">\(\beta\)</span></a></li>
+<li class="chapter" data-level="6.5.5" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#example-with-the-wash-benefits-data"><i class="fa fa-check"></i><b>6.5.5</b> Example with the WASH Benefits Data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#exercises"><i class="fa fa-check"></i><b>6.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="r6.html"><a href="r6.html"><i class="fa fa-check"></i><b>7</b> A Primer on the <code>R6</code> Class System</a><ul>
+<li class="chapter" data-level="7.1" data-path="r6.html"><a href="r6.html#classes-fields-and-methods"><i class="fa fa-check"></i><b>7.1</b> Classes, Fields, and Methods</a></li>
+<li class="chapter" data-level="7.2" data-path="r6.html"><a href="r6.html#object-oriented-programming-python-and-r"><i class="fa fa-check"></i><b>7.2</b> Object Oriented Programming: <code>Python</code> and <code>R</code></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -694,7 +739,7 @@ parameters such as optimal treatments and shift interventions.</p>
         </div>
       </div>
 <a href="ensemble-machine-learning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r6.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="optimal-individualized-treatment-regimes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
