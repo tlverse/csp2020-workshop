@@ -118,11 +118,11 @@ different identifiability assumptions discussed below.
 
 ## Identifiability
 
-Because we can never observe both $Y(0)$ (the counterfactual outcome when $A=0$)
-and $Y(1)$, we cannot estimate \ref{eqn:ate} directly. Instead, we have to make
-assumptions under which this quantity may be estimated from the observed data
-$O \sim P_0$ under the data-generating distribution $P_0$. Fortunately, given
-the causal model specified in the NPSEM above, we can, with a handful of
+Because we can never observe both $Y(0)$ (the counterfactual outcome when
+$A=0$) and $Y(1)$, we cannot estimate \ref{eqn:ate} directly. Instead, we have
+to make assumptions under which this quantity may be estimated from the observed
+data $O \sim P_0$ under the data-generating distribution $P_0$. Fortunately,
+given the causal model specified in the NPSEM above, we can, with a handful of
 untestable assumptions, estimate the ATE, even from observational data. These
 assumptions may be summarized as follows
 
@@ -138,7 +138,7 @@ assumptions may be summarized as follows
    other versions of treatment";
 4. It is also necessary that all observed units, across strata defined by $W$,
    have a bounded (non-deterministic) probability of receiving treatment --
-   that is, $0 < P_0(A = a \mid W) < 1$ for all $a$ and $W$. This assumption is
+   that is, $0 < P_0(A = a \mid W) < 1$ for all $a$ and $W$.  This assumption is
    referred to as _positivity_.
 
 _Remark_: Together, (2) and (3), the assumptions of no interference and
@@ -163,8 +163,7 @@ assumptions and the resulting estimands can be functions of different components
 of $P_0$. We discuss several more complex estimands in later sections of this
 workshop.
 
-## Estimators: SuperLearning and Targeted Maximum Likelihood
-
+## Estimation
 
 Although we will discuss more in later sections, the goals of the estimators we
 desire should be that, among sensible (asymptotically consistent, regular)
@@ -197,15 +196,15 @@ intervention parameters of interest.
   even a convex combination of poor learners can sometimes result in good fit,
   though better to have good candidates).
 
-```{r cv_fig, fig.show="hold"}
-knitr::include_graphics("img/misc/vs.pdf")
+```{r cv_fig, fig.show="hold", out.width = "50%"}
+knitr::include_graphics("./img/misc/vs.pdf")
 ```
 
 The figure above shows an example of 10-fold cross-validation.
 
 The schematic below is a visualization of the following algorithm:
 
-- Break up the sample evenly into V-folds (say V=10).
+- Break up the sample evenly into V-folds (say $V=10$).
 - For each of these 10 folds, remove that portion of the sample (kept out as
   validation sample) and the remaining will be used to fit learners (training
   sample).
@@ -218,23 +217,21 @@ The schematic below is a visualization of the following algorithm:
 - Take out another validation sample and repeat until each of the V-sets of data
   are removed.
 - Compare the cross-validated fit of the learners across all observations based
-  on specified loss function (e.g., squared error, negative log-likelihood, ...)
-  by calculating the corresponding average loss (risk).
+  on specified loss function (e.g., squared error, negative log-likelihood) by
+  calculating the corresponding average loss (risk).
 - Either:
-
   + choose the learner with smallest risk and apply that learner to entire data
     set (resulting SL fit),
   + do a weighted average of the learners to minimize the cross-validated risk
     (construct an ensemble of learners), by
-
     + re-fitting the learners on the original data set, and
     + use the weights above to get the file SL fit.
 
 Note, this entire procedure can be itself cross-validated to get a consistent
 estimate of the future performance of the SL fit.
 
-```{r cv_fig2, fig.show="hold"}
-knitr::include_graphics("img/misc/SLKaiserNew.pdf")
+```{r cv_fig2, fig.show="hold", out.width = "50%"}
+knitr::include_graphics("./img/misc/SLKaiserNew.pdf")
 ```
 
 For prediction, one can use the cross-validated risk to empirically determine
@@ -242,18 +239,19 @@ the relative performance of SL and competing methods.  Below shows the results
 of such a study, comparing the fits of several different learners, including the
 SL algorithms.
 
-```{r cv_fig3, fig.show="hold"}
-knitr::include_graphics("img/misc/ericSL.pdf")
+```{r cv_fig3, fig.show="hold", out.width = "50%"}
+knitr::include_graphics("./img/misc/ericSL.pdf")
 ```
 
 ### Substitution Estimators
 
 - Beyond a fit of the prediction function, one might also want to estimate more
-  targeted parameters specific to certain scientific questions.  
+  targeted parameters specific to certain scientific questions.
 - The approach is to plug into the estimand of interest estimates of the
   relevant distributions.
 - Sometimes, we can use simple empirical distributions, but averaging some
-  function over the observations (e.g., giving weight $1/n$ for all observations).
+  function over the observations (e.g., giving weight $1/n$ for all
+  observations).
 - Other parts of the distribution, like conditional means or probabilities, the
   estimate will require some sort of smoothing due to the curse of
   dimensionality.
@@ -305,8 +303,8 @@ We give one example using an example of the average treatment effect (see above)
 - Thus, every effort is made to achieve minimal bias and the asymptotic
   semi-parametric efficiency bound for the variance.
 
-```{r cv_fig4, fig.show="hold"}
-knitr::include_graphics("img/misc/TMLEimage.pdf")
+```{r cv_fig4, fig.show="hold", out.width = "50%"}
+knitr::include_graphics("./img/misc/TMLEimage.pdf")
 ```
 
 - There are different types of TMLE, sometimes for the same set of parameters,
@@ -314,12 +312,13 @@ knitr::include_graphics("img/misc/TMLEimage.pdf")
 - In this case, one can present the estimator as:
 
 \[
- \Psi(Q^*_n) = \frac{1}{n} \sum_{i=1}^n  \{ \bar{Q}^*_n(1,W_i)-\bar{Q}^*_n(0,W_i)\}
- \]
-where $\bar{Q}^*_n(A,W)$ is the TMLE augmented estimate.
-$f(\bar{Q}^*_n(A,W)) = f(\bar{Q}_n(A,W)) + \epsilon_n * h_n(A,W)$, where
-$f(\cdot)$ is the appropriate link function (e.g., logit), $\epsilon_n$ is an
-estimated coefficient and $h_n(A,W)$ is a "clever covariate".
+ \Psi(Q^{\star}_n) = \frac{1}{n} \sum_{i=1}^n
+   \{ \bar{Q}^{\star}_n(1,W_i)-\bar{Q}^{\star}_n(0,W_i)\}
+\]
+where $\bar{Q}^{\star}_n(A,W)$ is the TMLE augmented estimate.
+$f(\bar{Q}^{\star}_n(A,W)) = f(\bar{Q}_n(A,W)) + \epsilon_n \cdot h_n(A,W)$,
+where $f(\cdot)$ is the appropriate link function (e.g., logit), $\epsilon_n$
+is an estimated coefficient and $h_n(A,W)$ is a clever covariate.
 
 - In this case, $h_n(A,W) = \frac{A}{g_n(W)}-\frac{1-A}{1-g_n(W)}$, with
   $g_n(W) = P_n(A=1 \mid W)$ being the estimated (also by SL) propensity score,
@@ -396,11 +395,11 @@ dat <- read_csv("https://raw.githubusercontent.com/tlverse/tlverse-data/master/w
 dat
 ```
 
-For the purposes of this workshop, we we start by treating the data as
-independent and identically distributed (i.i.d.) random draws from a very large
-target population. We could, with available options, account for the clustering
-of the data (within sampled geographic units), but, for simplification, we avoid
-these details in these workshop presentations, although modifications of our
+For the purposes of this workshop, we we start by treating the data as independent
+and identically distributed (i.i.d.) random draws from a very large target
+population. We could, with available options, account for the clustering of the
+data (within sampled geographic units), but, for simplification, we avoid these
+details in these workshop presentations, although modifications of our
 methodology for biased samples, repeated measures, etc., are available.
 
 We have 28 variables measured, of which 1 variable is set to be the outcome of
