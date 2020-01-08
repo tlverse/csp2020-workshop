@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#the-causal-model"><i class="fa fa-check"></i><b>2.2</b> The Causal Model</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#the-parameter-of-interest"><i class="fa fa-check"></i><b>2.3</b> The Parameter of Interest</a></li>
 <li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#identifiability"><i class="fa fa-check"></i><b>2.4</b> Identifiability</a></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#estimators-superlearning-and-targeted-maximum-likelihood"><i class="fa fa-check"></i><b>2.5</b> Estimators: SuperLearning and Targeted Maximum Likelihood</a><ul>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#estimation"><i class="fa fa-check"></i><b>2.5</b> Estimation</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#super-learning"><i class="fa fa-check"></i><b>2.5.1</b> Super Learning</a></li>
 <li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#substitution-estimators"><i class="fa fa-check"></i><b>2.5.2</b> Substitution Estimators</a></li>
 <li class="chapter" data-level="2.5.3" data-path="intro.html"><a href="intro.html#tmle"><i class="fa fa-check"></i><b>2.5.3</b> TMLE</a></li>
@@ -326,8 +326,8 @@ useful tool to express what we know about the causal relations among variables
 that are relevant to the question under study <span class="citation">(Pearl <a href="#ref-pearl2009causality">2009</a>)</span>.</p>
 <p>Ignoring error terms, we will assume the following ordering of the variables in
 <span class="math inline">\(O\)</span>.</p>
-<div id="htmlwidget-bbdcd0e2ea519a1293cf" style="width:200px;height:300px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-bbdcd0e2ea519a1293cf">{"x":{"nodes":{"id":["W","A","Y"],"label":["W","A","Y"]},"edges":{"from":["W","W","A"],"to":["A","Y","Y"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":{"to":true}},"layout":{"randomSeed":25}},"groups":null,"width":"200px","height":"300px","idselection":{"enabled":false},"byselection":{"enabled":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f11f5d6c2fcfab12af25" style="width:200px;height:300px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f11f5d6c2fcfab12af25">{"x":{"nodes":{"id":["W","A","Y"],"label":["W","A","Y"]},"edges":{"from":["W","W","A"],"to":["A","Y","Y"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":{"to":true}},"layout":{"randomSeed":25}},"groups":null,"width":"200px","height":"300px","idselection":{"enabled":false},"byselection":{"enabled":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)"},"evals":[],"jsHooks":[]}</script>
 <p>While directed acyclic graphs (DAGs) like above provide a convenient means by
 which to visualize causal relations between variables, the causal relations
 among variables can be represented via a set of structural equations:
@@ -389,11 +389,11 @@ different identifiability assumptions discussed below.</p>
 </div>
 <div id="identifiability" class="section level2">
 <h2><span class="header-section-number">2.4</span> Identifiability</h2>
-<p>Because we can never observe both <span class="math inline">\(Y(0)\)</span> (the counterfactual outcome when <span class="math inline">\(A=0\)</span>)
-and <span class="math inline">\(Y(1)\)</span>, we cannot estimate  directly. Instead, we have to make
-assumptions under which this quantity may be estimated from the observed data
-<span class="math inline">\(O \sim P_0\)</span> under the data-generating distribution <span class="math inline">\(P_0\)</span>. Fortunately, given
-the causal model specified in the NPSEM above, we can, with a handful of
+<p>Because we can never observe both <span class="math inline">\(Y(0)\)</span> (the counterfactual outcome when
+<span class="math inline">\(A=0\)</span>) and <span class="math inline">\(Y(1)\)</span>, we cannot estimate  directly. Instead, we have
+to make assumptions under which this quantity may be estimated from the observed
+data <span class="math inline">\(O \sim P_0\)</span> under the data-generating distribution <span class="math inline">\(P_0\)</span>. Fortunately,
+given the causal model specified in the NPSEM above, we can, with a handful of
 untestable assumptions, estimate the ATE, even from observational data. These
 assumptions may be summarized as follows</p>
 <ol style="list-style-type: decimal">
@@ -433,8 +433,8 @@ assumptions and the resulting estimands can be functions of different components
 of <span class="math inline">\(P_0\)</span>. We discuss several more complex estimands in later sections of this
 workshop.</p>
 </div>
-<div id="estimators-superlearning-and-targeted-maximum-likelihood" class="section level2">
-<h2><span class="header-section-number">2.5</span> Estimators: SuperLearning and Targeted Maximum Likelihood</h2>
+<div id="estimation" class="section level2">
+<h2><span class="header-section-number">2.5</span> Estimation</h2>
 <p>Although we will discuss more in later sections, the goals of the estimators we
 desire should be that, among sensible (asymptotically consistent, regular)
 estimators,</p>
@@ -466,12 +466,12 @@ resulting fit will be as good as possible, given the learners provided (note,
 even a convex combination of poor learners can sometimes result in good fit,
 though better to have good candidates).</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;img/misc/vs.pdf&quot;</span>)</a></code></pre></div>
-<embed src="img/misc/vs.pdf" width="    extwidth" style="display: block; margin: auto;" type="application/pdf" />
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./img/misc/vs.pdf&quot;</span>)</a></code></pre></div>
+<embed src="./img/misc/vs.pdf" width="50%" style="display: block; margin: auto;" type="application/pdf" />
 <p>The figure above shows an example of 10-fold cross-validation.</p>
 <p>The schematic below is a visualization of the following algorithm:</p>
 <ul>
-<li>Break up the sample evenly into V-folds (say V=10).</li>
+<li>Break up the sample evenly into V-folds (say <span class="math inline">\(V=10\)</span>).</li>
 <li>For each of these 10 folds, remove that portion of the sample (kept out as
 validation sample) and the remaining will be used to fit learners (training
 sample).</li>
@@ -484,14 +484,14 @@ using each of the learners, so if there are <span class="math inline">\(p\)</spa
 <li>Take out another validation sample and repeat until each of the V-sets of data
 are removed.</li>
 <li>Compare the cross-validated fit of the learners across all observations based
-on specified loss function (e.g., squared error, negative log-likelihood, …)
-by calculating the corresponding average loss (risk).</li>
-<li><p>Either:</p>
+on specified loss function (e.g., squared error, negative log-likelihood) by
+calculating the corresponding average loss (risk).</li>
+<li>Either:
 <ul>
 <li>choose the learner with smallest risk and apply that learner to entire data
 set (resulting SL fit),</li>
-<li><p>do a weighted average of the learners to minimize the cross-validated risk
-(construct an ensemble of learners), by</p>
+<li>do a weighted average of the learners to minimize the cross-validated risk
+(construct an ensemble of learners), by
 <ul>
 <li>re-fitting the learners on the original data set, and</li>
 <li>use the weights above to get the file SL fit.</li>
@@ -500,25 +500,25 @@ set (resulting SL fit),</li>
 </ul>
 <p>Note, this entire procedure can be itself cross-validated to get a consistent
 estimate of the future performance of the SL fit.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;img/misc/SLKaiserNew.pdf&quot;</span>)</a></code></pre></div>
-<embed src="img/misc/SLKaiserNew.pdf" width="   extwidth" style="display: block; margin: auto;" type="application/pdf" />
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./img/misc/SLKaiserNew.pdf&quot;</span>)</a></code></pre></div>
+<embed src="./img/misc/SLKaiserNew.pdf" width="50%" style="display: block; margin: auto;" type="application/pdf" />
 <p>For prediction, one can use the cross-validated risk to empirically determine
 the relative performance of SL and competing methods. Below shows the results
 of such a study, comparing the fits of several different learners, including the
 SL algorithms.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;img/misc/ericSL.pdf&quot;</span>)</a></code></pre></div>
-<embed src="img/misc/ericSL.pdf" width="    extwidth" style="display: block; margin: auto;" type="application/pdf" />
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./img/misc/ericSL.pdf&quot;</span>)</a></code></pre></div>
+<embed src="./img/misc/ericSL.pdf" width="50%" style="display: block; margin: auto;" type="application/pdf" />
 </div>
 <div id="substitution-estimators" class="section level3">
 <h3><span class="header-section-number">2.5.2</span> Substitution Estimators</h3>
 <ul>
 <li>Beyond a fit of the prediction function, one might also want to estimate more
-targeted parameters specific to certain scientific questions.<br />
-</li>
+targeted parameters specific to certain scientific questions.</li>
 <li>The approach is to plug into the estimand of interest estimates of the
 relevant distributions.</li>
 <li>Sometimes, we can use simple empirical distributions, but averaging some
-function over the observations (e.g., giving weight <span class="math inline">\(1/n\)</span> for all observations).</li>
+function over the observations (e.g., giving weight <span class="math inline">\(1/n\)</span> for all
+observations).</li>
 <li>Other parts of the distribution, like conditional means or probabilities, the
 estimate will require some sort of smoothing due to the curse of
 dimensionality.</li>
@@ -571,20 +571,21 @@ model efficiency theory.</li>
 <li>Thus, every effort is made to achieve minimal bias and the asymptotic
 semi-parametric efficiency bound for the variance.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;img/misc/TMLEimage.pdf&quot;</span>)</a></code></pre></div>
-<embed src="img/misc/TMLEimage.pdf" width=" extwidth" style="display: block; margin: auto;" type="application/pdf" />
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./img/misc/TMLEimage.pdf&quot;</span>)</a></code></pre></div>
+<embed src="./img/misc/TMLEimage.pdf" width="50%" style="display: block; margin: auto;" type="application/pdf" />
 <ul>
 <li>There are different types of TMLE, sometimes for the same set of parameters,
 but below is an example of the algorithm for estimating the ATE.</li>
 <li>In this case, one can present the estimator as:</li>
 </ul>
 <p><span class="math display">\[
- \Psi(Q^*_n) = \frac{1}{n} \sum_{i=1}^n  \{ \bar{Q}^*_n(1,W_i)-\bar{Q}^*_n(0,W_i)\}
- \]</span>
-where <span class="math inline">\(\bar{Q}^*_n(A,W)\)</span> is the TMLE augmented estimate.
-<span class="math inline">\(f(\bar{Q}^*_n(A,W)) = f(\bar{Q}_n(A,W)) + \epsilon_n * h_n(A,W)\)</span>, where
-<span class="math inline">\(f(\cdot)\)</span> is the appropriate link function (e.g., logit), <span class="math inline">\(\epsilon_n\)</span> is an
-estimated coefficient and <span class="math inline">\(h_n(A,W)\)</span> is a “clever covariate”.</p>
+ \Psi(Q^{\star}_n) = \frac{1}{n} \sum_{i=1}^n
+   \{ \bar{Q}^{\star}_n(1,W_i)-\bar{Q}^{\star}_n(0,W_i)\}
+\]</span>
+where <span class="math inline">\(\bar{Q}^{\star}_n(A,W)\)</span> is the TMLE augmented estimate.
+<span class="math inline">\(f(\bar{Q}^{\star}_n(A,W)) = f(\bar{Q}_n(A,W)) + \epsilon_n \cdot h_n(A,W)\)</span>,
+where <span class="math inline">\(f(\cdot)\)</span> is the appropriate link function (e.g., logit), <span class="math inline">\(\epsilon_n\)</span>
+is an estimated coefficient and <span class="math inline">\(h_n(A,W)\)</span> is a clever covariate.</p>
 <ul>
 <li>In this case, <span class="math inline">\(h_n(A,W) = \frac{A}{g_n(W)}-\frac{1-A}{1-g_n(W)}\)</span>, with
 <span class="math inline">\(g_n(W) = P_n(A=1 \mid W)\)</span> being the estimated (also by SL) propensity score,
@@ -679,11 +680,11 @@ NCT01590095.</p>
 #   asset_table &lt;dbl&gt;, asset_chair &lt;dbl&gt;, asset_khat &lt;dbl&gt;, asset_chouki &lt;dbl&gt;,
 #   asset_tv &lt;dbl&gt;, asset_refrig &lt;dbl&gt;, asset_bike &lt;dbl&gt;, asset_moto &lt;dbl&gt;,
 #   asset_sewmach &lt;dbl&gt;, asset_mobile &lt;dbl&gt;</code></pre>
-<p>For the purposes of this workshop, we we start by treating the data as
-independent and identically distributed (i.i.d.) random draws from a very large
-target population. We could, with available options, account for the clustering
-of the data (within sampled geographic units), but, for simplification, we avoid
-these details in these workshop presentations, although modifications of our
+<p>For the purposes of this workshop, we we start by treating the data as independent
+and identically distributed (i.i.d.) random draws from a very large target
+population. We could, with available options, account for the clustering of the
+data (within sampled geographic units), but, for simplification, we avoid these
+details in these workshop presentations, although modifications of our
 methodology for biased samples, repeated measures, etc., are available.</p>
 <p>We have 28 variables measured, of which 1 variable is set to be the outcome of
 interest. This outcome, <span class="math inline">\(Y\)</span>, is the weight-for-height Z-score (<code>whz</code> in <code>dat</code>);
@@ -1175,7 +1176,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/tlverse/csp2020-workshop/edit/master/03-intro-TL.Rmd",
+"link": "https://github.com/tlverse/csp2020-workshop/edit/master/03-intro-roadmap.Rmd",
 "text": "Edit"
 },
 "history": {
