@@ -225,11 +225,6 @@ Using the WASH data, we are interested in predicting weight-for-height z-score
 
 First, we will load the relevant `R` packages, set a seed, and load the data.
 
-If you would like to use newer `sl3` functionality that is available in the 
-devel branch of the `sl3` GitHub repository, you need to install that version of 
-the package (e.g. `devtools::install_github(tlverse/sl3@devel)`), re-start your 
-`R` session, and then re-load the `sl3` package. 
-
 ```{r setup, message=FALSE, warning=FALSE}
 library(here)
 library(data.table)
@@ -354,7 +349,7 @@ lrnr_bayesglm <- Lrnr_pkg_SuperLearner$new("SL.bayesglm")
 
 Here is a fun trick to create customized learners over a grid of parameters.
 
-```{r extra-lrnr-mindblown, eval = FALSE}
+```{r extra-lrnr-svm, eval = FALSE}
 # I like to crock pot my super learners
 grid_params <- list(cost = c(0.01, 0.1, 1, 10, 100, 1000),
                     gamma = c(0.001, 0.01, 0.1, 1),
@@ -364,7 +359,8 @@ grid <- expand.grid(grid_params, KEEP.OUT.ATTRS = FALSE)
 params_default <- list(nthread = getOption("sl.cores.learners", 1))
 svm_learners <- apply(grid, MARGIN = 1, function(params_tune) {
   do.call(Lrnr_svm$new, c(params_default, as.list(params_tune)))})
-
+```
+```{r extra-lrnr-xgboost}
 grid_params <- list(max_depth = c(2, 4, 6, 8),
                     eta = c(0.001, 0.01, 0.1, 0.2, 0.3),
                     nrounds = c(20, 50))
@@ -388,7 +384,6 @@ lrnr_caret_bartMachine <- make_learner(Lrnr_caret, algorithm = "bartMachine",
                                        method = "boot", metric = "Accuracy",
                                        tuneLength = 10)
 ```
-
 In order to assemble the library of learners, we need to **"stack"** them
 together.
 
@@ -400,7 +395,7 @@ combined or compared.
 ```{r stack}
 stack <- make_learner(
   Stack,
-  lrnr_glm, lrnr_mean, lrnr_ridge, lrnr_lasso, xgb_learners[[1]]
+  lrnr_glm, lrnr_mean, lrnr_ridge, lrnr_lasso, xgb_learners[[10]]
 )
 ```
 
@@ -408,13 +403,7 @@ We can optionally select a subset of available covariates and pass only
 those variables to the modeling algorithm.
 
 Let's consider screening covariates based on their `randomForest` variable 
-importance ranking (ordered by mean decrease in accuracy). We select the top 5 
-most important covariates according to this ranking, and we decreased the 
-ntree to 20. 
-
-Before you think it -- I will confess. Bob Ross and I both know that 20 trees 
-makes for a lonely forest, and I shouldn't even consider it, but these are the 
-sacrifices I have to make for this chapter to build in under 50 minutes! 
+importance ranking (ordered by mean decrease in accuracy). 
 
 ```{r screener}
 screen_rf <- make_learner(Lrnr_screener_randomForest, nVar = 5, ntree = 20)
@@ -475,13 +464,6 @@ Learners](https://tlverse.org/sl3/articles/custom_lrnrs.html) which can be used
 in all the places you could otherwise use any other `sl3` learners, including
 `Pipelines`, `Stacks`, and the Super Learner. 
 
-In the plot below, we visualize the steps for executing the Super Learner in the 
-`tlverse/delayed` framework. For those like myself who are not particularly 
-keen on understanding the intricacies of `delayed`, let's focus on the main 
-point of this figure: we can see there are 10 realizations of the stack which 
-represent the 10 cross-validation folds and there is a separate hold-out 
-(top branch of the figure) that will not be used to fit the Super Learner. 
-
 ```{r make-sl-plot, message=FALSE, warning=FALSE}
 dt_sl <- delayed_learner_train(sl, washb_task)
 plot(dt_sl, color = FALSE, height = "400px", width = "100%")
@@ -534,15 +516,6 @@ We can also obtain a summary of the results.
 ```{r, sl-summary}
 sl_fit$print()
 ```
-From the table of the printed Super Learner fit, we note that the Super Learner
-had a mean risk of `r sl_fit_summary$mean_risk[length(sl_fit_summary$learner)]`
-and that this ensemble weighted the `ranger` and `glmnet` learners highest while
-not weighting the `mean` learner highly. 
-
-We can also see that the `glmnet` learner had the lowest cross-validated mean 
-risk, thus making it the cross-validated selector (or the _discrete_ Super 
-Learner). The mean risk of the Super Learner is calculated using the hold-out 
-set that we visualized in the `dt_sl` plot. 
 
 ## Cross-validated Super Learner
 
@@ -589,17 +562,6 @@ learner fit with a permuted covariate and the learner fit with the true
 covariate, across all covariates. In this manner, the larger the risk
 difference, the more important the variable is in the prediction. 
 
-The intuition of this measure is that it calculates the risk (in terms of the 
-average loss in predictive accuracy) of losing one covariate, while keeping 
-everything else fixed, and compares it to the risk if the covariate was not 
-lost. If this risk difference is zero then losing that covariate had no 
-impact, and is thus not important by this measure. We do this across all of the 
-covariates. As stated above, we don't actually remove the covariate, we just 
-permute/shuffle it, but the idea is that this shuffling distorts potentially
-meaningful information that was present in the covariate. This idea of permuting
-instead of removing saves a lot of time, and is also incorporated in the 
-`randomForest` variable importance measures. 
-
 Let's explore the `sl3` variable importance measurements for the `washb` data.
 
 ```{r varimp}
@@ -609,14 +571,6 @@ washb_varimp %>%
   kableExtra:::kable_styling(fixed_thead = T) %>%
   scroll_box(width = "100%", height = "300px")
 ```
-<!-- Explain summary!!!! -->
-
-### International Stroke Trial Example {-}
-
-Using the IST data, we are interested in predicting recurrent stroke `DRSISC` 
-using the available covariate data.
-
-MORE COMING SOON. STAY TUNED :)
 
 ## Exercise
 
