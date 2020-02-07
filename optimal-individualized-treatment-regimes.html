@@ -174,7 +174,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#the-wash-benefits-example-dataset"><i class="fa fa-check"></i><b>2.6</b> The WASH Benefits Example Dataset</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="sl3.html"><a href="sl3.html"><i class="fa fa-check"></i><b>3</b> Super (Ensemble Machine) Learning</a><ul>
+<li class="chapter" data-level="3" data-path="sl3.html"><a href="sl3.html"><i class="fa fa-check"></i><b>3</b> Super (Machine) Learning</a><ul>
 <li class="chapter" data-level="3.1" data-path="sl3.html"><a href="sl3.html#learning-objectives-2"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="3.2" data-path="sl3.html"><a href="sl3.html#motivation-1"><i class="fa fa-check"></i><b>3.2</b> Motivation</a></li>
 <li class="chapter" data-level="3.3" data-path="sl3.html"><a href="sl3.html#introduction-1"><i class="fa fa-check"></i><b>3.3</b> Introduction</a><ul>
@@ -182,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.2" data-path="sl3.html"><a href="sl3.html#super-learner-for-prediction"><i class="fa fa-check"></i><b>3.3.2</b> Super Learner for Prediction</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="sl3.html"><a href="sl3.html#sl3-microwave-dinner-implementation"><i class="fa fa-check"></i><b>3.4</b> <code>sl3</code> “Microwave Dinner” Implementation</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="sl3.html"><a href="sl3.html#wash-benefits-study-example"><i class="fa fa-check"></i><b>3.4.1</b> WASH Benefits Study Example</a></li>
+<li class="chapter" data-level="" data-path="sl3.html"><a href="sl3.html#wash-benefits-study-example"><i class="fa fa-check"></i>WASH Benefits Study Example</a></li>
 <li class="chapter" data-level="" data-path="sl3.html"><a href="sl3.html#load-the-necessary-libraries-and-data"><i class="fa fa-check"></i>0. Load the necessary libraries and data</a></li>
 <li class="chapter" data-level="" data-path="sl3.html"><a href="sl3.html#define-the-machine-learning-task"><i class="fa fa-check"></i>1. Define the machine learning task</a></li>
 <li class="chapter" data-level="" data-path="sl3.html"><a href="sl3.html#make-a-super-learner"><i class="fa fa-check"></i>2. Make a Super Learner</a></li>
@@ -732,14 +732,14 @@ be used to estimate <span class="math inline">\(g_0(A|W)\)</span> in <code>sl3</
 <a class="sourceLine" id="cb88-3" data-line-number="3">fit</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
    type         param  init_est  tmle_est         se     lower     upper
-1:  TSM E[Y_{A=NULL}] 0.5379165 0.5810568 0.06387337 0.4558673 0.7062463
+1:  TSM E[Y_{A=NULL}] 0.5488629 0.6034251 0.07129834 0.4636829 0.7431673
    psi_transformed lower_transformed upper_transformed
-1:       0.5810568         0.4558673         0.7062463</code></pre>
+1:       0.6034251         0.4636829         0.7431673</code></pre>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="co"># How many individuals got assigned each treatment?</span></a>
 <a class="sourceLine" id="cb90-2" data-line-number="2"><span class="kw">table</span>(tmle_spec<span class="op">$</span>return_rule)</a></code></pre></div>
 <pre><code>
   1   2   3 
-430 384 186 </code></pre>
+426 400 174 </code></pre>
 <p>We can see that the confidence interval covers
 our true mean under the true optimal individualized treatment.</p>
 <p><strong>NOTICE the distribution of the assigned treatment! We will need this shortly.</strong></p>
@@ -779,9 +779,9 @@ inference for the counterfactual mean outcome under the sub-optimal rule.</p></l
 <a class="sourceLine" id="cb93-3" data-line-number="3">fit</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
    type                param  init_est  tmle_est         se     lower     upper
-1:  TSM E[Y_{A=W4,W3,W2,W1}] 0.5430292 0.5927817 0.07395691 0.4478288 0.7377346
+1:  TSM E[Y_{A=W4,W3,W2,W1}] 0.5467845 0.6307894 0.06360435 0.5061272 0.7554516
    psi_transformed lower_transformed upper_transformed
-1:       0.5927817         0.4478288         0.7377346</code></pre>
+1:       0.6307894         0.5061272         0.7554516</code></pre>
 <p>Even though the user specified all baseline covariates as the basis
 for rule estimation, a simpler rule is sufficient to
 maximize the mean under the optimal individualized treatment!</p>
@@ -813,14 +813,14 @@ supported by the data.</p></li>
 <a class="sourceLine" id="cb96-3" data-line-number="3">fit</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
    type         param  init_est  tmle_est         se     lower     upper
-1:  TSM E[Y_{A=NULL}] 0.5538181 0.6517198 0.02142322 0.6097311 0.6937086
+1:  TSM E[Y_{A=NULL}] 0.5469311 0.6541243 0.02155799 0.6118715 0.6963772
    psi_transformed lower_transformed upper_transformed
-1:       0.6517198         0.6097311         0.6937086</code></pre>
+1:       0.6541243         0.6118715         0.6963772</code></pre>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="co"># How many individuals got assigned each treatment?</span></a>
 <a class="sourceLine" id="cb98-2" data-line-number="2"><span class="kw">table</span>(tmle_spec<span class="op">$</span>return_rule)</a></code></pre></div>
 <pre><code>
   2   3 
-505 495 </code></pre>
+508 492 </code></pre>
 <p><strong>QUESTION:</strong> Referring back to the data-generating distribution, why do you
 think the distribution of allocated treatment changed from the distribution
 that we had under the “non-realistic” rule?</p>
@@ -875,15 +875,15 @@ interest (called a <code>tmle3_Spec</code> in the <code>tlverse</code> nomenclat
 <a class="sourceLine" id="cb102-4" data-line-number="4">)</a>
 <a class="sourceLine" id="cb102-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb102-6" data-line-number="6"><span class="kw">print</span>(vim_results)</a></code></pre></div>
-<pre><code>   type                  param      init_est    tmle_est         se       lower
-1:   RR RR(E[Y_{A=NULL}]/E[Y]) -0.0214989924 -0.10829095 0.05261608 -0.21141657
-2:   RR RR(E[Y_{A=NULL}]/E[Y]) -0.0006806335  0.01777658 0.03504932 -0.05091883
-          upper psi_transformed lower_transformed upper_transformed  A
-1: -0.005165331       0.8973665         0.8094368          0.994848 W1
-2:  0.086471986       1.0179355         0.9503558          1.090321  A
-             W     Z_stat       p_nz p_nz_corrected
-1:  W3,W4,W2,A -2.0581342 0.01978863     0.03957725
-2: W3,W4,W2,W1  0.5071874 0.30601166     0.30601166</code></pre>
+<pre><code>   type                  param      init_est    tmle_est         se
+1:   RR RR(E[Y_{A=NULL}]/E[Y])  0.0005431161  0.07123949 0.03335958
+2:   RR RR(E[Y_{A=NULL}]/E[Y]) -0.0236321917 -0.09055894 0.05128722
+          lower       upper psi_transformed lower_transformed upper_transformed
+1:  0.005855923 0.136623059       1.0738384         1.0058731          1.146396
+2: -0.191080040 0.009962154       0.9134205         0.8260665          1.010012
+    A           W    Z_stat       p_nz p_nz_corrected
+1:  A W3,W4,W2,W1  2.135503 0.01635995     0.03271991
+2: W1  W3,W4,W2,A -1.765722 0.03872129     0.03872129</code></pre>
 <p>The final result of <code>tmle3_vim</code> with the <code>tmle3mopttx</code> spec is an ordered list
 of mean outcomes under the optimal individualized treatment for all categorical
 covariates in our dataset.</p>
