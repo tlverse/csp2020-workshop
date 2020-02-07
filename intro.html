@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 The Targeted Learning Roadmap | Targeted Learning with the tlverse Software Ecosystem</title>
+  <title>Chapter 2 The Roadmap for Targeted Learning | Targeted Learning with the tlverse Software Ecosystem</title>
   <meta name="description" content="An open-source and fully-reproducible electronic set of teaching materials accompanying an invited short-course on applying Targeted Learning using the tlverse software ecosystem." />
-  <meta name="generator" content="bookdown 0.17.1 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 The Targeted Learning Roadmap | Targeted Learning with the tlverse Software Ecosystem" />
+  <meta property="og:title" content="Chapter 2 The Roadmap for Targeted Learning | Targeted Learning with the tlverse Software Ecosystem" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://tlverse.org/csp2020-workshop/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tlverse/csp2020-workshop" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 The Targeted Learning Roadmap | Targeted Learning with the tlverse Software Ecosystem" />
+  <meta name="twitter:title" content="Chapter 2 The Roadmap for Targeted Learning | Targeted Learning with the tlverse Software Ecosystem" />
   
   <meta name="twitter:description" content="An open-source and fully-reproducible electronic set of teaching materials accompanying an invited short-course on applying Targeted Learning using the tlverse software ecosystem." />
   
@@ -31,7 +31,7 @@
   
   <link rel="shortcut icon" href="img/logos/favicons/favicon.png" type="image/x-icon" />
 <link rel="prev" href="tlverse.html"/>
-<link rel="next" href="ensemble-machine-learning.html"/>
+<link rel="next" href="sl3.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -157,42 +157,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3" data-path="tlverse.html"><a href="tlverse.html#tlverse-components"><i class="fa fa-check"></i><b>1.3</b> <code>tlverse</code> components</a></li>
 <li class="chapter" data-level="1.4" data-path="tlverse.html"><a href="tlverse.html#installtlverse"><i class="fa fa-check"></i><b>1.4</b> Installation</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> The Targeted Learning Roadmap</a><ul>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#the-statistical-model"><i class="fa fa-check"></i><b>2.1</b> The Statistical Model</a></li>
-<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#the-causal-model"><i class="fa fa-check"></i><b>2.2</b> The Causal Model</a></li>
-<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#the-parameter-of-interest"><i class="fa fa-check"></i><b>2.3</b> The Parameter of Interest</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#identifiability"><i class="fa fa-check"></i><b>2.4</b> Identifiability</a></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#estimation"><i class="fa fa-check"></i><b>2.5</b> Estimation</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#super-learning"><i class="fa fa-check"></i><b>2.5.1</b> Super Learning</a></li>
-<li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#substitution-estimators"><i class="fa fa-check"></i><b>2.5.2</b> Substitution Estimators</a></li>
-<li class="chapter" data-level="2.5.3" data-path="intro.html"><a href="intro.html#tmle"><i class="fa fa-check"></i><b>2.5.3</b> TMLE</a></li>
-<li class="chapter" data-level="2.5.4" data-path="intro.html"><a href="intro.html#inference"><i class="fa fa-check"></i><b>2.5.4</b> Inference</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> The Roadmap for Targeted Learning</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#learning-objectives-1"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#introduction"><i class="fa fa-check"></i><b>2.2</b> Introduction</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#the-roadmap"><i class="fa fa-check"></i><b>2.3</b> The Roadmap</a><ul>
+<li><a href="intro.html#data-as-a-random-variable-with-a-probability-distribution-o-sim-p_0">(1) Data as a random variable with a probability distribution, <span class="math inline">\(O \sim P_0\)</span></a></li>
+<li><a href="intro.html#the-statistical-model-mathcalm-such-that-p_0-in-mathcalm">(2) The statistical model <span class="math inline">\(\mathcal{M}\)</span> such that <span class="math inline">\(P_0 \in \mathcal{M}\)</span></a></li>
+<li><a href="intro.html#the-statistical-target-parameter-psi-and-estimand-psip_0">(3) The statistical target parameter <span class="math inline">\(\Psi\)</span> and estimand <span class="math inline">\(\Psi(P_0)\)</span></a></li>
+<li><a href="intro.html#the-estimator-hatpsi-and-estimate-hatpsip_n">(4) The estimator <span class="math inline">\(\hat{\Psi}\)</span> and estimate <span class="math inline">\(\hat{\Psi}(P_n)\)</span></a></li>
+<li><a href="intro.html#a-measure-of-uncertainty-for-the-estimate-hatpsip_n">(5) A measure of uncertainty for the estimate <span class="math inline">\(\hat{\Psi}(P_n)\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#summary-of-the-roadmap"><i class="fa fa-check"></i><b>2.4</b> Summary of the Roadmap</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#causal"><i class="fa fa-check"></i><b>2.5</b> Causal Target Parameters</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#the-causal-model"><i class="fa fa-check"></i><b>2.5.1</b> The Causal Model</a></li>
+<li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#identifiability"><i class="fa fa-check"></i><b>2.5.2</b> Identifiability</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#the-wash-benefits-example-dataset"><i class="fa fa-check"></i><b>2.6</b> The WASH Benefits Example Dataset</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html"><i class="fa fa-check"></i><b>3</b> Ensemble Machine Learning</a><ul>
-<li class="chapter" data-level="3.1" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="3.2" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#introduction"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
-<li class="chapter" data-level="3.3" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#basic-sl3-implementation"><i class="fa fa-check"></i><b>3.3</b> Basic <code>sl3</code> Implementation</a><ul>
-<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#wash-benefits-study-example"><i class="fa fa-check"></i>WASH Benefits Study Example</a></li>
-<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#load-the-necessary-libraries-and-data"><i class="fa fa-check"></i>0. Load the necessary libraries and data</a></li>
-<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#define-the-machine-learning-task"><i class="fa fa-check"></i>1. Define the machine learning task</a></li>
-<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#make-a-super-learner"><i class="fa fa-check"></i>2. Make a super learner</a></li>
-<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#train-the-super-learner-on-the-machine-learning-task"><i class="fa fa-check"></i>3. Train the super learner on the machine learning task</a></li>
-<li class="chapter" data-level="" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#obtain-predicted-values"><i class="fa fa-check"></i>4. Obtain predicted values</a></li>
+<li class="chapter" data-level="3" data-path="sl3.html"><a href="sl3.html"><i class="fa fa-check"></i><b>3</b> Super (Ensemble Machine) Learning</a><ul>
+<li class="chapter" data-level="3.1" data-path="sl3.html"><a href="sl3.html#learning-objectives-2"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="sl3.html"><a href="sl3.html#motivation-1"><i class="fa fa-check"></i><b>3.2</b> Motivation</a></li>
+<li class="chapter" data-level="3.3" data-path="sl3.html"><a href="sl3.html#introduction-1"><i class="fa fa-check"></i><b>3.3</b> Introduction</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="sl3.html"><a href="sl3.html#background"><i class="fa fa-check"></i><b>3.3.1</b> Background</a></li>
+<li class="chapter" data-level="3.3.2" data-path="sl3.html"><a href="sl3.html#super-learner-for-prediction"><i class="fa fa-check"></i><b>3.3.2</b> Super Learner for Prediction</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#extensions"><i class="fa fa-check"></i><b>3.4</b> Extensions</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#cross-validated-super-learner"><i class="fa fa-check"></i><b>3.4.1</b> Cross-validated Super Learner</a></li>
-<li class="chapter" data-level="3.4.2" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#variable-importance-measures-with-sl3"><i class="fa fa-check"></i><b>3.4.2</b> Variable Importance Measures with <code>sl3</code></a></li>
+<li class="chapter" data-level="3.4" data-path="sl3.html"><a href="sl3.html#sl3-microwave-dinner-implementation"><i class="fa fa-check"></i><b>3.4</b> <code>sl3</code> “Microwave Dinner” Implementation</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="sl3.html"><a href="sl3.html#wash-benefits-study-example"><i class="fa fa-check"></i><b>3.4.1</b> WASH Benefits Study Example</a></li>
+<li class="chapter" data-level="" data-path="sl3.html"><a href="sl3.html#load-the-necessary-libraries-and-data"><i class="fa fa-check"></i>0. Load the necessary libraries and data</a></li>
+<li class="chapter" data-level="" data-path="sl3.html"><a href="sl3.html#define-the-machine-learning-task"><i class="fa fa-check"></i>1. Define the machine learning task</a></li>
+<li class="chapter" data-level="" data-path="sl3.html"><a href="sl3.html#make-a-super-learner"><i class="fa fa-check"></i>2. Make a Super Learner</a></li>
+<li class="chapter" data-level="" data-path="sl3.html"><a href="sl3.html#train-the-super-learner-on-the-machine-learning-task"><i class="fa fa-check"></i>3. Train the Super Learner on the machine learning task</a></li>
+<li class="chapter" data-level="" data-path="sl3.html"><a href="sl3.html#obtain-predicted-values"><i class="fa fa-check"></i>4. Obtain predicted values</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#exercise"><i class="fa fa-check"></i><b>3.5</b> Exercise</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#predicting-myocardial-infarction-with-sl3"><i class="fa fa-check"></i><b>3.5.1</b> Predicting Myocardial Infarction with <code>sl3</code></a></li>
+<li class="chapter" data-level="3.5" data-path="sl3.html"><a href="sl3.html#cross-validated-super-learner"><i class="fa fa-check"></i><b>3.5</b> Cross-validated Super Learner</a></li>
+<li class="chapter" data-level="3.6" data-path="sl3.html"><a href="sl3.html#variable-importance-measures-with-sl3"><i class="fa fa-check"></i><b>3.6</b> Variable Importance Measures with <code>sl3</code></a></li>
+<li class="chapter" data-level="3.7" data-path="sl3.html"><a href="sl3.html#exercise"><i class="fa fa-check"></i><b>3.7</b> Exercise</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="sl3.html"><a href="sl3.html#sl3ex"><i class="fa fa-check"></i><b>3.7.1</b> Predicting Myocardial Infarction with <code>sl3</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="ensemble-machine-learning.html"><a href="ensemble-machine-learning.html#summary"><i class="fa fa-check"></i><b>3.6</b> Summary</a></li>
+<li class="chapter" data-level="3.8" data-path="sl3.html"><a href="sl3.html#concluding-remarks"><i class="fa fa-check"></i><b>3.8</b> Concluding Remarks</a></li>
+<li class="chapter" data-level="3.9" data-path="sl3.html"><a href="sl3.html#appendix"><i class="fa fa-check"></i><b>3.9</b> Appendix</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="sl3.html"><a href="sl3.html#exercise-1-solution"><i class="fa fa-check"></i><b>3.9.1</b> Exercise 1 Solution</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html"><i class="fa fa-check"></i><b>4</b> The TMLE Framework</a><ul>
-<li class="chapter" data-level="4.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="4.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#easy-bake-example-tmle3-for-ate"><i class="fa fa-check"></i><b>4.2</b> Easy-Bake Example: <code>tmle3</code> for ATE</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#introduction-2"><i class="fa fa-check"></i><b>4.1</b> Introduction</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#substitution-estimators"><i class="fa fa-check"></i><b>4.1.1</b> Substitution Estimators</a></li>
+<li class="chapter" data-level="4.1.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#tmle"><i class="fa fa-check"></i><b>4.1.2</b> TMLE</a></li>
+<li class="chapter" data-level="4.1.3" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#inference"><i class="fa fa-check"></i><b>4.1.3</b> Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#learning-objectives-3"><i class="fa fa-check"></i><b>4.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.3" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#easy-bake-example-tmle3-for-ate"><i class="fa fa-check"></i><b>4.3</b> Easy-Bake Example: <code>tmle3</code> for ATE</a><ul>
 <li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#load-the-data"><i class="fa fa-check"></i>0. Load the Data</a></li>
 <li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#define-the-variable-roles"><i class="fa fa-check"></i>1. Define the variable roles</a></li>
 <li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#create-a-spec-object"><i class="fa fa-check"></i>2. Create a “Spec” Object</a></li>
@@ -200,23 +214,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fit-the-tmle"><i class="fa fa-check"></i>4. Fit the TMLE</a></li>
 <li class="chapter" data-level="" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#evaluate-the-estimates"><i class="fa fa-check"></i>5. Evaluate the Estimates</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#tmle3-components"><i class="fa fa-check"></i><b>4.3</b> <code>tmle3</code> Components</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#tmle3_task"><i class="fa fa-check"></i><b>4.3.1</b> <code>tmle3_task</code></a></li>
-<li class="chapter" data-level="4.3.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#initial-likelihood"><i class="fa fa-check"></i><b>4.3.2</b> Initial Likelihood</a></li>
-<li class="chapter" data-level="4.3.3" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#targeted-likelihood-updater"><i class="fa fa-check"></i><b>4.3.3</b> Targeted Likelihood (updater)</a></li>
-<li class="chapter" data-level="4.3.4" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#parameter-mapping"><i class="fa fa-check"></i><b>4.3.4</b> Parameter Mapping</a></li>
-<li class="chapter" data-level="4.3.5" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#putting-it-all-together"><i class="fa fa-check"></i><b>4.3.5</b> Putting it all together</a></li>
+<li class="chapter" data-level="4.4" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#tmle3-components"><i class="fa fa-check"></i><b>4.4</b> <code>tmle3</code> Components</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#tmle3_task"><i class="fa fa-check"></i><b>4.4.1</b> <code>tmle3_task</code></a></li>
+<li class="chapter" data-level="4.4.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#initial-likelihood"><i class="fa fa-check"></i><b>4.4.2</b> Initial Likelihood</a></li>
+<li class="chapter" data-level="4.4.3" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#targeted-likelihood-updater"><i class="fa fa-check"></i><b>4.4.3</b> Targeted Likelihood (updater)</a></li>
+<li class="chapter" data-level="4.4.4" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#parameter-mapping"><i class="fa fa-check"></i><b>4.4.4</b> Parameter Mapping</a></li>
+<li class="chapter" data-level="4.4.5" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#putting-it-all-together"><i class="fa fa-check"></i><b>4.4.5</b> Putting it all together</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fitting-tmle3-with-multiple-parameters"><i class="fa fa-check"></i><b>4.4</b> Fitting <code>tmle3</code> with multiple parameters</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#delta-method"><i class="fa fa-check"></i><b>4.4.1</b> Delta Method</a></li>
-<li class="chapter" data-level="4.4.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fit"><i class="fa fa-check"></i><b>4.4.2</b> Fit</a></li>
+<li class="chapter" data-level="4.5" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fitting-tmle3-with-multiple-parameters"><i class="fa fa-check"></i><b>4.5</b> Fitting <code>tmle3</code> with multiple parameters</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#delta-method"><i class="fa fa-check"></i><b>4.5.1</b> Delta Method</a></li>
+<li class="chapter" data-level="4.5.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fit"><i class="fa fa-check"></i><b>4.5.2</b> Fit</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#stratified-effect-estimates"><i class="fa fa-check"></i><b>4.5</b> Stratified Effect Estimates</a></li>
-<li class="chapter" data-level="4.6" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#exercise-1"><i class="fa fa-check"></i><b>4.6</b> Exercise</a></li>
-<li class="chapter" data-level="4.7" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#summary-1"><i class="fa fa-check"></i><b>4.7</b> Summary</a></li>
+<li class="chapter" data-level="4.6" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#stratified-effect-estimates"><i class="fa fa-check"></i><b>4.6</b> Stratified Effect Estimates</a></li>
+<li class="chapter" data-level="4.7" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#exercise-1"><i class="fa fa-check"></i><b>4.7</b> Exercise</a></li>
+<li class="chapter" data-level="4.8" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#summary"><i class="fa fa-check"></i><b>4.8</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html"><i class="fa fa-check"></i><b>5</b> Optimal Individualized Treatment Regimes</a><ul>
-<li class="chapter" data-level="5.1" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.1" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#learning-objectives-4"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="5.2" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#introduction-to-optimal-individualized-interventions"><i class="fa fa-check"></i><b>5.2</b> Introduction to Optimal Individualized Interventions</a></li>
 <li class="chapter" data-level="5.3" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#data-structure-and-notation"><i class="fa fa-check"></i><b>5.3</b> Data Structure and Notation</a></li>
 <li class="chapter" data-level="5.4" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#defining-the-causal-effect-of-an-optimal-individualized-intervention"><i class="fa fa-check"></i><b>5.4</b> Defining the Causal Effect of an Optimal Individualized Intervention</a><ul>
@@ -236,13 +250,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.8" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#exercise-2"><i class="fa fa-check"></i><b>5.8</b> Exercise</a><ul>
 <li class="chapter" data-level="5.8.1" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#real-world-data-and-tmle3mopttx"><i class="fa fa-check"></i><b>5.8.1</b> Real World Data and <code>tmle3mopttx</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5.9" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#summary-2"><i class="fa fa-check"></i><b>5.9</b> Summary</a><ul>
+<li class="chapter" data-level="5.9" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#summary-1"><i class="fa fa-check"></i><b>5.9</b> Summary</a><ul>
 <li class="chapter" data-level="5.9.1" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#solutions"><i class="fa fa-check"></i><b>5.9.1</b> Solutions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html"><i class="fa fa-check"></i><b>6</b> Stochastic Treatment Regimes</a><ul>
-<li class="chapter" data-level="6.1" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="6.2" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#introduction-1"><i class="fa fa-check"></i><b>6.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.1" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#learning-objectives-5"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#introduction-3"><i class="fa fa-check"></i><b>6.2</b> Introduction</a></li>
 <li class="chapter" data-level="6.3" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#stochastic-interventions"><i class="fa fa-check"></i><b>6.3</b> Stochastic Interventions</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#identifying-the-causal-effect-of-a-stochastic-intervention"><i class="fa fa-check"></i><b>6.3.1</b> Identifying the Causal Effect of a Stochastic Intervention</a></li>
 <li class="chapter" data-level="6.3.2" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#interpreting-the-causal-effect-of-a-stochastic-intervention"><i class="fa fa-check"></i><b>6.3.2</b> Interpreting the Causal Effect of a Stochastic Intervention</a></li>
@@ -286,51 +300,215 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> The Targeted Learning Roadmap</h1>
-<p>A central goal of the Targeted Learning statistical paradigm is to estimate
-scientifically relevant parameters in realistic (usually nonparametric) models
-and to do so with finite-sample robustness and consistent inference.</p>
-<div id="the-statistical-model" class="section level2">
-<h2><span class="header-section-number">2.1</span> The Statistical Model</h2>
-<p>Assume we have an i.i.d. sample of confounders, a binary intervention of
-interest, and an outcome, or are observed data is
-<span class="math display">\[ O = (W, A, Y).\]</span>
-The
-distribution of the observed data may be factorized as follows:
-<span class="math display">\[P(O) = P(W, A,
-Y) = P(W)P (A \mid W) P(Y \mid A, W).\]</span>
-To estimate a parameter of interest, a
-researcher need not necessarily be able to specify these whole or conditional
-distributions. Rather, each estimator only requires that certain parts of the
-distribution be known; for example, some may require estimates of <span class="math inline">\(\mathbb{E}(Y \mid A, W)\)</span>, the mean of <span class="math inline">\(Y\)</span> within subgroups <span class="math inline">\((A, W)\)</span>, or the regression of the
-outcome on the exposure and confounders.</p>
-<p>At this stage in the roadmap, the researcher must specify a choice of
-statistical model to be used in estimating <span class="math inline">\(\mathbb{E}(Y \mid A, W)\)</span> or other
-elements of the probability distribution needed to estimate the parameter of
-interest. Here, <em>statistical model</em> means any constraints on the model form that
-may be imposed by knowledge about the data-generating process – that is, known
-aspects of how the data were generated. Typically, the <em>true model</em> is a very
-large model, placing few constraints, if any, on the data-generating
-distribution, or a semi-parametric model. With few constraints on the
-data-generating distribution, and a potentially large number of covariates,
-data-adaptive, machine-learning approaches remain the only practical option for
-estimating components of the likelihood. The remainder of this course concerns
-how to do this as efficiently and robustly as possible, depending on the goal of
-the analysis.</p>
+<h1><span class="header-section-number">Chapter 2</span> The Roadmap for Targeted Learning</h1>
+<div id="learning-objectives-1" class="section level2">
+<h2><span class="header-section-number">2.1</span> Learning Objectives</h2>
+<p>By the end of this chapter you will be able to:</p>
+<ol style="list-style-type: decimal">
+<li>Translate scientific questions to statistical questions.</li>
+<li>Define a statistical model based on the knowledge of the experiment that
+generated the data.</li>
+<li>Identify a causal parameter as a function of the observed data distribution.</li>
+<li>Explain the following causal and statistical assumptions and their
+implications: i.i.d., consistency, interference, positivity, SUTVA.</li>
+</ol>
 </div>
-<div id="the-causal-model" class="section level2">
-<h2><span class="header-section-number">2.2</span> The Causal Model</h2>
-<p>The next step in the roadmap is to use a causal framework to formalize the
-experiment and thereby define the parameter of interest. Causal graphs are one
-useful tool to express what we know about the causal relations among variables
-that are relevant to the question under study <span class="citation">(Pearl <a href="#ref-pearl2009causality">2009</a>)</span>.</p>
-<p>Ignoring error terms, we will assume the following ordering of the variables in
-<span class="math inline">\(O\)</span>.</p>
-<div id="htmlwidget-bfad7439880d5eee9a8e" style="width:200px;height:300px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-bfad7439880d5eee9a8e">{"x":{"nodes":{"id":["W","A","Y"],"label":["W","A","Y"]},"edges":{"from":["W","W","A"],"to":["A","Y","Y"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":{"to":true}},"layout":{"randomSeed":25}},"groups":null,"width":"200px","height":"300px","idselection":{"enabled":false},"byselection":{"enabled":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)"},"evals":[],"jsHooks":[]}</script>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">2.2</span> Introduction</h2>
+<p>The roadmap of statistical learning is concerned with the translation from
+real-world data applications to a mathematical and statistical formulation of
+the relevant estimation problem. This involves data as a random variable having
+a probability distribution, scientific knowledge represented by a statistical
+model, a statistical target parameter representing an answer to the question of
+interest, and the notion of an estimator and sampling distribution of the
+estimator.</p>
+</div>
+<div id="the-roadmap" class="section level2">
+<h2><span class="header-section-number">2.3</span> The Roadmap</h2>
+<p>Following the roadmap is a process of five stages.</p>
+<ol style="list-style-type: decimal">
+<li>Data as a random variable with a probability distribution, <span class="math inline">\(O \sim P_0\)</span>.</li>
+<li>The statistical model <span class="math inline">\(\mathcal{M}\)</span> such that <span class="math inline">\(P_0 \in \mathcal{M}\)</span>.</li>
+<li>The statistical target parameter <span class="math inline">\(\Psi\)</span> and estimand <span class="math inline">\(\Psi(P_0)\)</span>.</li>
+<li>The estimator <span class="math inline">\(\hat{\Psi}\)</span> and estimate <span class="math inline">\(\hat{\Psi}(P_n)\)</span>.</li>
+<li>A measure of uncertainty for the estimate <span class="math inline">\(\hat{\Psi}(P_n)\)</span>.</li>
+</ol>
+<div id="data-as-a-random-variable-with-a-probability-distribution-o-sim-p_0" class="section level3 unnumbered">
+<h3>(1) Data as a random variable with a probability distribution, <span class="math inline">\(O \sim P_0\)</span></h3>
+<p>The data set we’re confronted with is the result of an experiment and we can
+view the data as a random variable, <span class="math inline">\(O\)</span>, because if we repeat the experiment
+we would have a different realization of this experiment. In particular, if we
+repeat the experiment many times we could learn the probability distribution,
+<span class="math inline">\(P_0\)</span>, of our data. So, the observed data <span class="math inline">\(O\)</span> with probability distribution
+<span class="math inline">\(P_0\)</span> are <span class="math inline">\(n\)</span> independent identically distributed (i.i.d.) observations of the
+random variable <span class="math inline">\(O; O_1, \ldots, O_n\)</span>. Note that while not all data are i.i.d.,
+there are ways to handle non-i.i.d. data, such as establishing conditional
+independence, stratifying data to create sets of identically distributed data,
+etc. It is crucial that researchers be absolutely clear about what they actually
+know about the data-generating distribution for a given problem of interest.
+Unfortunately, communication between statisticians and researchers is often
+fraught with misinterpretation. The roadmap provides a mechanism by which to
+ensure clear communication between research and statistician – it truly helps
+with this communication!</p>
+<div id="the-empirical-probability-measure-p_n" class="section level4 unnumbered">
+<h4>The empirical probability measure, <span class="math inline">\(P_n\)</span></h4>
+<p>Once we have <span class="math inline">\(n\)</span> of such i.i.d. observations we have an empirical probability
+measure, <span class="math inline">\(P_n\)</span>. The empirical probability measure is an approximation of the
+true probability measure <span class="math inline">\(P_0\)</span>, allowing us to learn from our data. For
+example, we can define the empirical probability measure of a set, <span class="math inline">\(A\)</span>, to be
+the proportion of observations which end up in <span class="math inline">\(A\)</span>. That is,
+<span class="math display">\[\begin{equation*}
+  P_n(A) = \frac{1}{n}\sum_{i=1}^{n} \mathbb{I}(O_i \in A)
+\end{equation*}\]</span></p>
+<p>In order to start learning something, we need to ask <em>“What do we know about the
+probability distribution of the data?”</em> This brings us to Step 2.</p>
+</div>
+</div>
+<div id="the-statistical-model-mathcalm-such-that-p_0-in-mathcalm" class="section level3 unnumbered">
+<h3>(2) The statistical model <span class="math inline">\(\mathcal{M}\)</span> such that <span class="math inline">\(P_0 \in \mathcal{M}\)</span></h3>
+<p>The statistical model <span class="math inline">\(\mathcal{M}\)</span> is defined by the question we asked at the
+end of . It is defined as the set of possible probability
+distributions for our observed data. Often <span class="math inline">\(\mathcal{M}\)</span> is very large (possibly
+infinite-dimensional), to reflect the fact that statistical knowledge is
+limited. In the case that <span class="math inline">\(\mathcal{M}\)</span> is infinite-dimensional, we deem this a
+nonparametric statistical model.</p>
+<p>Alternatively, if the probability distribution of the data at hand is described
+by a finite number of parameters, then the statistical model is parametric. In
+this case, we prescribe to the belief that the random variable <span class="math inline">\(O\)</span> being
+observed has, e.g., a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance
+<span class="math inline">\(\sigma^2\)</span>. More formally, a parametric model may be defined
+<span class="math display">\[\begin{equation*}
+  \mathcal{M} = \{P_{\theta} : \theta \in \mathcal{R}^d \}
+\end{equation*}\]</span></p>
+<p>Sadly, the assumption that the data-generating distribution has a specific,
+parametric forms is all-too-common, even when such is a leap of faith. This
+practice of oversimplification in the current culture of data analysis typically
+derails any attempt at trying to answer the scientific question at hand; alas,
+such statements as the ever-popular quip of Box that “All models are wrong but
+some are useful,” encourage the data analyst to make arbitrary choices even when
+that often force significant differences in answers to the same estimation
+problem. The Targeted Learning paradigm does not suffer from this bias since it
+defines the statistical model through a representation of the true
+data-generating distribution corresponding to the observed data.</p>
+<p>Now, on to Step 3: <em>``What are we trying to learn from the data?&quot;</em></p>
+</div>
+<div id="the-statistical-target-parameter-psi-and-estimand-psip_0" class="section level3 unnumbered">
+<h3>(3) The statistical target parameter <span class="math inline">\(\Psi\)</span> and estimand <span class="math inline">\(\Psi(P_0)\)</span></h3>
+<p>The statistical target parameter, <span class="math inline">\(\Psi\)</span>, is defined as a mapping from the
+statistical model, <span class="math inline">\(\mathcal{M}\)</span>, to the parameter space (i.e., a real number)
+<span class="math inline">\(\mathcal{R}\)</span>. That is, <span class="math inline">\(\Psi: \mathcal{M}\rightarrow\mathbb{R}\)</span>. The target
+parameter may be seen as a representation of the
+quantity that we wish to learn from the data, the answer to a well-specified
+(often causal) question of interest. In contrast to purely statistical target
+parameters, causal target parameters require <em>identification from the observed
+data</em>, based on causal models that include several untestable assumptions,
+described in more detail in the section on <a href="intro.html#causal">causal target parameters</a>.</p>
+<p>For a simple example, consider a data set which contains observations of a
+survival time on every subject, for which our question of interest is “What’s
+the probability that someone lives longer than five years?” We have,
+<span class="math display">\[\begin{equation*}
+  \Psi(P_0) = \mathbb{P}(O &gt; 5)
+\end{equation*}\]</span></p>
+<p>This answer to this question is the <strong>estimand, <span class="math inline">\(\Psi(P_0)\)</span></strong>, which is the
+quantity we’re trying to learn from the data. Once we have defined <span class="math inline">\(O\)</span>,
+<span class="math inline">\(\mathcal{M}\)</span> and <span class="math inline">\(\Psi(P_0)\)</span> we have formally defined the statistical
+estimation problem.</p>
+</div>
+<div id="the-estimator-hatpsi-and-estimate-hatpsip_n" class="section level3 unnumbered">
+<h3>(4) The estimator <span class="math inline">\(\hat{\Psi}\)</span> and estimate <span class="math inline">\(\hat{\Psi}(P_n)\)</span></h3>
+<p>To obtain a good approximation of the estimand, we need an estimator, an <em>a
+priori</em>-specified algorithm defined as a mapping from the set of possible
+empirical distributions, <span class="math inline">\(P_n\)</span>, which live in a non-parametric statistical
+model, <span class="math inline">\(\mathcal{M}_{NP}\)</span> (<span class="math inline">\(P_n \in \mathcal{M}_{NP}\)</span>), to the parameter space
+of the parameter of interest. That is, <span class="math inline">\(\hat{\Psi} : \mathcal{M}_{NP} \rightarrow \mathbb{R}^d\)</span>. The estimator is a function that takes as input
+the observed data, a realization of <span class="math inline">\(P_n\)</span>, and gives as output a value in the
+parameter space, which is the <strong>estimate, <span class="math inline">\(\hat{\Psi}(P_n)\)</span></strong>.</p>
+<p>Where the estimator may be seen as an operator that maps the observed data and
+corresponding empirical distribution to a value in the parameter space, the
+numerical output that produced such a function is the estimate. Thus, it is an
+element of the parameter space based on the empirical probability distribution
+of the observed data. If we plug in a realization of <span class="math inline">\(P_n\)</span> (based on a sample
+size <span class="math inline">\(n\)</span> of the random variable <span class="math inline">\(O\)</span>), we get back an estimate <span class="math inline">\(\hat{\Psi}(P_n)\)</span>
+of the true parameter value <span class="math inline">\(\Psi(P_0)\)</span>.</p>
+<p>In order to quantify the uncertainty in our estimate of the target parameter
+(i.e., to construct statistical inference), an understanding of the sampling
+distribution of our estimator will be necessary. This brings us to Step 5.</p>
+</div>
+<div id="a-measure-of-uncertainty-for-the-estimate-hatpsip_n" class="section level3 unnumbered">
+<h3>(5) A measure of uncertainty for the estimate <span class="math inline">\(\hat{\Psi}(P_n)\)</span></h3>
+<p>Since the estimator <span class="math inline">\(\hat{\Psi}\)</span> is a function of the empirical
+distribution <span class="math inline">\(P_n\)</span>, the estimator itself is a random variable with a sampling
+distribution. So, if we repeat the experiment of drawing <span class="math inline">\(n\)</span> observations we
+would every time end up with a different realization of our estimate and our
+estimator has a sampling distribution. The sampling distribution of an estimator
+can be theoretically validated to be approximately normally distributed by a
+Central Limit Theorem (CLT).</p>
+<p>A class of <strong>Central Limit Theorems</strong> (CLTs) are statements regarding the
+convergence of the <strong>sampling distribution of an estimator</strong> to a normal
+distribution. In general, we will construct estimators whose limit sampling
+distributions may be shown to be approximately normal distributed as sample size
+increases. For large enough <span class="math inline">\(n\)</span> we have,
+<span class="math display">\[\begin{equation*}
+  \hat{\Psi}(P_n) \sim N \left(\Psi(P_0), \frac{\sigma^2}{n}\right),
+\end{equation*}\]</span>
+permitting statistical inference. Now, we can proceed to quantify the
+uncertainty of our chosen estimator by construction of hypothesis tests and
+confidence intervals. For example, we may construct a confidence interval at
+level <span class="math inline">\((1 - \alpha)\)</span> for our estimand, <span class="math inline">\(\Psi(P_0)\)</span>:
+<span class="math display">\[\begin{equation*}
+  \hat{\Psi}(P_n) \pm z_{1 - \frac{\alpha}{2}}
+    \left(\frac{\sigma}{\sqrt{n}}\right),
+\end{equation*}\]</span>
+where <span class="math inline">\(z_{1 - \frac{\alpha}{2}}\)</span> is the <span class="math inline">\((1 - \frac{\alpha}{2})^\text{th}\)</span>
+quantile of the standard normal distribution. Often, we will be interested in
+constructing 95% confidence intervals, corresponding to mass <span class="math inline">\(\alpha = 0.05\)</span> in
+either tail of the limit distribution; thus, we will typically take
+<span class="math inline">\(z_{1 - \frac{\alpha}{2}} \approx 1.96\)</span>.</p>
+<p><em>Note:</em> we will typically have to estimate the standard error,
+<span class="math inline">\(\frac{\sigma}{\sqrt{n}}\)</span>.</p>
+<p>A 95% confidence interval means that if we were to take 100 different samples
+of size <span class="math inline">\(n\)</span> and compute a 95% confidence interval for each sample then
+approximately 95 of the 100 confidence intervals would contain the estimand,
+<span class="math inline">\(\Psi(P_0)\)</span>. More practically, this means that there is a 95% probability
+(or 95% confidence) that the confidence interval procedure will contain the
+true estimand. However, any single estimated confidence interval either will
+contain the true estimand or will not.</p>
+</div>
+</div>
+<div id="summary-of-the-roadmap" class="section level2">
+<h2><span class="header-section-number">2.4</span> Summary of the Roadmap</h2>
+<p>Data, <span class="math inline">\(O\)</span>, is viewed as a random variable that has a probability distribution.
+We often have <span class="math inline">\(n\)</span> units of independent identically distributed units with
+probability distribution <span class="math inline">\(P_0\)</span> (<span class="math inline">\(O_1, \ldots, O_n \sim P_0\)</span>). We have
+statistical knowledge about the experiment that generated this data. In other
+words, we make a statement that the true data distribution <span class="math inline">\(P_0\)</span> falls in a
+certain set called a statistical model, <span class="math inline">\(\mathcal{M}\)</span>. Often these sets are very
+large because statistical knowledge is very limited so these statistical models
+are often infinite dimensional models. Our statistical query is, “What are we
+trying to learn from the data?” denoted by the statistical target parameter,
+<span class="math inline">\(\Psi\)</span>, which maps the <span class="math inline">\(P_0\)</span> into the estimand, <span class="math inline">\(\Psi(P_0)\)</span>. At this point the
+statistical estimation problem is formally defined and now we will need
+statistical theory to guide us in the construction of estimators. There’s a lot
+of statistical theory we will review in this course that, in particular, relies
+on the Central Limit Theorem, allowing us to come up with estimators that are
+approximately normally distributed and also allowing us to come with statistical
+inference (i.e., confidence intervals and hypothesis tests).</p>
+</div>
+<div id="causal" class="section level2">
+<h2><span class="header-section-number">2.5</span> Causal Target Parameters</h2>
+<div id="the-causal-model" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> The Causal Model</h3>
+<p>After formalizing the data and the statistical model, we can define a causal
+model to express causal parameters of interest. Directed acyclic graphs (DAGs)
+are one useful tool to express what we know about the causal relations among
+variables. Ignoring exogenous <span class="math inline">\(U\)</span> terms (explained below), we assume the
+following ordering of the variables in the observed data <span class="math inline">\(O\)</span>.</p>
+<div id="htmlwidget-f5f622fe2b9153b05ebc" style="width:200px;height:300px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f5f622fe2b9153b05ebc">{"x":{"nodes":{"id":["W","A","Y"],"label":["W","A","Y"]},"edges":{"from":["W","W","A"],"to":["A","Y","Y"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":{"to":true}},"layout":{"randomSeed":25}},"groups":null,"width":"200px","height":"300px","idselection":{"enabled":false},"byselection":{"enabled":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)"},"evals":[],"jsHooks":[]}</script>
 <p>While directed acyclic graphs (DAGs) like above provide a convenient means by
-which to visualize causal relations between variables, the causal relations
-among variables can be represented via a set of structural equations:
+which to visualize causal relations between variables, the same causal
+relations among variables can be represented via a set of structural equations,
+which define the non-parametric structural equation model (NPSEM):
 <span class="math display">\[\begin{align*}
   W &amp;= f_W(U_W) \\
   A &amp;= f_A(W, U_A) \\
@@ -339,15 +517,12 @@ among variables can be represented via a set of structural equations:
 where <span class="math inline">\(U_W\)</span>, <span class="math inline">\(U_A\)</span>, and <span class="math inline">\(U_Y\)</span> represent the unmeasured exogenous background
 characteristics that influence the value of each variable. In the NPSEM, <span class="math inline">\(f_W\)</span>,
 <span class="math inline">\(f_A\)</span> and <span class="math inline">\(f_Y\)</span> denote that each variable (for <span class="math inline">\(W\)</span>, <span class="math inline">\(A\)</span> and <span class="math inline">\(Y\)</span>, respectively)
-is a function of its parents and unmeasured background characteristics, but one
-typically has little information about particular functional constraints (e.g.,
+is a function of its parents and unmeasured background characteristics, but note
+that there is no imposition of any particular functional constraints(e.g.,
 linear, logit-linear, only one interaction, etc.). For this reason, they are
-called non-parametric structural equation models (NPSEMs). The DAG and set of
-nonparametric structural equations represent exactly the same information and so
-may be used interchangeably.</p>
-</div>
-<div id="the-parameter-of-interest" class="section level2">
-<h2><span class="header-section-number">2.3</span> The Parameter of Interest</h2>
+called non-parametric structural equation models (NPSEMs). The
+DAG and set of nonparametric structural equations represent exactly the same
+information and so may be used interchangeably.</p>
 <p>The first hypothetical experiment we will consider is assigning exposure to the
 whole population and observing the outcome, and then assigning no exposure to
 the whole population and observing the outcome. On the nonparametric structural
@@ -368,15 +543,15 @@ and for the case <span class="math inline">\(A=0\)</span>,
 <span class="math display">\[\begin{align*}
   W &amp;= f_W(U_W) \\
   A &amp;= 0 \\
-  Y(1) &amp;= f_Y(W, 0, U_Y).
+  Y(0) &amp;= f_Y(W, 0, U_Y).
 \end{align*}\]</span></p>
 <p>In these equations, <span class="math inline">\(A\)</span> is no longer a function of <span class="math inline">\(W\)</span> because we have
 intervened on the system, setting <span class="math inline">\(A\)</span> deterministically to either of the values
 <span class="math inline">\(1\)</span> or <span class="math inline">\(0\)</span>. The new symbols <span class="math inline">\(Y(1)\)</span> and <span class="math inline">\(Y(0)\)</span> indicate the outcome variable in
 our population if it were generated by the respective NPSEMs above; these are
-often called <em>counterfactuals</em>. The difference between the means of the outcome
-under these two interventions defines a parameter that is often called the
-“average treatment effect” (ATE), denoted
+often called <em>counterfactuals</em> (since they run contrary-to-fact). The difference
+between the means of the outcome under these two interventions defines a
+parameter that is often called the “average treatment effect” (ATE), denoted
 <span class="math display">\[\begin{equation}\label{eqn:ate}
   ATE = \mathbb{E}_X(Y(1)-Y(0)),
 \end{equation}\]</span>
@@ -387,30 +562,31 @@ interventions based upon rules (themselves based upon covariates), stochastic
 rules, etc. and each results in a different targeted parameter and entails
 different identifiability assumptions discussed below.</p>
 </div>
-<div id="identifiability" class="section level2">
-<h2><span class="header-section-number">2.4</span> Identifiability</h2>
-<p>Because we can never observe both <span class="math inline">\(Y(0)\)</span> (the counterfactual outcome when
-<span class="math inline">\(A=0\)</span>) and <span class="math inline">\(Y(1)\)</span>, we cannot estimate  directly. Instead, we have
-to make assumptions under which this quantity may be estimated from the observed
-data <span class="math inline">\(O \sim P_0\)</span> under the data-generating distribution <span class="math inline">\(P_0\)</span>. Fortunately,
-given the causal model specified in the NPSEM above, we can, with a handful of
-untestable assumptions, estimate the ATE, even from observational data. These
-assumptions may be summarized as follows</p>
+<div id="identifiability" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> Identifiability</h3>
+<p>Because we can never observe both <span class="math inline">\(Y(0)\)</span> (the counterfactual outcome when <span class="math inline">\(A=0\)</span>)
+and <span class="math inline">\(Y(1)\)</span> (similarly, the counterfactual outcome when <span class="math inline">\(A=1\)</span>), we cannot
+estimate  directly. Instead, we have to make assumptions under
+which this quantity may be estimated from the observed data <span class="math inline">\(O \sim P_0\)</span> under
+the data-generating distribution <span class="math inline">\(P_0\)</span>. Fortunately, given the causal model
+specified in the NPSEM above, we can, with a handful of untestable assumptions,
+estimate the ATE, even from observational data. These assumptions may be
+summarized as follows</p>
 <ol style="list-style-type: decimal">
 <li>The causal graph implies <span class="math inline">\(Y(a) \perp A\)</span> for all <span class="math inline">\(a \in \mathcal{A}\)</span>, which
 is the <em>randomization</em> assumption. In the case of observational data, the
 analogous assumption is <em>strong ignorability</em> or <em>no unmeasured confounding</em>
 <span class="math inline">\(Y(a) \perp A \mid W\)</span> for all <span class="math inline">\(a \in \mathcal{A}\)</span>;</li>
 <li>Although not represented in the causal graph, also required is the assumption
-of <em>no interference</em> between units, that is, the outcome for unit <span class="math inline">\(i\)</span> <span class="math inline">\(Y_i\)</span>
-is not affected by exposure for unit <span class="math inline">\(j\)</span> <span class="math inline">\(A_j\)</span> unless <span class="math inline">\(i=j\)</span>;</li>
+of no interference between units, that is, the outcome for unit <span class="math inline">\(i\)</span> <span class="math inline">\(Y_i\)</span> is
+not affected by exposure for unit <span class="math inline">\(j\)</span> <span class="math inline">\(A_j\)</span> unless <span class="math inline">\(i=j\)</span>;</li>
 <li><em>Consistency</em> of the treatment mechanism is also required, i.e., the outcome
 for unit <span class="math inline">\(i\)</span> is <span class="math inline">\(Y_i(a)\)</span> whenever <span class="math inline">\(A_i = a\)</span>, an assumption also known as “no
 other versions of treatment”;</li>
 <li>It is also necessary that all observed units, across strata defined by <span class="math inline">\(W\)</span>,
 have a bounded (non-deterministic) probability of receiving treatment –
-that is, <span class="math inline">\(0 &lt; P_0(A = a \mid W) &lt; 1\)</span> for all <span class="math inline">\(a\)</span> and <span class="math inline">\(W\)</span>. This assumption is
-referred to as <em>positivity</em>.</li>
+that is, <span class="math inline">\(0 &lt; \mathbb{P}(A = a \mid W) &lt; 1\)</span> for all <span class="math inline">\(a\)</span> and <span class="math inline">\(W\)</span>). This assumption
+is referred to as <em>positivity</em> or <em>overlap</em>.</li>
 </ol>
 <p><em>Remark</em>: Together, (2) and (3), the assumptions of no interference and
 consistency, respectively, are jointly referred to as the <em>stable unit
@@ -426,210 +602,11 @@ contrast of treatment conditions (<span class="math inline">\(A = 0\)</span> vs.
 averaged over all observations. Thus, a parameter of a theoretical “full” data
 distribution can be represented as an estimand of the observed data
 distribution. Significantly, there is nothing about the representation in
- that requires parametric assumptions; thus, the regressions
+ that requires parameteric assumptions; thus, the regressions
 on the right hand side may be estimated freely with machine learning. With
 different parameters, there will be potentially different identifiability
 assumptions and the resulting estimands can be functions of different components
-of <span class="math inline">\(P_0\)</span>. We discuss several more complex estimands in later sections of this
-workshop.</p>
-</div>
-<div id="estimation" class="section level2">
-<h2><span class="header-section-number">2.5</span> Estimation</h2>
-<p>Although we will discuss more in later sections, the goals of the estimators we
-desire should be that, among sensible (asymptotically consistent, regular)
-estimators,</p>
-<ol style="list-style-type: decimal">
-<li>the estimator be asymptotically efficient in the statistical model of
-interest, and</li>
-<li>the estimator can be constructed for finite-sample performance improvements,
-relative to other estimators in the same class.</li>
-</ol>
-<p>These principles guide our approach to estimation: Super Learning for
-prediction (more generally density estimation) and TMLE for estimation of our
-intervention parameters of interest.</p>
-<div id="super-learning" class="section level3">
-<h3><span class="header-section-number">2.5.1</span> Super Learning</h3>
-<ul>
-<li>There is no universally optimal machine learning algorithm for density
-estimation or prediction.</li>
-<li>When we have tested different algorithms on actual
-data and looked at the performance (e.g., MSE of prediction), never does one
-algorithm always win (see below).</li>
-<li>For some data, one needs learners that can model a complex function.</li>
-<li>For others, typically the result of noise or insufficient sample size, a
-simple, parametric model might fit best.</li>
-<li>SuperLearner, an ensemble learner, solves this issue, by allowing a convex
-combination of learners from the simplest (intercept-only) to most complex
-(neural nets, random forests, SVM, etc).</li>
-<li>It works by using cross-validation in a manner which guarantees that the
-resulting fit will be as good as possible, given the learners provided (note,
-even a convex combination of poor learners can sometimes result in good fit,
-though better to have good candidates).</li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./img/misc/vs.pdf&quot;</span>)</a></code></pre></div>
-<embed src="./img/misc/vs.pdf" width="50%" style="display: block; margin: auto;" type="application/pdf" />
-<p>The figure above shows an example of 10-fold cross-validation.</p>
-<p>The schematic below is a visualization of the following algorithm:</p>
-<ul>
-<li>Break up the sample evenly into V-folds (say <span class="math inline">\(V=10\)</span>).</li>
-<li>For each of these 10 folds, remove that portion of the sample (kept out as
-validation sample) and the remaining will be used to fit learners (training
-sample).</li>
-<li>Fit each learner on the training sample (note, some learners will have their
-own internal cross-validation procedure or other methods to select tuning
-parameters).</li>
-<li>For each observation in the corresponding training sample, predict the outcome
-using each of the learners, so if there are <span class="math inline">\(p\)</span> learners, then where would be
-<span class="math inline">\(p\)</span> predictions on each of the observations in validation sample).</li>
-<li>Take out another validation sample and repeat until each of the V-sets of data
-are removed.</li>
-<li>Compare the cross-validated fit of the learners across all observations based
-on specified loss function (e.g., squared error, negative log-likelihood) by
-calculating the corresponding average loss (risk).</li>
-<li>Either:
-<ul>
-<li>choose the learner with smallest risk and apply that learner to entire data
-set (resulting SL fit),</li>
-<li>do a weighted average of the learners to minimize the cross-validated risk
-(construct an ensemble of learners), by
-<ul>
-<li>re-fitting the learners on the original data set, and</li>
-<li>use the weights above to get the file SL fit.</li>
-</ul></li>
-</ul></li>
-</ul>
-<p>Note, this entire procedure can be itself cross-validated to get a consistent
-estimate of the future performance of the SL fit.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./img/misc/SLKaiserNew.pdf&quot;</span>)</a></code></pre></div>
-<embed src="./img/misc/SLKaiserNew.pdf" width="50%" style="display: block; margin: auto;" type="application/pdf" />
-<p>For prediction, one can use the cross-validated risk to empirically determine
-the relative performance of SL and competing methods. Below shows the results
-of such a study, comparing the fits of several different learners, including the
-SL algorithms.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./img/misc/ericSL.pdf&quot;</span>)</a></code></pre></div>
-<embed src="./img/misc/ericSL.pdf" width="50%" style="display: block; margin: auto;" type="application/pdf" />
-</div>
-<div id="substitution-estimators" class="section level3">
-<h3><span class="header-section-number">2.5.2</span> Substitution Estimators</h3>
-<ul>
-<li>Beyond a fit of the prediction function, one might also want to estimate more
-targeted parameters specific to certain scientific questions.</li>
-<li>The approach is to plug into the estimand of interest estimates of the
-relevant distributions.</li>
-<li>Sometimes, we can use simple empirical distributions, but averaging some
-function over the observations (e.g., giving weight <span class="math inline">\(1/n\)</span> for all
-observations).</li>
-<li>Other parts of the distribution, like conditional means or probabilities, the
-estimate will require some sort of smoothing due to the curse of
-dimensionality.</li>
-</ul>
-<p>We give one example using an example of the average treatment effect (see above):</p>
-<ul>
-<li><span class="math inline">\(\Psi(P_0) = \Psi(Q_0) = \mathbb{E}_0 \big[\mathbb{E}_0[Y \mid A = 1, W] - \mathbb{E}_0[Y \mid A = 0, W]\big]\)</span>, where <span class="math inline">\(Q_0\)</span> represents both the
-distribution of <span class="math inline">\(Y \mid A,W\)</span> and distribution of <span class="math inline">\(W\)</span>.</li>
-<li>Let <span class="math inline">\(\bar{Q}_0(A,W) \equiv E_0(Y \mid A,W)\)</span> and <span class="math inline">\(Q_{0,W}(w) = P_0 (W=w)\)</span>, then
-<span class="math display">\[
-\Psi(Q_0) = \sum_w \{ \bar{Q}_0(1,w)-\bar{Q}_0(0,w)\} Q_{0,W}(w)
-\]</span></li>
-<li>The <strong>Substitution Estimator</strong> plugs in the empirical distribution (weight
-<span class="math inline">\(1/n\)</span> for each observation) for <span class="math inline">\(Q_{0,W}(W_i)\)</span>, and some estimate of the
-regression of <span class="math inline">\(Y\)</span> on <span class="math inline">\((A,W)\)</span> (say SL fit):
-<span class="math display">\[
- \Psi(Q_n) = \frac{1}{n} \sum_{i=1}^n  \{ \bar{Q}_n(1,W_i)-\bar{Q}_n(0,W_i)\}
- \]</span></li>
-<li>Thus, it becomes the average of the differences in predictions from the fit
-keeping the observed <span class="math inline">\(W\)</span>, but first replacing <span class="math inline">\(A=1\)</span> and then the same but all
-<span class="math inline">\(A=0\)</span>.</li>
-</ul>
-</div>
-<div id="tmle" class="section level3">
-<h3><span class="header-section-number">2.5.3</span> TMLE</h3>
-<ul>
-<li>Though using SL over an arbitrary parametric regression is an improvement,
-it’s not sufficient to have the properties of an estimator one needs for
-rigorous inference.</li>
-<li>Because the variance-bias trade-off in the SL is focused on the prediction
-model, it can, for instance, under-fit portions of the distributions that are
-critical for estimating the parameter of interest, <span class="math inline">\(\Psi(P_0)\)</span>.</li>
-<li>TMLE keeps the benefits of substitution estimators (it is one), but augments
-the original estimates to correct for this issue and also results in an
-asymptotically linear (and thus normally-distributed) estimator with
-consistent Wald-style confidence intervals.</li>
-<li>Produces a well-defined, unbiased, efficient substitution estimator of target
-parameters of a data-generating distribution.</li>
-<li>Updates an initial (super learner) estimate of the relevant part of the
-data-generating distribution possibly using an estimate of a nuisance
-parameter (like the model of intervention given covariates).</li>
-<li>Removes asymptotic residual bias of initial estimator for the target
-parameter, if it uses a consistent estimator of <span class="math inline">\(g_0\)</span>.</li>
-<li>If initial estimator was consistent for the target parameter, the additional
-fitting of the data in the targeting step may remove finite sample bias, and
-preserves consistency property of the initial estimator.</li>
-<li>If the initial estimator and the estimator of <span class="math inline">\(g_0\)</span> are both consistent, then
-it is also asymptotically efficient according to semi-parametric statistical
-model efficiency theory.</li>
-<li>Thus, every effort is made to achieve minimal bias and the asymptotic
-semi-parametric efficiency bound for the variance.</li>
-</ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./img/misc/TMLEimage.pdf&quot;</span>)</a></code></pre></div>
-<embed src="./img/misc/TMLEimage.pdf" width="50%" style="display: block; margin: auto;" type="application/pdf" />
-<ul>
-<li>There are different types of TMLE, sometimes for the same set of parameters,
-but below is an example of the algorithm for estimating the ATE.</li>
-<li>In this case, one can present the estimator as:</li>
-</ul>
-<p><span class="math display">\[
- \Psi(Q^{\star}_n) = \frac{1}{n} \sum_{i=1}^n
-   \{ \bar{Q}^{\star}_n(1,W_i)-\bar{Q}^{\star}_n(0,W_i)\}
-\]</span>
-where <span class="math inline">\(\bar{Q}^{\star}_n(A,W)\)</span> is the TMLE augmented estimate.
-<span class="math inline">\(f(\bar{Q}^{\star}_n(A,W)) = f(\bar{Q}_n(A,W)) + \epsilon_n \cdot h_n(A,W)\)</span>,
-where <span class="math inline">\(f(\cdot)\)</span> is the appropriate link function (e.g., logit), <span class="math inline">\(\epsilon_n\)</span>
-is an estimated coefficient and <span class="math inline">\(h_n(A,W)\)</span> is a clever covariate.</p>
-<ul>
-<li>In this case, <span class="math inline">\(h_n(A,W) = \frac{A}{g_n(W)}-\frac{1-A}{1-g_n(W)}\)</span>, with
-<span class="math inline">\(g_n(W) = P_n(A=1 \mid W)\)</span> being the estimated (also by SL) propensity score,
-so the estimator depends both on initial SL fit of the outcome regression
-(<span class="math inline">\(\bar{Q}_0\)</span>) and an SL fit of the propensity score (<span class="math inline">\(g_n\)</span>).</li>
-<li>There are further robust augmentations that are used in <code>tlverse</code>, such as an
-added layer of cross-validation to avoid over-fitting bias (CV-TMLE), and so
-called methods that can more robustly estimated several parameters
-simultaneously (e.g., the points on a survival curve).</li>
-</ul>
-</div>
-<div id="inference" class="section level3">
-<h3><span class="header-section-number">2.5.4</span> Inference</h3>
-<ul>
-<li>The estimators we discuss are <strong>asymptotically linear</strong>, meaning that the
-difference in the estimate <span class="math inline">\(\Psi(P_n)\)</span> and the true parameter (<span class="math inline">\(\Psi(P_0)\)</span>)
-can be represented in first order by a i.i.d. sum:
-<span class="math display">\[\begin{equation}\label{eqn:IC}
-\Psi(P_n) - \Psi(P_0) = \frac{1}{n} IC(O_i; \nu) + o_p(1/\sqrt{n})
-\end{equation}\]</span></li>
-</ul>
-<p>where <span class="math inline">\(IC(O_i; \nu)\)</span> (the influence curve or function) is a function of the data
-and possibly other nuisance parameters <span class="math inline">\(\nu\)</span>. Importantly, such estimators have
-mean-zero Gaussian limiting distributions; thus, in the univariate case, one has
-that
-<span class="math display">\[\begin{equation}\label{eqn:limit_dist}
-  \sqrt{n}(\Psi(P_n) - \Psi(P_0)) = N(0, (IC(O_i; \nu))^2),
-\end{equation}\]</span>
-so that inference for the estimator of interest may be obtained in terms of the
-influence function. For this simple case, a 95% confidence interval may be
-derived as:
-<span class="math display">\[\begin{equation}\label{eqn:CI}
-  \Psi(P^{\star}_n) \pm 1.96 \sqrt{\frac{\hat{\sigma}^2}{n}},
-\end{equation}\]</span>
-where <span class="math inline">\(SE=\sqrt{\frac{\hat{\sigma}^2}{n}}\)</span> and <span class="math inline">\(\hat{\sigma}^2\)</span> is the sample
-variance of the estimated IC’s: <span class="math inline">\(IC(O; \hat{\nu})\)</span>. One can use the functional
-delta method to derive the influence curve if a parameter of interest may be
-written as a function of other asymptotically linear estimators.</p>
-<ul>
-<li>Thus, we can derive robust inference for parameters that are estimated by
-fitting complex, machine learning algorithms and these methods are
-computationally quick (do not rely on re-sampling based methods like the
-bootstrap).</li>
-</ul>
+of <span class="math inline">\(P_0\)</span>.</p>
 </div>
 </div>
 <div id="the-wash-benefits-example-dataset" class="section level2">
@@ -657,11 +634,11 @@ supplements; and</li>
 <p>In the workshop, we concentrate on child growth (size for age) as the outcome of
 interest. For reference, this trial was registered with ClinicalTrials.gov as
 NCT01590095.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># read in data</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/tlverse/tlverse-data/master/wash-benefits/washb_data.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">dat</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co"># read in data</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/tlverse/tlverse-data/master/wash-benefits/washb_data.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">dat</a></code></pre></div>
 <pre><code># A tibble: 4,695 x 28
      whz tr    fracode month  aged sex   momage momedu momheight hfiacat Nlt18
    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
@@ -693,8 +670,8 @@ the treatment of interest, <span class="math inline">\(A\)</span>, is the random
 results in our observed data structure being <span class="math inline">\(n\)</span> i.i.d. copies of <span class="math inline">\(O_i = (W_i, A_i, Y_i)\)</span>, for <span class="math inline">\(i = 1, \ldots, n\)</span>.</p>
 <p>Using the <a href="https://CRAN.R-project.org/package=skimr"><code>skimr</code> package</a>, we can
 quickly summarize the variables measured in the WASH Benefits data set:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">library</span>(skimr)</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">skim</span>(dat)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(skimr)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">skim</span>(dat)</a></code></pre></div>
 <table>
 <caption>(#tab:skim_washb_data)Data summary</caption>
 <tbody>
@@ -1135,9 +1112,6 @@ study participants. Notice also the uniform distribution of the treatment groups
 <div id="ref-luby2018effects">
 <p>Luby, Stephen P, Mahbubur Rahman, Benjamin F Arnold, Leanne Unicomb, Sania Ashraf, Peter J Winch, Christine P Stewart, et al. 2018. “Effects of Water Quality, Sanitation, Handwashing, and Nutritional Interventions on Diarrhoea and Child Growth in Rural Bangladesh: A Cluster Randomised Controlled Trial.” <em>The Lancet Global Health</em> 6 (3). Elsevier: e302–e315.</p>
 </div>
-<div id="ref-pearl2009causality">
-<p>Pearl, Judea. 2009. <em>Causality: Models, Reasoning, and Inference</em>. Cambridge University Press.</p>
-</div>
 </div>
             </section>
 
@@ -1145,7 +1119,7 @@ study participants. Notice also the uniform distribution of the treatment groups
         </div>
       </div>
 <a href="tlverse.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ensemble-machine-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sl3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
