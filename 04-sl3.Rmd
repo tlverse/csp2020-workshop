@@ -1,4 +1,4 @@
-# Super (Ensemble Machine) Learning {#sl3}
+# Super (Machine) Learning {#sl3}
 
 _Rachael Phillips_
 
@@ -143,7 +143,7 @@ knitr::include_graphics("img/misc/vs.pdf")
 
 **General step-by-step overview of the Super Learner algorithm:**
 
-- Break up the sample evenly into V-folds (say V=10).
+- Break up the sample evenly into $V$-folds (say $V$=10).
 - For each of these 10 folds, remove that portion of the sample (kept out as
   validation sample) and the remaining will be used to fit learners (training
   sample).
@@ -153,10 +153,10 @@ knitr::include_graphics("img/misc/vs.pdf")
 - For each observation in the corresponding validation sample, predict the outcome
   using each of the learners, so if there are $p$ learners, then there would be
   $p$ predictions.
-- Take out another validation sample and repeat until each of the V-sets of data
+- Take out another validation sample and repeat until each of the $V$-sets of data
   are removed.
 - Compare the cross-validated fit of the learners across all observations based
-  on specified loss function (e.g., squared error, negative log-likelihood, ...)
+  on specified loss function (e.g., squared error, negative log-likelihood, etc.)
   by calculating the corresponding average loss (risk).
 - Either:
 
@@ -183,7 +183,7 @@ $Y_i$ is the outcome of interest, $W_i$ is a $p$-dimensional set of
 covariates, and our objective is to estimate the function $\psi_0(W) = E(Y|W)$.
 This function can be expressed as the minimizer of the expected loss:
 $\psi_0(W) = \text{argmin}_{\psi} E[L(X,\psi(W))]$. Here, the loss function is 
-represented as $L$ (e.g., squared error loss, $L: (Y-\psi(W))^2)$).
+represented as $L$. One example is the squared error loss, $L: (Y-\psi(W))^2)$.
   
 For prediction, one can use the cross-validated risk to empirically determine
 the relative performance of the Super Learner . When we 
@@ -203,7 +203,7 @@ in @van2006oracle.
   
 ## `sl3` "Microwave Dinner" Implementation
 
-We begin by illustrating the core functionality of the super learner algorithm
+We begin by illustrating the core functionality of the Super Learner algorithm
 as implemented in `sl3`. For those who are interested in the internals 
 of `sl3`, see this [`sl3` introductory 
 tutorial](https://tlverse.org/sl3/articles/intro_sl3.html). 
@@ -212,11 +212,11 @@ The `sl3` implementation consists of the following steps:
 
 0. Load the necessary libraries and data
 1. Define the machine learning task
-2. Make a super learner by creating library of base learners and a metalearner
-3. Train the super learner on the machine learning task
+2. Make a Super Learner by creating library of base learners and a metalearner
+3. Train the Super Learner on the machine learning task
 4. Obtain predicted values
 
-### WASH Benefits Study Example
+### WASH Benefits Study Example {-}
 
 Using the WASH data, we are interested in predicting weight-for-height z-score
 `whz` using the available covariate data. Let's begin!
@@ -283,7 +283,7 @@ column indicating whether or not the value was imputed, which is particularly
 handy when the missingness in the data might be informative.
 
 Also, notice that we did not specify the number of folds, or the loss function
-in the task. The default cross-validation scheme is V-fold, with the number of
+in the task. The default cross-validation scheme is $V$-fold, with the number of
 folds $V=10$.
 
 Let's visualize our `washb_task`.
@@ -370,7 +370,7 @@ xgb_learners <- apply(grid, MARGIN = 1, function(params_tune) {
   do.call(Lrnr_xgboost$new, c(params_default, as.list(params_tune)))})
 ```
 
-Did you see `Lrnr_caret` when we called `sl3_list_learners(c("binomial"))`? 
+Did you see `Lrnr_caret` when we called `sl3_list_learners(c("continuous"))`? 
 All we need to specify is the algorithm to use, which is passed as `method` to 
 `caret::train()`. The default method for parameter selection criterion with 
 is set to "CV" instead of the `caret::train()` default `boot`. The summary 
@@ -381,7 +381,7 @@ and `Accuracy` for categorical and binomial outcomes.
 # I have no idea how to tune a neural net (or BART machine..) 
 lrnr_caret_nnet <- make_learner(Lrnr_caret, algorithm = "nnet")
 lrnr_caret_bartMachine <- make_learner(Lrnr_caret, algorithm = "bartMachine", 
-                                       method = "boot", metric = "Accuracy",
+                                       method = "boot", metric = "RMSE",
                                        tuneLength = 10)
 ```
 In order to assemble the library of learners, we need to **"stack"** them
@@ -445,7 +445,7 @@ default metalearner selects a loss and metalearner pairing based on the outcome
 type. Note that any learner can be used as a metalearner.
 
 We have made a library/stack of base learners, so we are ready to make the super 
-learner. The super learner algorithm fits a metalearner on the validation-set 
+learner. The Super Learner algorithm fits a metalearner on the validation-set 
 predictions.
 
 ```{r make-sl, message=FALSE, warning=FALSE}
@@ -453,7 +453,7 @@ sl <- make_learner(Lrnr_sl,
   learners = fancy_stack
 )
 ```
-We can also use `Lrnr_cv` to build a super learner, cross-validate a stack of 
+We can also use `Lrnr_cv` to build a Super Learner, cross-validate a stack of 
 learners to compare performance of the learners in the stack, or cross-validate
 any single learner (see "Cross-validation" section of this [`sl3` 
 introductory tutorial](https://tlverse.org/sl3/articles/intro_sl3.html)).
@@ -482,7 +482,7 @@ sl_fit <- sl$train(washb_task)
 
 ### 4. Obtain predicted values {-}
 
-Now that we have fit the super learner, we are ready to calculate the predicted
+Now that we have fit the Super Learner, we are ready to calculate the predicted
 outcome for each subject.
 
 ```{r sl-predictions}
@@ -617,7 +617,7 @@ variable importance. In future updates of the handbook, we will delve into
 prediction of a conditional density, and the optimal individualized treatment 
 rule. 
 
-* If we plug in the estimator returned by super learner into the target
+* If we plug in the estimator returned by Super Learner into the target
   parameter mapping, then we would end up with an estimator that has the same
   bias as what we plugged in, and would not be asymptotically linear. It also 
   would not be a plug-in estimator or efficient. 
@@ -626,7 +626,7 @@ rule.
   they converge to the estimand at $\frac{1}{\sqrt{n}}$ rate, and thereby permit 
   formal statistical inference (i.e. confidence intervals and $p$-values).
   + Plug-in estimators of the estimand are desirable because they respect both 
-  the local and global constraints of the statistical model (e.g. bounds), and
+  the local and global constraints of the statistical model (e.g., bounds), and
   have they have better finite-sample properties. 
   + An efficient estimator is optimal in the sense that it has the lowest 
   possible variance, and is thus the most precise. An estimator is efficient if 
@@ -654,8 +654,8 @@ rule.
 
 ### Exercise 1 Solution
 
-Here is a potential solution to the (`sl3` Exercise -- Predicting Myocardial
-Infarction with `sl3`)[@sl3ex].
+Here is a potential solution to the [`sl3` Exercise -- Predicting Myocardial
+Infarction with `sl3`](#sl3ex).
 
 ```{r ex-key, eval=FALSE, message=FALSE, warning=FALSE}
 # make task
