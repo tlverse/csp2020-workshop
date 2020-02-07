@@ -421,8 +421,7 @@ screen_rf_pipeline <- make_learner(Pipeline, screen_rf, stack)
 Now our learners will be preceded by a screening step.
 
 We also consider the original `stack`, to compare how the feature selection
-methods perform in comparison to the methods without feature selection, and 
-because 
+methods perform in comparison to the methods without feature selection.
 
 Analogous to what we have seen before, we have to stack the pipeline and
 original `stack` together, so we may use them as base learners in our super
