@@ -24,7 +24,7 @@ By the end of this lesson you will be able to:
 6. Construct "realistic" optimal individualized treatment regimes that respect
    real data and subject-matter knowledge limitations on interventions by
    only considering interventions that are supported by the data.
-7. Measure variable importance as defined in terms of optimal individualized
+7. Measure variable importance as defined in terms of the optimal individualized
    treatment interventions.
 
 ## Introduction to Optimal Individualized Interventions
@@ -32,9 +32,9 @@ By the end of this lesson you will be able to:
 Identifying which intervention will be effective for which patient
 based on lifestyle, genetic and environmental factors is a common goal in
 precision medicine. One opts to administer the intervention to individuals
-who will profit from it, instead of assigning treatment on a population level.
+who will benefit from it, instead of assigning treatment on a population level.
 
-* This aim motivates a different type of intervention, as opposed to the static
+* This aim motivates a different type of an intervention, as opposed to the static
 exposures we might be used to.
 
 * In this chapter, we learn about dynamic
@@ -97,7 +97,7 @@ the form $O=(W,A,Y) \sim P_0$. $P_0 \in \mathcal{M}$, where $\mathcal{M}$ is the
 fully nonparametric model.
 
 * Denote $A \in \mathcal{A}$ as categorical treatment, where
-$\mathcal{A} \equiv \{a_1, \cdots, a_{n_A} \}$ and $n_A = |\mathcal{A}|$, with
+$\mathcal{A} \equiv \{a_1, \ldots, a_{n_A} \}$ and $n_A = |\mathcal{A}|$, with
 $n_A$ denoting the number of categories.
 
 * Denote $Y$ as the final outcome, and $W$ a vector-valued collection of baseline
@@ -119,7 +119,7 @@ the optimal individualized rule depends on.
 
 ## Defining the Causal Effect of an Optimal Individualized Intervention
 
-* Consider dynamic treatment rules $V \rightarrow d(V) \in \{a_1, \cdots, a_{n_A} \} \times \{1\}$,
+* Consider dynamic treatment rules $V \rightarrow d(V) \in \{a_1, \ldots, a_{n_A} \} \times \{1\}$,
 for assigning treatment $A$ based on $V \in W$.
 
 * Dynamic treatment regime may be viewed as an intervention in which
@@ -675,7 +675,7 @@ In the etherpad, submit your group's answers to the following questions.
    and possession of material items including the refrigerator (`asset_refrig`).
    Why do you think we use these covariates as $V$?
    Do we want to minimize or maximize the outcome? Which blip type should we use?
-   Construct an approprite `sl3` library for $A$, $Y$ and $B$.
+   Construct an appropriate `sl3` library for $A$, $Y$ and $B$.
 
 2. Based on the $V$ defined in the previous question, estimate the mean under the ITR for
    the main randomized intervention used in the WASH Benefits trial
@@ -783,7 +783,7 @@ b_learner <- create_mv_learners(learners = learners)
 learner_list <- list(Y = Q_learner, A = g_learner, B = b_learner)
 ```
 
-As seen before, we initialize the `tmle3_mopttx_blip_revere` Specn in order to
+As seen before, we initialize the `tmle3_mopttx_blip_revere` Spec in order to
 answer Question 1. We want to maximize our outcome, with higher the weight-for-height Z-score
 the better. We will also use `blip2` as the blip type, but note that we could have used `blip1`
 as well since "Control" is a good reference category.
