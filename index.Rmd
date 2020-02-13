@@ -112,27 +112,18 @@ Familiarity with the `R` programming language will be essential.
 
 ## Outline {-}
 
-The materials are based on those from a full-day workshop that featured modules
-centered around distinct causal questions, each motivated by a case study,
-alongside statistical methodology and software for assessing the causal claim
-of interest. Topics covered in that workshop included
-
-* Introduction to the [`tlverse` software
-    ecosystem](https://tlverse.org)
-* The Roadmap of Targeted Learning, and the [WASH
-    Benefits](http://www.washbenefits.net/) data
-* [Why we need a statistical
-    revolution](https://senseaboutscienceusa.org/super-learning-and-the-revolution-in-knowledge/)
-* Ensemble machine learning with the
-    [`sl3`](https://github.com/tlverse/sl3) `R` package
-* Targeted learning for causal inference with the
-    [`tmle3`](https://github.com/tlverse/tmle3) `R` package
-* Targeted learning for causal inference with the
-    [`tmle3`](https://github.com/tlverse/tmle3) `R` package
-* Optimal treatment regimes and the
-    [`tmle3mopttx`](https://github.com/tlverse/tmle3mopttx) `R` package
-* Stochastic treatment regimes and the
-    [`tmle3shift`](https://github.com/tlverse/tmle3shift) `R` package
+* 8:00-10:00A: [Introductory Presentation and Discussion](https://github.com/tlverse/csp2020-workshop/blob/master/slides/intro_presentation.pdf)
+* 10:00-10:15A: Break
+* 10:15A-10:45A: [Introduction to the `tlverse`](https://tlverse.org/csp2020-workshop/tlverse.html)
+* 10:45A-11:15A: [Introduction to `R6`](https://tlverse.org/csp2020-workshop/r6.html)
+* 11:15A-11:30P: [Overview of Example Datasets](https://tlverse.org/tlverse-handbook/data.html)
+* 11:30A-12:00P: [`tlverse` Software Installation](https://tlverse.org/csp2020-workshop/tlverse.html#installtlverse)
+* 12:00P-1:00P: Lunch
+* 1:00-3:00P: Super (Machine) Learning with the [`sl3`](https://tlverse.org/csp2020-workshop/sl3.html) `R` package
+* 3:00-3:15P: Break
+* 03:15-05:00P: Targeted Maximum Likelihood Estimation (TMLE) with the
+  [`tmle3`](https://tlverse.org/csp2020-workshop/the-tmle-framework.html) `R` 
+  package
 
 ## About the instructors and authors {-}
 
