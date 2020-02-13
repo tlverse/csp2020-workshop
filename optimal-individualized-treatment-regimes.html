@@ -327,7 +327,7 @@ rules, or “simple” rules, and recognize the practical benefit of these rules
 <li>Construct “realistic” optimal individualized treatment regimes that respect
 real data and subject-matter knowledge limitations on interventions by
 only considering interventions that are supported by the data.</li>
-<li>Measure variable importance as defined in terms of optimal individualized
+<li>Measure variable importance as defined in terms of the optimal individualized
 treatment interventions.</li>
 </ol>
 </div>
@@ -336,9 +336,9 @@ treatment interventions.</li>
 <p>Identifying which intervention will be effective for which patient
 based on lifestyle, genetic and environmental factors is a common goal in
 precision medicine. One opts to administer the intervention to individuals
-who will profit from it, instead of assigning treatment on a population level.</p>
+who will benefit from it, instead of assigning treatment on a population level.</p>
 <ul>
-<li><p>This aim motivates a different type of intervention, as opposed to the static
+<li><p>This aim motivates a different type of an intervention, as opposed to the static
 exposures we might be used to.</p></li>
 <li><p>In this chapter, we learn about dynamic
 (individualized) interventions that tailor the treatment decision based on the
@@ -395,7 +395,7 @@ mean under the optimal individualized treatment.</p></li>
 the form <span class="math inline">\(O=(W,A,Y) \sim P_0\)</span>. <span class="math inline">\(P_0 \in \mathcal{M}\)</span>, where <span class="math inline">\(\mathcal{M}\)</span> is the
 fully nonparametric model.</p></li>
 <li><p>Denote <span class="math inline">\(A \in \mathcal{A}\)</span> as categorical treatment, where
-<span class="math inline">\(\mathcal{A} \equiv \{a_1, \cdots, a_{n_A} \}\)</span> and <span class="math inline">\(n_A = |\mathcal{A}|\)</span>, with
+<span class="math inline">\(\mathcal{A} \equiv \{a_1, \ldots, a_{n_A} \}\)</span> and <span class="math inline">\(n_A = |\mathcal{A}|\)</span>, with
 <span class="math inline">\(n_A\)</span> denoting the number of categories.</p></li>
 <li><p>Denote <span class="math inline">\(Y\)</span> as the final outcome, and <span class="math inline">\(W\)</span> a vector-valued collection of baseline
 covariates.</p></li>
@@ -414,7 +414,7 @@ the optimal individualized rule depends on.</p></li>
 <div id="defining-the-causal-effect-of-an-optimal-individualized-intervention" class="section level2">
 <h2><span class="header-section-number">5.4</span> Defining the Causal Effect of an Optimal Individualized Intervention</h2>
 <ul>
-<li><p>Consider dynamic treatment rules <span class="math inline">\(V \rightarrow d(V) \in \{a_1, \cdots, a_{n_A} \} \times \{1\}\)</span>,
+<li><p>Consider dynamic treatment rules <span class="math inline">\(V \rightarrow d(V) \in \{a_1, \ldots, a_{n_A} \} \times \{1\}\)</span>,
 for assigning treatment <span class="math inline">\(A\)</span> based on <span class="math inline">\(V \in W\)</span>.</p></li>
 <li><p>Dynamic treatment regime may be viewed as an intervention in which
 <span class="math inline">\(A\)</span> is set equal to a value based on a hypothetical regime <span class="math inline">\(d(V)\)</span>, and <span class="math inline">\(Y_{d(V)}\)</span>
@@ -736,14 +736,14 @@ be used to estimate <span class="math inline">\(g_0(A|W)\)</span> in <code>sl3</
 <a class="sourceLine" id="cb89-3" data-line-number="3">fit</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
    type         param  init_est  tmle_est         se     lower     upper
-1:  TSM E[Y_{A=NULL}] 0.5415567 0.6031287 0.07562618 0.4549041 0.7513533
+1:  TSM E[Y_{A=NULL}] 0.5448579 0.6159089 0.06870765 0.4812444 0.7505735
    psi_transformed lower_transformed upper_transformed
-1:       0.6031287         0.4549041         0.7513533</code></pre>
+1:       0.6159089         0.4812444         0.7505735</code></pre>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="co"># How many individuals got assigned each treatment?</span></a>
 <a class="sourceLine" id="cb91-2" data-line-number="2"><span class="kw">table</span>(tmle_spec<span class="op">$</span>return_rule)</a></code></pre></div>
 <pre><code>
   1   2   3 
-491 366 143 </code></pre>
+337 407 256 </code></pre>
 <p>We can see that the confidence interval covers
 our true mean under the true optimal individualized treatment.</p>
 <p><strong>NOTICE the distribution of the assigned treatment! We will need this shortly.</strong></p>
@@ -782,10 +782,10 @@ inference for the counterfactual mean outcome under the sub-optimal rule.</p></l
 <a class="sourceLine" id="cb94-2" data-line-number="2">fit &lt;-<span class="st"> </span><span class="kw">tmle3</span>(tmle_spec, data, node_list, learner_list)</a>
 <a class="sourceLine" id="cb94-3" data-line-number="3">fit</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
-   type             param  init_est  tmle_est         se     lower     upper
-1:  TSM E[Y_{A=W3,W2,W1}] 0.5432151 0.5546209 0.07303534 0.4114742 0.6977675
+   type       param  init_est  tmle_est         se     lower     upper
+1:  TSM E[Y_{A=W1}] 0.5544924 0.6215764 0.07258505 0.4793123 0.7638404
    psi_transformed lower_transformed upper_transformed
-1:       0.5546209         0.4114742         0.6977675</code></pre>
+1:       0.6215764         0.4793123         0.7638404</code></pre>
 <p>Even though the user specified all baseline covariates as the basis
 for rule estimation, a simpler rule is sufficient to
 maximize the mean under the optimal individualized treatment!</p>
@@ -817,14 +817,14 @@ supported by the data.</p></li>
 <a class="sourceLine" id="cb97-3" data-line-number="3">fit</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
    type         param  init_est  tmle_est         se     lower     upper
-1:  TSM E[Y_{A=NULL}] 0.5530191 0.6569957 0.02142734 0.6149989 0.6989925
+1:  TSM E[Y_{A=NULL}] 0.5528206 0.6623798 0.02143643 0.6203651 0.7043944
    psi_transformed lower_transformed upper_transformed
-1:       0.6569957         0.6149989         0.6989925</code></pre>
+1:       0.6623798         0.6203651         0.7043944</code></pre>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="co"># How many individuals got assigned each treatment?</span></a>
 <a class="sourceLine" id="cb99-2" data-line-number="2"><span class="kw">table</span>(tmle_spec<span class="op">$</span>return_rule)</a></code></pre></div>
 <pre><code>
   2   3 
-511 489 </code></pre>
+514 486 </code></pre>
 <p><strong>QUESTION:</strong> Referring back to the data-generating distribution, why do you
 think the distribution of allocated treatment changed from the distribution
 that we had under the “non-realistic” rule?</p>
@@ -879,15 +879,15 @@ interest (called a <code>tmle3_Spec</code> in the <code>tlverse</code> nomenclat
 <a class="sourceLine" id="cb103-4" data-line-number="4">)</a>
 <a class="sourceLine" id="cb103-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb103-6" data-line-number="6"><span class="kw">print</span>(vim_results)</a></code></pre></div>
-<pre><code>   type                  param    init_est    tmle_est         se       lower
-1:   RR RR(E[Y_{A=NULL}]/E[Y])  0.00146023  0.07694092 0.03335150  0.01157318
-2:   RR RR(E[Y_{A=NULL}]/E[Y]) -0.02578404 -0.10075559 0.05206885 -0.20280865
-         upper psi_transformed lower_transformed upper_transformed  A
-1: 0.142308664        1.079978         1.0116404          1.152932  A
-2: 0.001297475        0.904154         0.8164344          1.001298 W1
+<pre><code>   type                  param     init_est   tmle_est         se        lower
+1:   RR RR(E[Y_{A=NULL}]/E[Y]) -0.026709262 -0.1021350 0.05243495 -0.204905578
+2:   RR RR(E[Y_{A=NULL}]/E[Y]) -0.000764858  0.0661873 0.03410604 -0.000659304
+          upper psi_transformed lower_transformed upper_transformed  A
+1: 0.0006356385       0.9029077         0.8147242          1.000636 W1
+2: 0.1330339097       1.0684268         0.9993409          1.142289  A
              W    Z_stat       p_nz p_nz_corrected
-1: W3,W4,W2,W1  2.306970 0.01052824     0.02105648
-2:  W3,W4,W2,A -1.935046 0.02649235     0.02649235</code></pre>
+1:  W3,W4,W2,A -1.947842 0.02571696     0.02615141
+2: W3,W4,W2,W1  1.940633 0.02615141     0.02615141</code></pre>
 <p>The final result of <code>tmle3_vim</code> with the <code>tmle3mopttx</code> spec is an ordered list
 of mean outcomes under the optimal individualized treatment for all categorical
 covariates in our dataset.</p>
@@ -924,7 +924,7 @@ the six intervention groups aimed at improving living conditions.</p>
 and possession of material items including the refrigerator (<code>asset_refrig</code>).
 Why do you think we use these covariates as <span class="math inline">\(V\)</span>?
 Do we want to minimize or maximize the outcome? Which blip type should we use?
-Construct an approprite <code>sl3</code> library for <span class="math inline">\(A\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(B\)</span>.</p></li>
+Construct an appropriate <code>sl3</code> library for <span class="math inline">\(A\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(B\)</span>.</p></li>
 <li><p>Based on the <span class="math inline">\(V\)</span> defined in the previous question, estimate the mean under the ITR for
 the main randomized intervention used in the WASH Benefits trial
 with weight-for-height Z-score as the outcome. What’s the TMLE value of the optimal ITR?
@@ -1015,7 +1015,7 @@ will define the <code>xgboost</code> over a grid of parameters, and initialize a
 <a class="sourceLine" id="cb108-34" data-line-number="34">b_learner &lt;-<span class="st"> </span><span class="kw">create_mv_learners</span>(<span class="dt">learners =</span> learners)</a>
 <a class="sourceLine" id="cb108-35" data-line-number="35"></a>
 <a class="sourceLine" id="cb108-36" data-line-number="36">learner_list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Y =</span> Q_learner, <span class="dt">A =</span> g_learner, <span class="dt">B =</span> b_learner)</a></code></pre></div>
-<p>As seen before, we initialize the <code>tmle3_mopttx_blip_revere</code> Specn in order to
+<p>As seen before, we initialize the <code>tmle3_mopttx_blip_revere</code> Spec in order to
 answer Question 1. We want to maximize our outcome, with higher the weight-for-height Z-score
 the better. We will also use <code>blip2</code> as the blip type, but note that we could have used <code>blip1</code>
 as well since “Control” is a good reference category.</p>
