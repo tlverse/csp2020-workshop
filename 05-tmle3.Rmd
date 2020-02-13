@@ -141,7 +141,7 @@ written as a function of other asymptotically linear estimators.
 
 ## Easy-Bake Example: `tmle3` for ATE
 
-We'll illustrate the most basic use of TMLE using the IST example data
+We'll illustrate the most basic use of TMLE using the WASH benefits example data
 introduced earlier and estimating an Average Treatment Effect (ATE).
 
 As a reminder, the ATE is identified with the following statistical parameter
@@ -194,14 +194,13 @@ node_list <- list(
 
 #### Handling Missingness {-}
 
-Currently, missingness in `tmle3` is handled in a fairly simple way:
+Currently, missingness in `tlverse` is handled in a fairly simple way:
 
 * Missing covariates are median (for continuous) or mode (for discrete)
   imputed, and additional covariates indicating imputation are generated
-* Observations missing either treatment or outcome variables are excluded.
-
-We plan to implement IPCW-TMLE to more efficiently handle missingness in the
-treatment and outcome variables.
+* Observations missing treatment variables are excluded.
+* We implement an IPCW-TMLE to more efficiently handle missingness in the 
+  outcome variables.
 
 These steps are implemented in the `process_missing` function in `tmle3`:
 
@@ -446,7 +445,9 @@ print(stratified_fit)
 ```
 This TMLE is consistent for both the marginal ATE as well as the ATEs in strata of V. For continuous V, this could be extended using a working Marginal Structural Model (MSM), although that has not yet been implemented in `tmle3`.
 
-## Exercise
+## Exercises
+
+### Estimation of the ATE with `tmle3` {#sl3ex2}
 
 Follow the steps below to estimate an average treatment effect using data from
 the Collaborative Perinatal Project (CPP), available in the `sl3` package. To
@@ -455,16 +456,7 @@ an indicator of having one or more children before the current child and a
 binary outcome, `haz01` -- an indicator of having an above average height for
 age.
 
-Work with a buddy/team. You have 20 minutes.
-
-In the [etherpad](https://etherpad.net/p/acic2019-tlverse), submit your group's
-answers to the following:
-
-1. Interpret the `tmle3` fit both causally and statistically.
-2. Did your group face any challenges?
-3. Any additional comments/questions about this `tmle3` section of the workshop?
-
-```{r data, message=FALSE, warning=FALSE}
+```{r tmle-exercise-data, message=FALSE, warning=FALSE}
 # load the data set
 data(cpp)
 cpp <- cpp[!is.na(cpp[, "haz"]), ]
@@ -472,35 +464,6 @@ cpp$parity01 <- as.numeric(cpp$parity > 0)
 cpp[is.na(cpp)] <- 0
 cpp$haz01 <- as.numeric(cpp$haz > 0)
 ```
-<!--
-We're interested in using this simplified data to estimate an Average Treatment
-Effect (ATE):
-
-$$\Psi(P_0) = E_0(E_0[Y|A=1,W]-E_0[Y|A=0,W])$$
-
-The purely statistical (non-causal) parameter can be interpreted as the average
-of the difference in means across the strata for $W$, and only requires the
-positivity assumption, that the conditional treatment assignment probabilities
-are positive for each possible $w: P_0(A=1 \mid W=w) > 0$ and
-$P_0(A=0 \mid W=w) > 0$ for each possible $w$.
-
-To interpret this parameter as causal, specifically the causal risk difference
-$E_0Y_1-E_0Y_0$, then we would also need to make the randomization assumption
-stating that $A$ is independent of the counterfactuals $(Y_0,Y_1)$ within
-strata of $W$. This assumption might have been included in the original SCM
-$\mathcal{M}^F$, but, if one knows there are unmeasured confounders, then the
-model $\mathcal{M}^{F\*}$ would be more restrictive by enforcing this "known
-to be wrong" randomization assumption. Still, this assumption does not change
-the statistical model $\mathcal{M}$, and as a consequence, it does not affect
-the estimation problem either. Thus, the theorem's that establish desirable
-properties of the TMLE, still hold even when this non-testable randomization
-assumption is violated.
-
-We proceed with implementing a targeted minimum loss-based estimator (TMLE),
-an efficient substitution estimator which is not only asymptotically
-consistent, asymptotically normally distributed, and asymptotically efficient,
-but also tailored to have robust finite sample performance.
--->
 
 1. Define the variable roles $(W,A,Y)$ by creating a list of these nodes.
    Include the following baseline covariates in $W$: `apgar1`, `apgar5`,
@@ -509,7 +472,7 @@ but also tailored to have robust finite sample performance.
 2. Define a `tmle3_Spec` object for the ATE, `tmle_ATE()`.
 3. Using the same base learning libraries defined above, specify `sl3` base
    learners for estimation of $Q = E(Y|A,Y)$ and $g=P(A|W)$.
-4. Define the metalearner like below
+4. Define the metalearner like below.
 
 ```{r, metalrnr-exercise}
 metalearner <- make_learner(Lrnr_solnp,
@@ -530,6 +493,46 @@ metalearner <- make_learner(Lrnr_solnp,
    and $Q$, which we defined in Step 6. *Note*: Like before, you will need to
    make a data copy to deal with `data.table` weirdness
    (`cpp2 <- data.table::copy(cpp)`) and use `cpp2` as the data.
+
+### Estimation of Strata-Specific ATEs with `tmle3` {#sl3ex2}
+
+For this exercise, we will work with a random sample of 5,000 patients who
+participated in the International Stroke Trial (IST). This data is described in 
+the [Chapter 3.2 of the `tlverse` 
+handbook](https://tlverse.org/tlverse-handbook/data.html#ist). We included the
+data below and a summarized description that is relevant for this exercise. 
+
+The outcome, $Y$, indicates recurrent ischemic stroke within 14 days after 
+randomization (`DRSISC`); the treatment of interest, $A$, is the randomized 
+aspirin vs. no aspirin treatment allocation (`RXASP` in  `ist`); and the 
+adjustment set, $W$, consists simply of other variables measured at baseline. In 
+this data, the outcome is occasionally missing, but there is no need to create a 
+variable indicating this missingness (such as $\Delta$) for analyses in the 
+`tlverse`, since the missingness is automatically detected when `NA` are present 
+in the outcome. Covariates with missing values (`RATRIAL`, `RASP3` and `RHEP24`) 
+have already been imputed. Additional covariates were created 
+(`MISSING_RATRIAL_RASP3` and `MISSING_RHEP24`), which indicate whether or not
+the covariate was imputed. The missingness was identical for `RATRIAL` and 
+`RASP3`, which is why only one covariate indicating imputation for these two 
+covariates was created. 
+
+1. Estimate the average effect of randomized asprin treatment (`RXASP` = 1) on 
+   recurrent ischemic stroke. Even though the missingness mechanism on $Y$, 
+   $\Delta$, does not need to be specified in the node list, it does still need 
+   to be accounted for in the TMLE. In other words, for this estimation problem,
+   $\Delta$ is a relevant factor of the likelihood in addition to $Q$, $g$. 
+   Thus, when defining the list of `sl3` learners for each likelihood factor, be 
+   sure to include a list of learners for estimation of $\Delta$, say `sl_Delta`, 
+   and specify something like 
+   `learner_list <- list(A = sl_A, delta_Y = sl_Delta, Y = sl_Y)`.
+2. Recall that this RCT was conducted internationally. Suposse there is concern 
+   that the dose of asprin may have varied across geographical regions, and an
+   average across all geographical regions may not be warranted. Calculate the 
+   strata specific ATEs according to geographical region (`REGION`). 
+
+```{r tmle3-ex2}
+ist_data <- data.table(read.csv("https://raw.githubusercontent.com/tlverse/deming2019-workshop/master/data/ist_sample.csv"))
+```
 
 ## Summary
 
