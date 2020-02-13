@@ -227,10 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5.2" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#fit"><i class="fa fa-check"></i><b>4.5.2</b> Fit</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#stratified-effect-estimates"><i class="fa fa-check"></i><b>4.6</b> Stratified Effect Estimates</a></li>
-<li class="chapter" data-level="4.7" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#exercises-1"><i class="fa fa-check"></i><b>4.7</b> Exercises</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="sl3.html"><a href="sl3.html#sl3ex2"><i class="fa fa-check"></i><b>4.7.1</b> Estimation of the ATE with <code>tmle3</code></a></li>
-<li class="chapter" data-level="4.7.2" data-path="sl3.html"><a href="sl3.html#sl3ex2"><i class="fa fa-check"></i><b>4.7.2</b> Estimation of Strata-Specific ATEs with <code>tmle3</code></a></li>
-</ul></li>
+<li class="chapter" data-level="4.7" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#exercise"><i class="fa fa-check"></i><b>4.7</b> Exercise</a></li>
 <li class="chapter" data-level="4.8" data-path="the-tmle-framework.html"><a href="the-tmle-framework.html#summary"><i class="fa fa-check"></i><b>4.8</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html"><i class="fa fa-check"></i><b>5</b> Optimal Individualized Treatment Regimes</a><ul>
@@ -251,7 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.7.2" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#realistic-optimal-individual-regimes"><i class="fa fa-check"></i><b>5.7.2</b> Realistic Optimal Individual Regimes</a></li>
 <li class="chapter" data-level="5.7.3" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#variable-importance-analysis"><i class="fa fa-check"></i><b>5.7.3</b> Variable Importance Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#exercise"><i class="fa fa-check"></i><b>5.8</b> Exercise</a><ul>
+<li class="chapter" data-level="5.8" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#exercise-1"><i class="fa fa-check"></i><b>5.8</b> Exercise</a><ul>
 <li class="chapter" data-level="5.8.1" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#real-world-data-and-tmle3mopttx"><i class="fa fa-check"></i><b>5.8.1</b> Real World Data and <code>tmle3mopttx</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.9" data-path="optimal-individualized-treatment-regimes.html"><a href="optimal-individualized-treatment-regimes.html#summary-1"><i class="fa fa-check"></i><b>5.9</b> Summary</a><ul>
@@ -276,7 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.4" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#directly-targeting-the-msm-parameter-beta"><i class="fa fa-check"></i><b>6.5.4</b> Directly Targeting the MSM Parameter <span class="math inline">\(\beta\)</span></a></li>
 <li class="chapter" data-level="6.5.5" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#example-with-the-wash-benefits-data"><i class="fa fa-check"></i><b>6.5.5</b> Example with the WASH Benefits Data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#exercises-2"><i class="fa fa-check"></i><b>6.6</b> Exercises</a></li>
+<li class="chapter" data-level="6.6" data-path="stochastic-treatment-regimes.html"><a href="stochastic-treatment-regimes.html#exercises-1"><i class="fa fa-check"></i><b>6.6</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="r6.html"><a href="r6.html"><i class="fa fa-check"></i><b>7</b> A Primer on the <code>R6</code> Class System</a><ul>
 <li class="chapter" data-level="7.1" data-path="r6.html"><a href="r6.html#classes-fields-and-methods"><i class="fa fa-check"></i><b>7.1</b> Classes, Fields, and Methods</a></li>
@@ -507,8 +504,8 @@ model to express causal parameters of interest. Directed acyclic graphs (DAGs)
 are one useful tool to express what we know about the causal relations among
 variables. Ignoring exogenous <span class="math inline">\(U\)</span> terms (explained below), we assume the
 following ordering of the variables in the observed data <span class="math inline">\(O\)</span>.</p>
-<div id="htmlwidget-7428957d9fe19467f9b6" style="width:200px;height:300px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7428957d9fe19467f9b6">{"x":{"nodes":{"id":["W","A","Y"],"label":["W","A","Y"]},"edges":{"from":["W","W","A"],"to":["A","Y","Y"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":{"to":true}},"layout":{"randomSeed":25}},"groups":null,"width":"200px","height":"300px","idselection":{"enabled":false},"byselection":{"enabled":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1fdd74dbf5adaf50a5ea" style="width:200px;height:300px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1fdd74dbf5adaf50a5ea">{"x":{"nodes":{"id":["W","A","Y"],"label":["W","A","Y"]},"edges":{"from":["W","W","A"],"to":["A","Y","Y"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":{"to":true}},"layout":{"randomSeed":25}},"groups":null,"width":"200px","height":"300px","idselection":{"enabled":false},"byselection":{"enabled":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)"},"evals":[],"jsHooks":[]}</script>
 <p>While directed acyclic graphs (DAGs) like above provide a convenient means by
 which to visualize causal relations between variables, the same causal
 relations among variables can be represented via a set of structural equations,
