@@ -179,7 +179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="sl3.html"><a href="sl3.html#motivation-1"><i class="fa fa-check"></i><b>3.2</b> Motivation</a></li>
 <li class="chapter" data-level="3.3" data-path="sl3.html"><a href="sl3.html#introduction-1"><i class="fa fa-check"></i><b>3.3</b> Introduction</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="sl3.html"><a href="sl3.html#background"><i class="fa fa-check"></i><b>3.3.1</b> Background</a></li>
-<li class="chapter" data-level="3.3.2" data-path="sl3.html"><a href="sl3.html#super-learner-for-prediction"><i class="fa fa-check"></i><b>3.3.2</b> Super Learner for Prediction</a></li>
+<li class="chapter" data-level="3.3.2" data-path="sl3.html"><a href="sl3.html#why-use-the-super-learner"><i class="fa fa-check"></i><b>3.3.2</b> Why use the Super Learner?</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="sl3.html"><a href="sl3.html#sl3-microwave-dinner-implementation"><i class="fa fa-check"></i><b>3.4</b> <code>sl3</code> “Microwave Dinner” Implementation</a><ul>
 <li class="chapter" data-level="" data-path="sl3.html"><a href="sl3.html#wash-benefits-study-example"><i class="fa fa-check"></i>WASH Benefits Study Example</a></li>
@@ -561,14 +561,14 @@ can extra results from the summary by indexing into it:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="kw">print</span>(tmle_fit)</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
    type                                    param    init_est    tmle_est
-1:  ATE ATE[Y_{A=Nutrition + WSH}-Y_{A=Control}] 0.002407287 0.002484809
-          se       lower    upper psi_transformed lower_transformed
-1: 0.0507056 -0.09689633 0.101866     0.002484809       -0.09689633
+1:  ATE ATE[Y_{A=Nutrition + WSH}-Y_{A=Control}] 0.002273809 0.006080976
+           se       lower     upper psi_transformed lower_transformed
+1: 0.05092358 -0.09372741 0.1058894     0.006080976       -0.09372741
    upper_transformed
-1:          0.101866</code></pre>
+1:         0.1058894</code></pre>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">estimates &lt;-<span class="st"> </span>tmle_fit<span class="op">$</span>summary<span class="op">$</span>psi_transformed</a>
 <a class="sourceLine" id="cb48-2" data-line-number="2"><span class="kw">print</span>(estimates)</a></code></pre></div>
-<pre><code>[1] 0.002484809</code></pre>
+<pre><code>[1] 0.006080976</code></pre>
 </div>
 </div>
 <div id="tmle3-components" class="section level2">
@@ -618,17 +618,17 @@ the <code>learner_list</code>) above.</p>
 estimates for each observation:</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">initial_likelihood<span class="op">$</span><span class="kw">get_likelihoods</span>(tmle_task)</a></code></pre></div>
 <pre><code>                 W         A          Y
-   1: 0.0002129925 0.2471392 -0.6631124
-   2: 0.0002129925 0.2555017 -0.6357461
-   3: 0.0002129925 0.2609578 -0.6233787
-   4: 0.0002129925 0.2866647 -0.6028617
-   5: 0.0002129925 0.2542273 -0.5455840
+   1: 0.0002129925 0.2488599 -0.6577292
+   2: 0.0002129925 0.2534016 -0.6315311
+   3: 0.0002129925 0.2563649 -0.6196916
+   4: 0.0002129925 0.2703267 -0.6000505
+   5: 0.0002129925 0.2527095 -0.5452179
   ---                                  
-4691: 0.0002129925 0.1365673 -0.4646819
-4692: 0.0002129925 0.1259164 -0.4837362
-4693: 0.0002129925 0.1262141 -0.5693212
-4694: 0.0002129925 0.1857575 -0.8212507
-4695: 0.0002129925 0.1304882 -0.5426370</code></pre>
+4691: 0.0002129925 0.1323650 -0.4677694
+4692: 0.0002129925 0.1265803 -0.4860103
+4693: 0.0002129925 0.1267420 -0.5679418
+4694: 0.0002129925 0.1590809 -0.8091167
+4695: 0.0002129925 0.1290633 -0.5423966</code></pre>
 <!-- TODO: make helper to get learners out of fit objects -->
 </div>
 <div id="targeted-likelihood-updater" class="section level3">
@@ -667,12 +667,12 @@ manually fit a <code>tmle3</code>:</p>
 <a class="sourceLine" id="cb61-4" data-line-number="4">)</a>
 <a class="sourceLine" id="cb61-5" data-line-number="5"><span class="kw">print</span>(tmle_fit_manual)</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
-   type                                    param    init_est     tmle_est
-1:  ATE ATE[Y_{A=Nutrition + WSH}-Y_{A=Control}] 0.002448184 0.0005115711
-           se       lower     upper psi_transformed lower_transformed
-1: 0.05087405 -0.09919973 0.1002229    0.0005115711       -0.09919973
+   type                                    param    init_est    tmle_est
+1:  ATE ATE[Y_{A=Nutrition + WSH}-Y_{A=Control}] 0.002343674 0.002183764
+          se       lower     upper psi_transformed lower_transformed
+1: 0.0506576 -0.09710331 0.1014708     0.002183764       -0.09710331
    upper_transformed
-1:         0.1002229</code></pre>
+1:         0.1014708</code></pre>
 <p>The result is equivalent to fitting using the <code>tmle3</code> function as above.</p>
 </div>
 </div>
@@ -737,33 +737,33 @@ above defined ATE parameter</p>
 <a class="sourceLine" id="cb67-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb67-8" data-line-number="8"><span class="kw">print</span>(tmle_fit_multiparam)</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
-   type                                       param     init_est      tmle_est
-1:  TSM                            E[Y_{A=Control}] -0.596804925 -0.6182799713
-2:  TSM                        E[Y_{A=Handwashing}] -0.609394494 -0.6420094294
-3:  TSM                          E[Y_{A=Nutrition}] -0.604898073 -0.6251226217
-4:  TSM                    E[Y_{A=Nutrition + WSH}] -0.594356741 -0.6175448837
-5:  TSM                         E[Y_{A=Sanitation}] -0.590166896 -0.5902682173
-6:  TSM                                E[Y_{A=WSH}] -0.531152476 -0.4492346797
-7:  TSM                              E[Y_{A=Water}] -0.578450820 -0.5323308448
-8:  ATE E[Y_{A=Nutrition + WSH}] - E[Y_{A=Control}]  0.002448184  0.0007350875
-           se      lower      upper psi_transformed lower_transformed
-1: 0.02982633 -0.6767385 -0.5598214   -0.6182799713        -0.6767385
-2: 0.04213190 -0.7245864 -0.5594324   -0.6420094294        -0.7245864
-3: 0.04237657 -0.7081792 -0.5420661   -0.6251226217        -0.7081792
-4: 0.04134023 -0.6985703 -0.5365195   -0.6175448837        -0.6985703
-5: 0.04204952 -0.6726838 -0.5078527   -0.5902682173        -0.6726838
-6: 0.04489730 -0.5372318 -0.3612376   -0.4492346797        -0.5372318
-7: 0.03888911 -0.6085521 -0.4561096   -0.5323308448        -0.6085521
-8: 0.05086684 -0.0989621  0.1004323    0.0007350875        -0.0989621
+   type                                       param     init_est     tmle_est
+1:  TSM                            E[Y_{A=Control}] -0.594252239 -0.621619620
+2:  TSM                        E[Y_{A=Handwashing}] -0.606304372 -0.643105005
+3:  TSM                          E[Y_{A=Nutrition}] -0.601999898 -0.613080562
+4:  TSM                    E[Y_{A=Nutrition + WSH}] -0.591908565 -0.619324321
+5:  TSM                         E[Y_{A=Sanitation}] -0.587897581 -0.580665016
+6:  TSM                                E[Y_{A=WSH}] -0.531402424 -0.449539628
+7:  TSM                              E[Y_{A=Water}] -0.576681652 -0.542648313
+8:  ATE E[Y_{A=Nutrition + WSH}] - E[Y_{A=Control}]  0.002343674  0.002295299
+           se       lower      upper psi_transformed lower_transformed
+1: 0.02991683 -0.68025553 -0.5629837    -0.621619620       -0.68025553
+2: 0.04198100 -0.72538625 -0.5608238    -0.643105005       -0.72538625
+3: 0.04228838 -0.69596426 -0.5301969    -0.613080562       -0.69596426
+4: 0.04098148 -0.69964655 -0.5390021    -0.619324321       -0.69964655
+5: 0.04249678 -0.66395718 -0.4973729    -0.580665016       -0.66395718
+6: 0.04486537 -0.53747413 -0.3616051    -0.449539628       -0.53747413
+7: 0.03890989 -0.61891029 -0.4663863    -0.542648313       -0.61891029
+8: 0.05063888 -0.09695508  0.1015457     0.002295299       -0.09695508
    upper_transformed
-1:        -0.5598214
-2:        -0.5594324
-3:        -0.5420661
-4:        -0.5365195
-5:        -0.5078527
-6:        -0.3612376
-7:        -0.4561096
-8:         0.1004323</code></pre>
+1:        -0.5629837
+2:        -0.5608238
+3:        -0.5301969
+4:        -0.5390021
+5:        -0.4973729
+6:        -0.3616051
+7:        -0.4663863
+8:         0.1015457</code></pre>
 </div>
 </div>
 <div id="stratified-effect-estimates" class="section level2">
@@ -780,14 +780,14 @@ above defined ATE parameter</p>
 1:            ATE            ATE[Y_{A=Nutrition + WSH}-Y_{A=Control}]
 2: stratified ATE   ATE[Y_{A=Nutrition + WSH}-Y_{A=Control}] | V=male
 3: stratified ATE ATE[Y_{A=Nutrition + WSH}-Y_{A=Control}] | V=female
-      init_est     tmle_est         se      lower      upper psi_transformed
-1: 0.002346379 -0.004107436 0.05051035 -0.1031059 0.09489103    -0.004107436
-2: 0.002041850  0.021792572 0.07578490 -0.1267431 0.17032825     0.021792572
-3: 0.002649742 -0.029908336 0.06682904 -0.1608908 0.10107417    -0.029908336
+      init_est     tmle_est         se       lower      upper psi_transformed
+1: 0.002387825  0.005952091 0.05057484 -0.09317278 0.10507696     0.005952091
+2: 0.002077917  0.046399716 0.07580905 -0.10218328 0.19498272     0.046399716
+3: 0.002696547 -0.034340759 0.06698992 -0.16563859 0.09695707    -0.034340759
    lower_transformed upper_transformed
-1:        -0.1031059        0.09489103
-2:        -0.1267431        0.17032825
-3:        -0.1608908        0.10107417</code></pre>
+1:       -0.09317278        0.10507696
+2:       -0.10218328        0.19498272
+3:       -0.16563859        0.09695707</code></pre>
 <p>This TMLE is consistent for both the marginal ATE as well as the ATEs in strata of V. For continuous V, this could be extended using a working Marginal Structural Model (MSM), although that has not yet been implemented in <code>tmle3</code>.</p>
 </div>
 <div id="exercises-1" class="section level2">
