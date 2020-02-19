@@ -29,8 +29,7 @@ Many different implementations of OOP exist, with variations in how these
 concepts are implemented and used. R has several different implementations,
 including `S3`, `S4`, reference classes, and `R6`. The `tlverse` uses the `R6`
 implementation. In `R6`, methods and fields of a class object are accessed using
-the `$` operator. For a more thorough introduction to `R`'s various OOP systems,
-see http://adv-r.had.co.nz/OO-essentials.html, from Hadley Wickham's _Advanced
+the `$` operator. For a more thorough introduction to `R6`, see https://adv-r.hadley.nz/r6.html, from Hadley Wickham's _Advanced
 R_ [@wickham2014advanced].
 
 ## Object Oriented Programming: `Python` and `R`
