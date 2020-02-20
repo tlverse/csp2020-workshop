@@ -1,3 +1,7 @@
+## ----cv_fig4, echo = FALSE----------------------------------------------------
+knitr::include_graphics("img/misc/TMLEimage.pdf")
+
+
 ## ----tmle3-load-data----------------------------------------------------------
 library(data.table)
 library(tmle3)
@@ -145,7 +149,7 @@ stratified_fit <- tmle3(stratified_ate_spec, washb_data, node_list, learner_list
 print(stratified_fit)
 
 
-## ----data, message=FALSE, warning=FALSE---------------------------------------
+## ----tmle-exercise-data, message=FALSE, warning=FALSE-------------------------
 # load the data set
 data(cpp)
 cpp <- cpp[!is.na(cpp[, "haz"]), ]
@@ -159,4 +163,8 @@ metalearner <- make_learner(Lrnr_solnp,
   loss_function = loss_loglik_binomial,
   learner_function = metalearner_logistic_binomial
 )
+
+
+## ----tmle3-ex2----------------------------------------------------------------
+ist_data <- data.table(read.csv("https://raw.githubusercontent.com/tlverse/deming2019-workshop/master/data/ist_sample.csv"))
 
