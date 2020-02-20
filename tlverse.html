@@ -426,7 +426,11 @@ bottom of the page.</li>
 <li>Copy your Personal Access Token, a long string of lowercase letters and
 numbers.</li>
 <li>Type <code>usethis::edit_r_environ()</code> in your R console, which will open your
-<code>.Renviron</code> file in the source window of RStudio.</li>
+<code>.Renviron</code> file in the source window of RStudio. If you are not able to
+access your <code>.Renviron</code> file with this command, then try inputting
+<code>Sys.setenv(GITHUB_PAT = )</code> with your Personal Access Token inserted as a
+string after the equals symbol; and if this does not error, then skip to
+step 8.</li>
 <li>In your <code>.Renviron</code> file, type <code>GITHUB_PAT=</code> and then paste your Personal
 Access Token after the equals symbol with no space.</li>
 <li>In your <code>.Renviron</code> file, press the enter key to ensure that your <code>.Renviron</code>
