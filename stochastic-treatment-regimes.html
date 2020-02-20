@@ -308,7 +308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em>Nima Hejazi</em></p>
 <p>Based on the <a href="https://github.com/tlverse/tmle3shift"><code>tmle3shift</code> <code>R</code> package</a>
 by <em>Nima Hejazi, Jeremy Coyle, and Mark van der Laan</em>.</p>
-<p>Updated: 2020-02-19</p>
+<p>Updated: 2020-02-20</p>
 <div id="learning-objectives-5" class="section level2">
 <h2><span class="header-section-number">6.1</span> Learning Objectives</h2>
 <ol style="list-style-type: decimal">
@@ -584,15 +584,15 @@ hold. We discuss this in greater detail in the sequel.</p>
 <h3><span class="header-section-number">6.4.2</span> Targeted Estimation of Stochastic Interventions Effects</h3>
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1">tmle_fit &lt;-<span class="st"> </span><span class="kw">tmle3</span>(tmle_spec, data, node_list, learner_list)</a></code></pre></div>
 <pre><code>
-Iter: 1 fn: 1373.9430    Pars:  0.80475 0.19525
-Iter: 2 fn: 1373.9430    Pars:  0.80475 0.19525
+Iter: 1 fn: 1374.0641    Pars:  0.80877 0.19123
+Iter: 2 fn: 1374.0641    Pars:  0.80877 0.19123
 solnp--&gt; Completed in 2 iterations</code></pre>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1">tmle_fit</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
    type         param  init_est  tmle_est         se     lower     upper
-1:  TSM E[Y_{A=NULL}] 0.7957592 0.7970729 0.01230685 0.7729519 0.8211938
+1:  TSM E[Y_{A=NULL}] 0.7956816 0.7962005 0.01246854 0.7717626 0.8206384
    psi_transformed lower_transformed upper_transformed
-1:       0.7970729         0.7729519         0.8211938</code></pre>
+1:       0.7962005         0.7717626         0.8206384</code></pre>
 <p>The <code>print</code> method of the resultant <code>tmle_fit</code> object conveniently displays the
 results from computing our TML estimator.</p>
 </div>
@@ -658,23 +658,23 @@ simply invoke the <code>tmle3</code> wrapper function to fit the series of TML e
 For convenience, we choose the latter:</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1">tmle_fit &lt;-<span class="st"> </span><span class="kw">tmle3</span>(tmle_spec, data, node_list, learner_list)</a></code></pre></div>
 <pre><code>
-Iter: 1 fn: 1378.1159    Pars:  0.78373 0.21627
-Iter: 2 fn: 1378.1159    Pars:  0.78373 0.21627
+Iter: 1 fn: 1376.2824    Pars:  0.79604 0.20396
+Iter: 2 fn: 1376.2824    Pars:  0.79605 0.20395
 solnp--&gt; Completed in 2 iterations</code></pre>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1">tmle_fit</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
          type          param  init_est  tmle_est          se     lower
-1:        TSM  E[Y_{A=NULL}] 0.6269230 0.6240228 0.014261257 0.5960712
-2:        TSM  E[Y_{A=NULL}] 0.7390002 0.7390000 0.013895038 0.7117662
-3:        TSM  E[Y_{A=NULL}] 0.8438090 0.8472847 0.010167079 0.8273576
-4: MSM_linear MSM(intercept) 0.7365774 0.7367692 0.012233507 0.7127919
-5: MSM_linear     MSM(slope) 0.1084430 0.1116310 0.004409762 0.1029880
+1:        TSM  E[Y_{A=NULL}] 0.6279200 0.6282141 0.014012990 0.6007491
+2:        TSM  E[Y_{A=NULL}] 0.7380951 0.7390000 0.013895038 0.7117662
+3:        TSM  E[Y_{A=NULL}] 0.8436793 0.8444172 0.010481124 0.8238746
+4: MSM_linear MSM(intercept) 0.7365648 0.7372104 0.012227944 0.7132441
+5: MSM_linear     MSM(slope) 0.1078797 0.1081016 0.004407264 0.0994635
        upper psi_transformed lower_transformed upper_transformed
-1: 0.6519743       0.6240228         0.5960712         0.6519743
+1: 0.6556790       0.6282141         0.6007491         0.6556790
 2: 0.7662338       0.7390000         0.7117662         0.7662338
-3: 0.8672119       0.8472847         0.8273576         0.8672119
-4: 0.7607464       0.7367692         0.7127919         0.7607464
-5: 0.1202740       0.1116310         0.1029880         0.1202740</code></pre>
+3: 0.8649599       0.8444172         0.8238746         0.8649599
+4: 0.7611768       0.7372104         0.7132441         0.7611768
+5: 0.1167397       0.1081016         0.0994635         0.1167397</code></pre>
 <p><em>Remark</em>: The <code>print</code> method of the resultant <code>tmle_fit</code> object conveniently
 displays the results from computing our TML estimator.</p>
 </div>
@@ -700,11 +700,11 @@ for <span class="math inline">\(m_{\beta}(\delta)\)</span> may be expressed <spa
 <span class="math inline">\(\text{EIF}_{\beta}(O)\)</span>.</p>
 <div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1">tmle_fit<span class="op">$</span>summary[<span class="dv">4</span><span class="op">:</span><span class="dv">5</span>, ]</a></code></pre></div>
 <pre><code>         type          param  init_est  tmle_est          se     lower
-1: MSM_linear MSM(intercept) 0.7365774 0.7367692 0.012233507 0.7127919
-2: MSM_linear     MSM(slope) 0.1084430 0.1116310 0.004409762 0.1029880
+1: MSM_linear MSM(intercept) 0.7365648 0.7372104 0.012227944 0.7132441
+2: MSM_linear     MSM(slope) 0.1078797 0.1081016 0.004407264 0.0994635
        upper psi_transformed lower_transformed upper_transformed
-1: 0.7607464       0.7367692         0.7127919         0.7607464
-2: 0.1202740       0.1116310         0.1029880         0.1202740</code></pre>
+1: 0.7611768       0.7372104         0.7132441         0.7611768
+2: 0.1167397       0.1081016         0.0994635         0.1167397</code></pre>
 </div>
 <div id="directly-targeting-the-msm-parameter-beta" class="section level3">
 <h3><span class="header-section-number">6.5.4</span> Directly Targeting the MSM Parameter <span class="math inline">\(\beta\)</span></h3>
@@ -735,17 +735,17 @@ appears above):</p>
 <a class="sourceLine" id="cb131-7" data-line-number="7"><span class="co"># fit the TML estimator and examine the results</span></a>
 <a class="sourceLine" id="cb131-8" data-line-number="8">tmle_msm_fit &lt;-<span class="st"> </span><span class="kw">tmle3</span>(tmle_msm_spec, data, node_list, learner_list)</a></code></pre></div>
 <pre><code>
-Iter: 1 fn: 1372.3373    Pars:  0.80123 0.19877
-Iter: 2 fn: 1372.3373    Pars:  0.80124 0.19876
+Iter: 1 fn: 1373.2616    Pars:  0.80620 0.19380
+Iter: 2 fn: 1373.2616    Pars:  0.80620 0.19380
 solnp--&gt; Completed in 2 iterations</code></pre>
 <div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1">tmle_msm_fit</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 100 step(s)
          type          param  init_est  tmle_est          se      lower
-1: MSM_linear MSM(intercept) 0.7374251 0.7373209 0.012214948 0.71338000
-2: MSM_linear     MSM(slope) 0.1070990 0.1070561 0.004335326 0.09855904
+1: MSM_linear MSM(intercept) 0.7366642 0.7365650 0.012132799 0.71278513
+2: MSM_linear     MSM(slope) 0.1070410 0.1070188 0.004225665 0.09873668
        upper psi_transformed lower_transformed upper_transformed
-1: 0.7612617       0.7373209        0.71338000         0.7612617
-2: 0.1155532       0.1070561        0.09855904         0.1155532</code></pre>
+1: 0.7603448       0.7365650        0.71278513         0.7603448
+2: 0.1153010       0.1070188        0.09873668         0.1153010</code></pre>
 </div>
 <div id="example-with-the-wash-benefits-data" class="section level3">
 <h3><span class="header-section-number">6.5.5</span> Example with the WASH Benefits Data</h3>
@@ -828,20 +828,20 @@ lasso <span class="citation">(Díaz and van der Laan <a href="#ref-diaz2011super
 <a class="sourceLine" id="cb141-4" data-line-number="4">washb_shift_strat_fit</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
              type                             param   init_est   tmle_est
-1:            TSM                     E[Y_{A=NULL}] -0.5734655 -0.5751181
-2: stratified TSM  E[Y_{A=NULL}] | V=Primary (1-5y) -0.6191600 -0.6251355
-3: stratified TSM    E[Y_{A=NULL}] | V=No education -0.6728673 -0.9012299
-4: stratified TSM E[Y_{A=NULL}] | V=Secondary (&gt;5y) -0.5162321 -0.4492997
+1:            TSM                     E[Y_{A=NULL}] -0.5737807 -0.5570344
+2: stratified TSM  E[Y_{A=NULL}] | V=Primary (1-5y) -0.6155615 -0.6125240
+3: stratified TSM    E[Y_{A=NULL}] | V=No education -0.6646688 -0.8975224
+4: stratified TSM E[Y_{A=NULL}] | V=Secondary (&gt;5y) -0.5214492 -0.4236431
            se      lower      upper psi_transformed lower_transformed
-1: 0.05485128 -0.6826246 -0.4676116      -0.5751181        -0.6826246
-2: 0.09178312 -0.8050271 -0.4452439      -0.6251355        -0.8050271
-3: 0.16402575 -1.2227145 -0.5797453      -0.9012299        -1.2227145
-4: 0.07269596 -0.5917811 -0.3068182      -0.4492997        -0.5917811
+1: 0.05594519 -0.6666849 -0.4473838      -0.5570344        -0.6666849
+2: 0.09480565 -0.7983397 -0.4267084      -0.6125240        -0.7983397
+3: 0.17226312 -1.2351519 -0.5598929      -0.8975224        -1.2351519
+4: 0.07250123 -0.5657429 -0.2815433      -0.4236431        -0.5657429
    upper_transformed
-1:        -0.4676116
-2:        -0.4452439
-3:        -0.5797453
-4:        -0.3068182</code></pre>
+1:        -0.4473838
+2:        -0.4267084
+3:        -0.5598929
+4:        -0.2815433</code></pre>
 <p>For the next example, we’ll use the variable importance strategy of considering
 a grid of stochastic interventions to evaluate the weight-for-height Z-score
 under a shift in the mother’s age down by two years (<span class="math inline">\(\delta = -2\)</span>) through up
@@ -860,22 +860,22 @@ a simple call to our <code>tmle3</code> wrapper function:</p>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1">washb_tmle_fit &lt;-<span class="st"> </span><span class="kw">tmle3</span>(washb_vim_spec, washb_data, node_list, learner_list)</a>
 <a class="sourceLine" id="cb144-2" data-line-number="2">washb_tmle_fit</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
-         type          param     init_est      tmle_est          se       lower
-1:        TSM  E[Y_{A=NULL}] -0.562838147 -0.5616342619 0.042222199 -0.64438825
-2:        TSM  E[Y_{A=NULL}] -0.565638902 -0.5563319287 0.044906292 -0.64434664
-3:        TSM  E[Y_{A=NULL}] -0.567962704 -0.5652941176 0.046631440 -0.65669006
-4:        TSM  E[Y_{A=NULL}] -0.569463815 -0.5624805425 0.047440933 -0.65546306
-5:        TSM  E[Y_{A=NULL}] -0.571988815 -0.5619677342 0.047591964 -0.65524627
-6: MSM_linear MSM(intercept) -0.567578477 -0.5615417170 0.044346161 -0.64845860
-7: MSM_linear     MSM(slope) -0.002212625 -0.0006815558 0.006816095 -0.01404086
+         type          param     init_est     tmle_est          se        lower
+1:        TSM  E[Y_{A=NULL}] -0.560570008 -0.569900888 0.042357183 -0.652919442
+2:        TSM  E[Y_{A=NULL}] -0.563195887 -0.558445040 0.044616659 -0.645892085
+3:        TSM  E[Y_{A=NULL}] -0.565445540 -0.565294118 0.046631440 -0.656690060
+4:        TSM  E[Y_{A=NULL}] -0.567043385 -0.531899049 0.048903962 -0.627749053
+5:        TSM  E[Y_{A=NULL}] -0.569452445 -0.544552225 0.048099909 -0.638826313
+6: MSM_linear MSM(intercept) -0.565141453 -0.554018264 0.044401840 -0.641044271
+7: MSM_linear     MSM(slope) -0.002161237  0.007724332 0.007392526 -0.006764753
          upper psi_transformed lower_transformed upper_transformed
-1: -0.47888027   -0.5616342619       -0.64438825       -0.47888027
-2: -0.46831721   -0.5563319287       -0.64434664       -0.46831721
-3: -0.47389818   -0.5652941176       -0.65669006       -0.47389818
-4: -0.46949802   -0.5624805425       -0.65546306       -0.46949802
-5: -0.46868920   -0.5619677342       -0.65524627       -0.46868920
-6: -0.47462484   -0.5615417170       -0.64845860       -0.47462484
-7:  0.01267774   -0.0006815558       -0.01404086        0.01267774</code></pre>
+1: -0.48688233    -0.569900888      -0.652919442       -0.48688233
+2: -0.47099800    -0.558445040      -0.645892085       -0.47099800
+3: -0.47389818    -0.565294118      -0.656690060       -0.47389818
+4: -0.43604905    -0.531899049      -0.627749053       -0.43604905
+5: -0.45027814    -0.544552225      -0.638826313       -0.45027814
+6: -0.46699226    -0.554018264      -0.641044271       -0.46699226
+7:  0.02221342     0.007724332      -0.006764753        0.02221342</code></pre>
 <hr />
 </div>
 </div>
