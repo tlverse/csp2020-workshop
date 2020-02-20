@@ -561,14 +561,14 @@ can extra results from the summary by indexing into it:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="kw">print</span>(tmle_fit)</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
    type                                    param    init_est    tmle_est
-1:  ATE ATE[Y_{A=Nutrition + WSH}-Y_{A=Control}] 0.002348734 0.009226811
+1:  ATE ATE[Y_{A=Nutrition + WSH}-Y_{A=Control}] 0.002353876 0.005427024
            se       lower     upper psi_transformed lower_transformed
-1: 0.05091315 -0.09056112 0.1090147     0.009226811       -0.09056112
+1: 0.05111076 -0.09474823 0.1056023     0.005427024       -0.09474823
    upper_transformed
-1:         0.1090147</code></pre>
+1:         0.1056023</code></pre>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">estimates &lt;-<span class="st"> </span>tmle_fit<span class="op">$</span>summary<span class="op">$</span>psi_transformed</a>
 <a class="sourceLine" id="cb48-2" data-line-number="2"><span class="kw">print</span>(estimates)</a></code></pre></div>
-<pre><code>[1] 0.009226811</code></pre>
+<pre><code>[1] 0.005427024</code></pre>
 </div>
 </div>
 <div id="tmle3-components" class="section level2">
@@ -618,17 +618,17 @@ the <code>learner_list</code>) above.</p>
 estimates for each observation:</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">initial_likelihood<span class="op">$</span><span class="kw">get_likelihoods</span>(tmle_task)</a></code></pre></div>
 <pre><code>                 W         A          Y
-   1: 0.0002129925 0.2479697 -0.6589335
-   2: 0.0002129925 0.2544881 -0.6319532
-   3: 0.0002129925 0.2587410 -0.6197602
-   4: 0.0002129925 0.2787791 -0.5995325
-   5: 0.0002129925 0.2534947 -0.5430625
+   1: 0.0002129925 0.2490285 -0.6653528
+   2: 0.0002129925 0.2531958 -0.6373197
+   3: 0.0002129925 0.2559147 -0.6246509
+   4: 0.0002129925 0.2687251 -0.6036340
+   5: 0.0002129925 0.2525607 -0.5449606
   ---                                  
-4691: 0.0002129925 0.1345390 -0.4633013
-4692: 0.0002129925 0.1262369 -0.4820870
-4693: 0.0002129925 0.1264689 -0.5664650
-4694: 0.0002129925 0.1728820 -0.8148417
-4695: 0.0002129925 0.1298005 -0.5401570</code></pre>
+4691: 0.0002129925 0.1319530 -0.4620872
+4692: 0.0002129925 0.1266454 -0.4816058
+4693: 0.0002129925 0.1267937 -0.5692762
+4694: 0.0002129925 0.1564658 -0.8273444
+4695: 0.0002129925 0.1289237 -0.5419418</code></pre>
 <!-- TODO: make helper to get learners out of fit objects -->
 </div>
 <div id="targeted-likelihood-updater" class="section level3">
@@ -667,12 +667,12 @@ manually fit a <code>tmle3</code>:</p>
 <a class="sourceLine" id="cb61-4" data-line-number="4">)</a>
 <a class="sourceLine" id="cb61-5" data-line-number="5"><span class="kw">print</span>(tmle_fit_manual)</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
-   type                                    param    init_est     tmle_est
-1:  ATE ATE[Y_{A=Nutrition + WSH}-Y_{A=Control}] 0.002413659 -0.005585921
-           se      lower      upper psi_transformed lower_transformed
-1: 0.05041836 -0.1044041 0.09323224    -0.005585921        -0.1044041
+   type                                    param    init_est   tmle_est
+1:  ATE ATE[Y_{A=Nutrition + WSH}-Y_{A=Control}] 0.002507838 0.01111748
+           se       lower     upper psi_transformed lower_transformed
+1: 0.05068193 -0.08821728 0.1104522      0.01111748       -0.08821728
    upper_transformed
-1:        0.09323224</code></pre>
+1:         0.1104522</code></pre>
 <p>The result is equivalent to fitting using the <code>tmle3</code> function as above.</p>
 </div>
 </div>
@@ -737,33 +737,33 @@ above defined ATE parameter</p>
 <a class="sourceLine" id="cb67-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb67-8" data-line-number="8"><span class="kw">print</span>(tmle_fit_multiparam)</a></code></pre></div>
 <pre><code>A tmle3_Fit that took 1 step(s)
-   type                                       param     init_est     tmle_est
-1:  TSM                            E[Y_{A=Control}] -0.593561111 -0.618500343
-2:  TSM                        E[Y_{A=Handwashing}] -0.605973134 -0.646798568
-3:  TSM                          E[Y_{A=Nutrition}] -0.601540124 -0.614983616
-4:  TSM                    E[Y_{A=Nutrition + WSH}] -0.591147452 -0.623912358
-5:  TSM                         E[Y_{A=Sanitation}] -0.587016695 -0.592466715
-6:  TSM                                E[Y_{A=WSH}] -0.528834526 -0.447050768
-7:  TSM                              E[Y_{A=Water}] -0.575465845 -0.533206418
-8:  ATE E[Y_{A=Nutrition + WSH}] - E[Y_{A=Control}]  0.002413659 -0.005412015
-           se      lower       upper psi_transformed lower_transformed
-1: 0.02982227 -0.6769509 -0.56004976    -0.618500343        -0.6769509
-2: 0.04195090 -0.7290208 -0.56457632    -0.646798568        -0.7290208
-3: 0.04224538 -0.6977830 -0.53218420    -0.614983616        -0.6977830
-4: 0.04078875 -0.7038568 -0.54396788    -0.623912358        -0.7038568
-5: 0.04250101 -0.6757672 -0.50916627    -0.592466715        -0.6757672
-6: 0.04506157 -0.5353698 -0.35873172    -0.447050768        -0.5353698
-7: 0.03919802 -0.6100331 -0.45637971    -0.533206418        -0.6100331
-8: 0.05040638 -0.1042067  0.09338267    -0.005412015        -0.1042067
+   type                                       param     init_est    tmle_est
+1:  TSM                            E[Y_{A=Control}] -0.597429609 -0.62230653
+2:  TSM                        E[Y_{A=Handwashing}] -0.610325940 -0.64471438
+3:  TSM                          E[Y_{A=Nutrition}] -0.605719957 -0.61717091
+4:  TSM                    E[Y_{A=Nutrition + WSH}] -0.594921771 -0.61114473
+5:  TSM                         E[Y_{A=Sanitation}] -0.590629834 -0.58838413
+6:  TSM                                E[Y_{A=WSH}] -0.530177441 -0.44349484
+7:  TSM                              E[Y_{A=Water}] -0.578628279 -0.53637954
+8:  ATE E[Y_{A=Nutrition + WSH}] - E[Y_{A=Control}]  0.002507838  0.01116179
+           se       lower      upper psi_transformed lower_transformed
+1: 0.02980074 -0.68071490 -0.5638982     -0.62230653       -0.68071490
+2: 0.04189647 -0.72682996 -0.5625988     -0.64471438       -0.72682996
+3: 0.04228706 -0.70005201 -0.5342898     -0.61717091       -0.70005201
+4: 0.04111166 -0.69172210 -0.5305674     -0.61114473       -0.69172210
+5: 0.04242088 -0.67152752 -0.5052407     -0.58838413       -0.67152752
+6: 0.04484183 -0.53138321 -0.3556065     -0.44349484       -0.53138321
+7: 0.03908756 -0.61298975 -0.4597693     -0.53637954       -0.61298975
+8: 0.05067413 -0.08815768  0.1104813      0.01116179       -0.08815768
    upper_transformed
-1:       -0.56004976
-2:       -0.56457632
-3:       -0.53218420
-4:       -0.54396788
-5:       -0.50916627
-6:       -0.35873172
-7:       -0.45637971
-8:        0.09338267</code></pre>
+1:        -0.5638982
+2:        -0.5625988
+3:        -0.5342898
+4:        -0.5305674
+5:        -0.5052407
+6:        -0.3556065
+7:        -0.4597693
+8:         0.1104813</code></pre>
 </div>
 </div>
 <div id="stratified-effect-estimates" class="section level2">
@@ -780,14 +780,14 @@ above defined ATE parameter</p>
 1:            ATE            ATE[Y_{A=Nutrition + WSH}-Y_{A=Control}]
 2: stratified ATE   ATE[Y_{A=Nutrition + WSH}-Y_{A=Control}] | V=male
 3: stratified ATE ATE[Y_{A=Nutrition + WSH}-Y_{A=Control}] | V=female
-      init_est      tmle_est         se       lower      upper psi_transformed
-1: 0.002522441  0.0005811525 0.05051799 -0.09843229 0.09959460    0.0005811525
-2: 0.002195061  0.0343638334 0.07553508 -0.11368221 0.18240988    0.0343638334
-3: 0.002848567 -0.0330722581 0.06712907 -0.16464282 0.09849831   -0.0330722581
+      init_est     tmle_est         se      lower      upper psi_transformed
+1: 0.002574359 -0.008218255 0.05043762 -0.1070742 0.09063766    -0.008218255
+2: 0.002240242  0.020874047 0.07535064 -0.1268105 0.16855858     0.020874047
+3: 0.002907199 -0.037199234 0.06709581 -0.1687046 0.09430614    -0.037199234
    lower_transformed upper_transformed
-1:       -0.09843229        0.09959460
-2:       -0.11368221        0.18240988
-3:       -0.16464282        0.09849831</code></pre>
+1:        -0.1070742        0.09063766
+2:        -0.1268105        0.16855858
+3:        -0.1687046        0.09430614</code></pre>
 <p>This TMLE is consistent for both the marginal ATE as well as the ATEs in strata of V. For continuous V, this could be extended using a working Marginal Structural Model (MSM), although that has not yet been implemented in <code>tmle3</code>.</p>
 </div>
 <div id="exercises-1" class="section level2">
