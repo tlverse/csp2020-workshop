@@ -1,7 +1,5 @@
 # Super (Machine) Learning {#sl3}
 
-_Rachael Phillips_
-
 Based on the [`sl3` `R` package](https://github.com/tlverse/sl3) by _Jeremy
 Coyle, Nima Hejazi, Ivana Malenica, and Oleg Sofrygin_.
 
@@ -66,7 +64,7 @@ construct the TMLE; an asymptotically linear and efficient substitution
 estimator of this target quantity. The first step in this estimation procedure
 is an initial estimate of the data-generating distribution, or the relevant part
 of this distribution that is needed to evaluate the target parameter. For this
-initial estimation, we use the Super Learner [@vdl2007super]. 
+initial estimation, we use the *Super Learner* [@vdl2007super]. 
 
 The Super Learner provides an important step in creating a robust estimator. It 
 is a loss-function-based tool that uses cross-validation to obtain the best
@@ -89,36 +87,55 @@ accurate as the best possible prediction algorithm in the library
 
 ### Background
 
-A *loss function* $L$ is defined as a function of the observed data and a
-candidate parameter value $\psi$, which has unknown true value $\psi_0$,
-$L(\psi)(O)$. We can estimate the loss by substituting the empirical
-distribution $P_n$ for the true (but unknown) distribution of the observed data
-$P_0$. A valid loss function will have expectation (risk) that is minimized at
-the true value of the parameter $\psi_0$. For example, the conditional mean
-minimizes the risk of the squared error loss. Thus, it is a valid loss function
-when estimating the conditional mean.
+**Defining the loss function**
 
-The *discrete Super Learner*, or *cross-validation selector*, is the algorithm
-in the library that minimizes the cross-validated empirical risk. 
+- A *loss function* ($L$) is defined as a function of the observed data and a
+  candidate parameter value $\psi$, which has unknown true value $\psi_0$,
+  $L(\psi)(O)$. 
 
-The *cross-validated empirical risk* of an algorithm is defined as the empirical 
-mean over a validation sample of the loss of the algorithm fitted on the 
-training sample, averaged across the splits of the data.
+- We can estimate the loss by substituting the empirical
+  distribution $P_n$ for the true (but unknown) distribution of the observed data
+  $P_0$. 
+  
+- A valid loss function will have expectation (risk) that is minimized at
+  the true value of the parameter $\psi_0$. For example, the conditional mean
+  minimizes the risk of the squared error loss. Thus, it is a valid loss function
+  when estimating the conditional mean.
+  
+**What is cross-validation and how does it work?**
 
-The *continuous/ensemble Super Learner*, often referred to as *Super Learner* 
-is a weighted average of the library of algorithms, where the weights are chosen 
-to minimize the cross-validated empirical risk of the library. Restricting the 
-weights to be positive and sum to one (i.e., a convex combination) has been 
-shown to improve upon the discrete Super Learner [@polley2010super; 
-@vdl2007super]. This notion of weighted combinations was introduced in 
-@wolpert1992stacked for neural networks and adapted for regressions in 
-@breiman1996stacked.
+- There are many different cross-validation schemes, designed to accommodate different 
+  study designs and data structures.
+- The figure below shows an example of 10-fold cross-validation.  
+  
+```{r cv_fig, fig.show="hold", echo = FALSE}
+knitr::include_graphics("img/misc/vs.pdf")
+```  
 
-Cross-validation is proven to be optimal for selection among estimators. This 
-result was established through the oracle inequality for the cross-validation 
-selector among a collection of candidate estimators [@vdl2003unified; 
-@van2006oracle]. The only condition is that loss function is uniformly bounded, 
-which is guaranteed in `sl3`.
+- The *cross-validated empirical risk* of an algorithm is defined as the empirical 
+  mean over a validation sample of the loss of the algorithm fitted on the 
+  training sample, averaged across the splits of the data.
+  
+- Cross-validation is proven to be optimal for selection among estimators. This 
+  result was established through the oracle inequality for the cross-validation 
+  selector among a collection of candidate estimators [@vdl2003unified; 
+  @van2006oracle]. The only condition is that loss function is uniformly bounded, 
+  which is guaranteed in `sl3`.  
+  
+**Discrete vs. Continuous Super Learner**
+
+- The *discrete Super Learner*, or *cross-validation selector*, is the algorithm
+  in the library that minimizes the cross-validated empirical risk. 
+
+- The *continuous/ensemble Super Learner*, often referred to as *Super Learner* 
+  is a weighted average of the library of algorithms, where the weights are chosen 
+  to minimize the cross-validated empirical risk of the library. 
+  
+- Restricting the weights to be positive and sum to one (i.e., a convex combination) has been 
+  shown to improve upon the discrete Super Learner [@polley2010super; 
+  @vdl2007super]. This notion of weighted combinations was introduced in 
+  @wolpert1992stacked for neural networks and adapted for regressions in 
+  @breiman1996stacked.
 
 <!--
 The *oracle results* prove that, if the number of algorithms in the library are
@@ -129,17 +146,18 @@ $n/n$) for convergence with respect to the loss-based dissimilarity (risk)
 between a candidate estimate $\psi$ and the true parameter value $\psi_0$.
 -->
 
+#### Example: Super Learner for Prediction
+
+- We observe a learning data set $X_i=(Y_i,W_i)$, for $i=1, ..., n$.
+- Here, $Y_i$ is the outcome of interest, and $W_i$ is a p-dimensional 
+  set of covariates.
+- Our objective is to estimate the function $\psi_0(W) = E(Y|W)$.
+- This function can be expressed as the minimizer of the expected loss:
+  $\psi_0(W) = \text{argmin}_{\psi} E[L(X,\psi(W))]$.
+- Here, the loss function is represented as $L$ (e.g., squared error loss,
+  $L: (Y-\psi(W))^2)$).
+
 #### General Overview of the Algorithm
-
-**What is cross-validation and how does it work?**
-
-There are many different cross-validation schemes, designed to accommodate
-different study designs and data structures. The figure below shows an example 
-of 10-fold cross-validation.   
-  
-```{r cv_fig, echo = FALSE}
-knitr::include_graphics("img/misc/vs.pdf")
-```
 
 **General step-by-step overview of the Super Learner algorithm:**
 
@@ -176,26 +194,29 @@ procedure later in this chapter.
 knitr::include_graphics("img/misc/SLKaiserNew.pdf")
 ``` 
 
-### Super Learner for Prediction
+### Why use the Super Learner?
 
-Say we observe a learning data set $X_i=(Y_i,W_i)$, for $i=1, ..., n$, where 
-$Y_i$ is the outcome of interest, $W_i$ is a $p$-dimensional set of 
-covariates, and our objective is to estimate the function $\psi_0(W) = E(Y|W)$.
-This function can be expressed as the minimizer of the expected loss:
-$\psi_0(W) = \text{argmin}_{\psi} E[L(X,\psi(W))]$. Here, the loss function is 
-represented as $L$. One example is the squared error loss, $L: (Y-\psi(W))^2)$.
-  
-For prediction, one can use the cross-validated risk to empirically determine
-the relative performance of the Super Learner . When we 
-have tested different algorithms on actual data and looked at the performance 
-(e.g., MSE of prediction), never does one algorithm always win. Below, we show 
-the results of such a study, comparing the fits of several different learners, 
-including the SL algorithms.
+- For prediction, one can use the cross-validated risk to empirically determine
+  the relative performance of SL and competing methods. 
+- When we have tested different algorithms on actual
+  data and looked at the performance (e.g., MSE of prediction), never does one
+  algorithm always win (see below).
+- Below shows the results of such a study, comparing the fits of several different learners, 
+  including the SL algorithms.
 
 ```{r cv_fig3, echo = FALSE}
 knitr::include_graphics("img/misc/ericSL.pdf")
 ```
 
+- Super Learner performs asymptotically as well as best possible weighted 
+  combination. 
+- By including all competitors in the library of candidate estimators (glm, neural nets, 
+  SVMs, random forest, etc.), the Super Learner will asymptotically outperform 
+  any of its competitors- even if the set of competitors is allowed to grow polynomial
+  in sample size. 
+- Motivates the name "Super Learner": it provides a system of combining many estimators
+  into an improved estimator. 
+  
 For more detail on Super Learner we refer the reader to @vdl2007super and
 @polley2010super. The optimality results for the cross-validation selector
 among a family of algorithms were established in @vdl2003unified and extended

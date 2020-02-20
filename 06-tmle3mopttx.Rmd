@@ -667,9 +667,7 @@ for the main intervention in WASH Benefits data!
 Our outcome of interest is the weight-for-height Z-score, whereas our treatment is
 the six intervention groups aimed at improving living conditions.
 
-**Work with a buddy. You have 20 minutes.**
-
-In the etherpad, submit your group's answers to the following questions.
+Questions:
 
 1. Define $V$ as mother's education (`momedu`), current living conditions (`floor`),
    and possession of material items including the refrigerator (`asset_refrig`).
